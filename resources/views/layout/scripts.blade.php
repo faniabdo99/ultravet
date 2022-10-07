@@ -1,0 +1,11 @@
+<script src="{{url('public')}}/js/jquery.min.js"></script>
+<script src="{{url('public')}}/js/popper.min.js"></script>
+<script src="{{url('public')}}/js/bootstrap.min.js"></script>
+<script src="{{url('public')}}/js/bootstrap-dropdown-ml-hack.js"></script>
+<script src="{{url('public')}}/js/slick.min.js"></script>
+<script src="{{url('public')}}/js/magnific-popup.min.js"></script>
+<script src="{{url('public')}}/js/nice-select.min.js"></script>
+<script src="{{url('public')}}/js/jquery-ui.js"></script>
+<script src="{{url('public')}}/js/vanilla-calendar.min.js"></script>
+<script src="{{url('public')}}/js/countdown.js"></script>
+<script src="{{url('public')}}/js/main.js"></script>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home V2 - Petopia – Pet Care Service Template</title>
+    <title>UltraVet - Your one stop shop for your pet needs</title>
     <link rel="shortcut icon" href="{{url('public')}}/images/logo/favourite_icon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

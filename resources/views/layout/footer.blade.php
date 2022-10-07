@@ -66,9 +66,7 @@
     </div>
     <div class="footer_bottom">
         <div class="container">
-            <p class="copyrights_text text-center"><a target="_blank"
-                    href="https://themeforest.net/user/merkulove">Merkulove</a> © Petopia Template All rights
-                reserved Copyrights 2022</p>
+            <p class="copyrights_text text-center">© UltraVet 2022 | Developed By <a href="https://productions.naqrah.net" target="_blank">Naqrah Productions</a></p>
         </div>
     </div>
 </footer>

@@ -32172,3 +32172,45 @@ blockquote cite {
     border-style: solid;
     border-width: 0 10px 8px
 }
+/* Global Notifications */
+.notification{
+    position: fixed;
+    top: 130px;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    background: #fff;
+    z-index: 999;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+.notification .notification-content{
+    flex:6;
+}
+.notification .notification-icon{
+    flex:1;
+    text-align: center;
+}
+.notification .notification-icon i{
+    font-size: 2em;
+}
+.notification.success-notification{
+    border-left: 10px solid #1ea91e;
+}
+.notification.error-notification{
+    border-left: 10px solid #a91e1e;
+}
+/* Auth System */
+.auth-section{
+    padding:200px 0;
+}
+.auth-section .auth-form{
+    margin: 50px auto 0 auto;
+    padding: 30px;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ccc;
+}

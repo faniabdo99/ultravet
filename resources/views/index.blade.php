@@ -10,8 +10,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col order-last col-lg-6">
-                            <div class="banner_image"><img src="{{url('public')}}/images/banner/dogs_img_1.png"
-                                    alt="Pet Dogs Image"></div>
+                            <div class="banner_image"><img src="{{url('public')}}/images/banner/dogs_img_1.png" alt="Pet Dogs Image"></div>
                         </div>
                         <div class="col col-lg-6">
                             <div class="banner_content">
@@ -74,7 +73,7 @@
                             <div class="item_content">
                                 <h3 class="counter_text text-white"><span class="counter_value">120</span> <span
                                         class="plus_text">+</span></h3>
-                                <p class="item_title text-white mb-0">Sutisfide Cliens</p>
+                                <p class="item_title text-white mb-0">Happy Clients</p>
                             </div>
                         </div>
                         <div class="funfact_item">

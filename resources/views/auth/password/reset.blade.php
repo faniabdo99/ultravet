@@ -7,20 +7,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h1 class="text-center">Login to UltraVet</h1>
-                            <p class="text-center">Welcome back! login below</p>
-                            <form class="auth-form" action="{{route('user.postLogin')}}" method="post">
+                            <h1 class="text-center">Reset Your Password</h1>
+                            <p class="text-center">Enter your email below and we will send you a reset link!</p>
+                            <form class="auth-form" action="{{route('user.postReset')}}" method="post">
                                 @csrf
                                 <div class="form_item mb-4">
                                     <label class="input_title" for="input_email">Email<sup>*</sup></label>
                                     <input id="input_email" type="email" name="email" placeholder="Type Your Email">
                                 </div>
-                                <div class="form_item mb-4">
-                                    <label class="input_title" for="input_password">Password<sup>*</sup></label>
-                                    <input id="input_password" type="password" name="password" placeholder="Type Your Password">
-                                </div>
-                                <p>Forgot your password? <a href="{{route('user.getReset')}}">Click here</a></p>
-                                <button type="submit" class="btn btn_primary"><i class="fas fa-paw"></i> Login</button>
+                                <button type="submit" class="btn btn_primary"><i class="fas fa-paw"></i> Send Reset Link</button>
                             </form>
                         </div>
                     </div>

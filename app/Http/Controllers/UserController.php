@@ -6,6 +6,7 @@ use Hash;
 use Auth;
 use Session;
 use Mail;
+use Socialite;
 use App\Mail\ResetPassword;
 use App\Mail\WelcomeNewUser;
 class UserController extends Controller{

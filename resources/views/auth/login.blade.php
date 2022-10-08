@@ -21,6 +21,10 @@
                                 </div>
                                 <p>Forgot your password? <a href="{{route('user.getReset')}}">Click here</a></p>
                                 <button type="submit" class="btn btn_primary"><i class="fas fa-paw"></i> Login</button>
+                                <div class="text-center">
+                                    <p>Or you can quickly login with Google</p>
+                                    <a class="btn btn-danger" href="{{route('user.socialLogin','google')}}"><i class="fab fa-google"></i> Login with Google</a>
+                                </div>
                             </form>
                         </div>
                     </div>

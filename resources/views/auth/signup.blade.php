@@ -24,6 +24,11 @@
                                     <input id="input_password" type="password" name="password" placeholder="Type Your Password">
                                 </div>
                                 <button type="submit" class="btn btn_primary"><i class="fas fa-paw"></i> Signup</button>
+                                <hr>
+                                <div class="text-center">
+                                    <p>Or you can quickly signup with Google</p>
+                                    <a class="btn btn-danger" href="{{route('user.socialLogin' , 'google')}}"><i class="fab fa-google"></i> Signup with Google</a>
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -14,6 +14,8 @@ Route::middleware('guest')->group(function(){
     Route::post('signup' , [UserController::class, 'postSignup'])->name('user.postSignup');
     Route::get('login' , [UserController::class, 'getLogin'])->name('user.getLogin');
     Route::post('login' , [UserController::class, 'postLogin'])->name('user.postLogin');
+    Route::get('social-login/{driver}' , [UserController::class, 'redirectToProvider'])->name('user.socialLogin');
+    Route::get('callback/{driver}' , [UserController::class, 'providerCallback']);
     Route::get('reset-password' , [UserController::class, 'getReset'])->name('user.getReset');
     Route::post('reset-password' , [UserController::class, 'postReset'])->name('user.postReset');
     Route::get('set-password/{id}/{hash}', [UserController::class, 'getSetPassword'])->name('user.getSetPassword');

@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
+        "orchid/platform": "^13.5",
         "revolution/laravel-google-sheets": "^6.0"
     },
     "require-dev": {

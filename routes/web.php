@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ArticleController;
 Route::get('/', function () {
     return view('index');
 })->name('home');
@@ -27,7 +28,10 @@ Route::middleware('auth')->group(function(){
 });
 Route::get('activate/{id}/{hash}' , [UserController::class, 'activate'])->name('user.activate');
 
-
+Route::prefix('blog')->group(function(){
+    Route::get('/' , [ArticleController::class, 'getBlog'])->name('blog');
+    Route::get('/{slug}/{id}' , [ArticleController::class, 'getSingle'])->name('blog.single');
+});
 Route::get('about' , [PageController::class, 'getAbout'])->name('about');
 Route::get('contact' , [ContactController::class, 'getContact'])->name('getContact');
 Route::post('contact' , [ContactController::class, 'postContact'])->name('postContact');

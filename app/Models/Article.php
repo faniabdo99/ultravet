@@ -12,4 +12,7 @@ class Article extends Model{
     public function getImagePathAttribute(){
         return url($this->image);
     }
+    public function User (){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

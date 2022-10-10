@@ -1,10 +1,14 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
-class ArticleController extends Controller
-{
-    //
+use App\Models\Article;
+class ArticleController extends Controller{
+    public function getBlog(){
+        $AllArticles = Article::latest()->get();
+        return view('blog.index', compact('AllArticles'));
+    }
+    public function getSingle($slug,$id){
+        $TheArticle = Article::findOrFail($id);
+        return view('blog.single', compact('TheArticle'));
+    }
 }

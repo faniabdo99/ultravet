@@ -16,13 +16,7 @@
                             <li><a href="shipping_info.html">Shipping Info</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a class="nav-link" href="#" id="blog_submenu" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                        <ul class="dropdown-menu" aria-labelledby="blog_submenu">
-                            <li><a href="blog.html">Our Blogs</a></li>
-                            <li><a href="blog_details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
+                    <li><a class="nav-link" href="{{route('blog')}}">Blog</a></li>
                     <li class="dropdown"><a class="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
                         <ul class="dropdown-menu" aria-labelledby="pages_submenu">
                             <li><a href="{{route('about')}}">About Us</a></li>

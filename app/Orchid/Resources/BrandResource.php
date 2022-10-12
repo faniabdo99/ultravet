@@ -13,13 +13,13 @@ use Orchid\Screen\Fields\Cropper;
 //Legend
 use Orchid\Screen\Sight;
 
-class PetResource extends Resource {
+class BrandResource extends Resource {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Pet::class;
+    public static $model = \App\Models\Brand::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -30,15 +30,15 @@ class PetResource extends Resource {
     {
         return [
             Input::make('title')
-                 ->title('Title')
-                 ->required(),
+                ->title('Title')
+                ->required(),
             Input::make('slug')
-                 ->title('Slug')
-                 ->required(),
+                    ->title('Slug')
+                    ->required(),
             Cropper::make('image')
-                   ->required()
-                   ->width(500)
-                   ->height(500)
+                    ->required()
+                    ->width(500)
+                    ->height(500)
         ];
     }
 
@@ -51,7 +51,7 @@ class PetResource extends Resource {
     {
         return [
             TD::make('id'),
-            TD::make('title', 'Title'),
+            TD::make('title'),
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
                     return $model->created_at->toDateTimeString();
@@ -74,40 +74,20 @@ class PetResource extends Resource {
         return [
             Sight::make('id'),
             Sight::make('title'),
+            Sight::make('slug'),
             Sight::make('image')->render(function($model){
                 return '<img src="'.$model->imagePath.'" />';
             }),
-            Sight::make('user_id')->render(function($model){
-                return $model->User->name;
-            }),
-        ];
-    }
-    /**
-     * Get the validation rules that apply to save/update.
-     *
-     * @return array
-     */
-    public function rules(Model $model): array
-    {
-        return [
-            'title' => ['required' , 'min:5', 'max:255'],
-            'slug' => [
-                'required',
-                Rule::unique(self::$model, 'slug')->ignore($model),
-            ],
         ];
     }
 
     /**
-     * Action to create and update the model
+     * Get the filters available for the resource.
      *
-     * @param ResourceRequest $request
-     * @param Model           $model
+     * @return array
      */
-    public function onSave(ResourceRequest $request, Pet $model)
+    public function filters(): array
     {
-        $PetData = $request->all();
-        $PetData['user_id'] = auth()->user()->id;
-        $model->forceFill($PetData)->save();
+        return [];
     }
 }

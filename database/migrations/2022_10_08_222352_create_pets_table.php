@@ -9,8 +9,8 @@ return new class extends Migration{
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
-            $table->string('image');
+            $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
 class Article extends Model{
-    use HasFactory, AsSource;
+    use HasFactory, AsSource, Filterable, Attachable;
     protected $guarded = [];
     public function getImagePathAttribute(){
         return url($this->image);

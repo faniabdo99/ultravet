@@ -12,12 +12,7 @@ use App\Orchid\Screens\User\UserProfileScreen;
 //Roles
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
-//Articles
-use App\Orchid\Screens\Article\ArticleEditScreen;
-use App\Orchid\Screens\Article\ArticleListScreen;
-//Pets
-use App\Orchid\Screens\Pet\PetEditScreen;
-use App\Orchid\Screens\Pet\PetListScreen;
+
 
 
 /*
@@ -53,10 +48,3 @@ Route::screen('roles/create', RoleEditScreen::class)->name('platform.systems.rol
 
 // Platform > System > Roles
 Route::screen('roles', RoleListScreen::class)->name('platform.systems.roles');
-
-//Blog (Article) Screens
-Route::screen('articles', ArticleListScreen::class)->name('platform.article.list');
-Route::screen('article/{article?}', ArticleEditScreen::class)->name('platform.article.edit');
-//Pets Screens
-Route::screen('pets', PetListScreen::class)->name('platform.pet.list');
-Route::screen('pet/{pet?}', PetEditScreen::class)->name('platform.pet.edit');

@@ -7,7 +7,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col col-lg-9">
-                            <div class="details_image"><img src="{{url('public')}}/images/blog/blog_details_img_1.jpg" alt="{{$TheArticle->title}}"></div>
+                            <div class="details_image"><img src="{{$TheArticle->imagePath}}" alt="{{$TheArticle->title}}"></div>
                             <div class="details_content">
                                 <h1 class="item_title">{{$TheArticle->title}}</h1>
                                 <ul class="post_meta unorder_list">

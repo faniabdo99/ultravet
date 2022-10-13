@@ -90,7 +90,7 @@ class PetResource extends Resource {
     public function rules(Model $model): array
     {
         return [
-            'title' => ['required' , 'min:5', 'max:255'],
+            'title' => ['required' , 'min:3', 'max:255'],
             'slug' => [
                 'required',
                 Rule::unique(self::$model, 'slug')->ignore($model),

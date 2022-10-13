@@ -80,7 +80,22 @@ class BrandResource extends Resource {
             }),
         ];
     }
-
+    /**
+     * Get the validation rules that apply to save/update.
+     *
+     * @return array
+     */
+    public function rules(Model $model): array
+    {
+        return [
+            'title' => ['required','min:3','max:255'],
+            'slug' => [
+                'required',
+                Rule::unique(self::$model, 'slug')->ignore($model),
+            ],
+            'image' => ['required']
+        ];
+    }
     /**
      * Get the filters available for the resource.
      *

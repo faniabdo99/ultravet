@@ -25,7 +25,11 @@ class UserController extends Controller{
          $UserData = $r->except('token');
          $UserData['password'] = Hash::make($r->password);
          $TheUser = User::create($UserData);
-          Mail::to($UserData['email'])->send(new WelcomeNewUser([$TheUser->id, md5($TheUser->id)]));
+         try {
+             Mail::to($UserData['email'])->send(new WelcomeNewUser([$TheUser->id, md5($TheUser->id)]));
+         } catch(\Exception $e){
+            //The error happend here
+         }
          //Log the user in
          Auth::loginUsingId($TheUser->id);
          //Redirect to the homepage
@@ -103,7 +107,11 @@ class UserController extends Controller{
         $TheUser = User::where('email', $r->email)->first();
         if($TheUser){
             //Send reset email
-            Mail::to($TheUser->email)->send(new ResetPassword($TheUser));
+            try {
+                Mail::to($TheUser->email)->send(new ResetPassword($TheUser));
+            } catch(\Exception $e){
+               //The error happend here
+            }
         }
         return redirect()->route('home')->withSuccess('If there is an account with this email, you will receive a reset password link');
     }

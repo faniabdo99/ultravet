@@ -36,7 +36,8 @@ class ArticleResource extends Resource{
                 ->title('Slug')
                 ->required(),
             Cropper::make('image')
-                ->title('Image'),
+                ->title('Image')
+                ->required(),
             TextArea::make('description')
                     ->title('Description')
                     ->required(),

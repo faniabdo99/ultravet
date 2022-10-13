@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Resource;
 use Orchid\Screen\TD;
 use Orchid\Screen\Sight;
-
+use Illuminate\Validator\Rule;
 //Inputs
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Cropper;

@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Orchid\Resources;
-use Orchid\Crud\ResourceRequest;
-use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Resource;
 use Orchid\Screen\TD;
 use Orchid\Screen\Sight;
-use Illuminate\Validator\Rule;
+use Orchid\Crud\ResourceRequest;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rule;
 //Inputs
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Cropper;
@@ -36,8 +36,7 @@ class ArticleResource extends Resource{
                 ->title('Slug')
                 ->required(),
             Cropper::make('image')
-                ->title('Image')
-                ->required(),
+                ->title('Image'),
             TextArea::make('description')
                     ->title('Description')
                     ->required(),

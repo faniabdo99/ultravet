@@ -104,7 +104,7 @@ class PetResource extends Resource {
      * @param ResourceRequest $request
      * @param Model           $model
      */
-    public function onSave(ResourceRequest $request, Pet $model)
+    public function onSave(ResourceRequest $request, Model $model)
     {
         $PetData = $request->all();
         $PetData['user_id'] = auth()->user()->id;

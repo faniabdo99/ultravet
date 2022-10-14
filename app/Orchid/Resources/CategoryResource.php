@@ -10,17 +10,17 @@ use Illuminate\Validation\Rule;
 //Inputs
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\CheckBox;
-use Orchid\Screen\Fields\Cropper;
+use Orchid\Screen\Fields\Relation;
 //Legend
 use Orchid\Screen\Sight;
-
-class PetResource extends Resource {
+class CategoryResource extends Resource
+{
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Pet::class;
+    public static $model = \App\Models\Category::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -31,17 +31,22 @@ class PetResource extends Resource {
     {
         return [
             Input::make('title')
-                 ->title('Title')
-                 ->required(),
+                ->title('Title')
+                ->required(),
             Input::make('slug')
-                 ->title('Slug')
-                 ->required(),
-            Cropper::make('image')
-                   ->required(),
+                ->title('Slug')
+                ->required(),
+            Input::make('order_num')
+                ->title('Order Number')
+                ->type('number'),
+            Relation::make('parent_id')
+                    ->fromModel(\App\Models\Category::class, 'title')
+                    ->title('Parent Category')
+                    ->applyScope('parent'),
             CheckBox::make('is_featured')
-                ->sendTrueOrFalse()
+                ->title('Featured?')
                 ->placeholder('Mark as Featured')
-                ->title('Mark as Featured')
+                ->sendTrueOrFalse(),
         ];
     }
 
@@ -54,12 +59,15 @@ class PetResource extends Resource {
     {
         return [
             TD::make('id'),
-            TD::make('title', 'Title'),
+            TD::make('order_num'),
+            TD::make('title'),
+            TD::make('is_featured','Featured')->render(function($model){
+                return ($model->is_featured) ? "Yes" : "No";
+            }),
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
                     return $model->created_at->toDateTimeString();
                 }),
-
             TD::make('updated_at', 'Update date')
                 ->render(function ($model) {
                     return $model->updated_at->toDateTimeString();
@@ -77,9 +85,9 @@ class PetResource extends Resource {
         return [
             Sight::make('id'),
             Sight::make('title'),
-            Sight::make('image')->render(function($model){
-                return '<img src="'.$model->imagePath.'" />';
-            }),
+            Sight::make('slug'),
+            Sight::make('parent_id'),
+            Sight::make('order_num'),
             Sight::make('is_featured', 'Featured?')->render(function($model){
                 return ($model->is_featured) ? "Yes" : "No";
             }),
@@ -103,7 +111,6 @@ class PetResource extends Resource {
             ],
         ];
     }
-
     /**
      * Action to create and update the model
      *
@@ -112,8 +119,9 @@ class PetResource extends Resource {
      */
     public function onSave(ResourceRequest $request, Model $model)
     {
-        $PetData = $request->all();
-        $PetData['user_id'] = auth()->user()->id;
-        $model->forceFill($PetData)->save();
+        $CategoryData = $request->all();
+        $CategoryData['is_parent'] = $request->has('parent_id');
+        $CategoryData['user_id'] = auth()->user()->id;
+        $model->forceFill(array_filter($CategoryData))->save();
     }
 }

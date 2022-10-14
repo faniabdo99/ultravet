@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
-class Pet extends Model{
+class Category extends Model {
     use HasFactory, AsSource, Filterable, Attachable;
     protected $guarded = [];
     public function getImagePathAttribute(){
@@ -16,7 +16,9 @@ class Pet extends Model{
     public function User(){
         return $this->belongsTo(User::class, 'user_id');
     }
-    //Scopes
+    public function scopeParent($query){
+        return $query->where('is_parent' , 1);
+    }
     public function scopeFeatured($query){
         return $query->where('is_featured' , 1);
     }

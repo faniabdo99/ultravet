@@ -111,150 +111,28 @@
                         <h2 class="title_text mb-0"><span class="sub_title">Our Category</span> Explore by Pet Type</h2>
                     </div>
                     <div class="row category_items_wrap">
-                        <div class="col col-lg-4">
-                            <div class="category_item"
-                                style="background-image: url('{{url('public')}}/images/shape/shape_path_2.svg');">
-                                <div class="item_image"><img src="{{url('public')}}/images/category/category_img_1.png"
-                                        alt="Pet Dog Image"></div>
-                                <div class="item_content">
-                                    <h3 class="item_title">Shop Dog</h3>
-                                    <div class="page_list">
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Food</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Health</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Treats</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Clothes</a></li>
-                                        </ul>
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Beds</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Grooming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Worming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Collars</a></li>
-                                        </ul>
+                        @forelse($FeaturedPets as $Pet)
+                            <div class="col col-lg-4">
+                                <div class="category_item"
+                                    style="background-image: url('{{url('public')}}/images/shape/shape_path_2.svg');">
+                                    <div class="item_image"><img src="{{$Pet->imagePath}}" alt="{{$Pet->title}}"></div>
+                                    <div class="item_content">
+                                        <h3 class="item_title">{{$Pet->title}}</h3>
+                                        <div class="page_list">
+                                            <ul class="unorder_list_block">
+                                                @forelse($ParentCategories as $Category)
+                                                    <li><a href="#!"><i class="fas fa-circle"></i> {{$Category->title}}</a></li>
+                                                @empty
+                                                    <li>There are no categories at the moment!</li>
+                                                @endforelse
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="category_item"
-                                style="background-image: url('{{url('public')}}/images/shape/shape_path_3.svg');">
-                                <div class="item_image"><img src="{{url('public')}}/images/category/category_img_2.png"
-                                        alt="Pet Cat Image"></div>
-                                <div class="item_content">
-                                    <h3 class="item_title">Shop Cat</h3>
-                                    <div class="page_list">
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Food</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Health</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Treats</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Clothes</a></li>
-                                        </ul>
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Beds</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Grooming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Worming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Collars</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="category_item"
-                                style="background-image: url('{{url('public')}}/images/shape/shape_path_4.svg');">
-                                <div class="item_image"><img src="{{url('public')}}/images/category/category_img_3.png"
-                                        alt="Pet Fish Image"></div>
-                                <div class="item_content">
-                                    <h3 class="item_title">Shop Fish</h3>
-                                    <div class="page_list">
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Food</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Health</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Treats</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Clothes</a></li>
-                                        </ul>
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Beds</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Grooming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Worming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Collars</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="category_item"
-                                style="background-image: url('{{url('public')}}/images/shape/shape_path_2.svg');">
-                                <div class="item_image"><img src="{{url('public')}}/images/category/category_img_4.png"
-                                        alt="Pet Bird Image"></div>
-                                <div class="item_content">
-                                    <h3 class="item_title">Shop Bird</h3>
-                                    <div class="page_list">
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Food</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Health</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Treats</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Clothes</a></li>
-                                        </ul>
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Beds</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Grooming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Worming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Collars</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="category_item overflow-hidden"
-                                style="background-image: url('{{url('public')}}/images/shape/shape_path_3.svg');">
-                                <div class="item_image align-items-end"><img
-                                        src="{{url('public')}}/images/category/category_img_5.png" alt="Pet Reptile Image"></div>
-                                <div class="item_content">
-                                    <h3 class="item_title">Shop Reptile</h3>
-                                    <div class="page_list">
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Food</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Health</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Treats</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Clothes</a></li>
-                                        </ul>
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Beds</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Grooming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Worming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Collars</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="category_item"
-                                style="background-image: url('{{url('public')}}/images/shape/shape_path_4.svg');">
-                                <div class="item_image"><img src="{{url('public')}}/images/category/category_img_6.png"
-                                        alt="Pet Rabbit Image"></div>
-                                <div class="item_content">
-                                    <h3 class="item_title">Shop Other</h3>
-                                    <div class="page_list">
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Food</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Health</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Treats</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Clothes</a></li>
-                                        </ul>
-                                        <ul class="unorder_list_block">
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Beds</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Grooming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Worming</a></li>
-                                            <li><a href="#!"><i class="fas fa-circle"></i> Collars</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                            <p>There are no pets in the system at the moment.</p>
+                        @endforelse
                     </div>
                 </div>
             </section>
@@ -791,61 +669,24 @@
                     <div class="section_title text-center">
                         <h2 class="title_text mb-0"><span class="sub_title">Our Blog</span> Tatest Post</h2>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col col-lg-4 col-md-6 col-sm-6">
-                            <div class="blog_item">
-                                <ul class="badge_group unorder_list_right">
-                                    <li><a class="badge badge_sale" href="#!">CATEGORY</a></li>
-                                </ul><a class="item_image" href="blog_details.html"><img
-                                        src="{{url('public')}}/images/blog/blog_image_1.jpg" alt="Pet Care Image"></a>
-                                <div class="item_content">
-                                    <ul class="post_meta unorder_list">
-                                        <li><a href="#!"><i class="fas fa-user"></i> by Corabelle Durrad</a></li>
-                                        <li><a href="#!"><i class="fas fa-calendar-day"></i> 02.01.2022</a></li>
-                                    </ul>
-                                    <h3 class="item_title"><a href="blog_details.html">5 Crazy Things Dogs Do When Left
-                                            Alone At Home</a></h3>
-                                    <p class="mb-0">Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis
-                                        feugiat vivamus.</p>
+                    <div class="row justify-content-center mt-5">
+                        @forelse($LatestArticles as $Article)
+                            <div class="col col-lg-4 col-md-6 col-sm-6">
+                                <div class="blog_item">
+                                    <a class="item_image" href="blog_details.html"><img src="{{$Article->imagePath}}" alt="{{$Article->title}}"></a>
+                                    <div class="item_content">
+                                        <ul class="post_meta unorder_list">
+                                            <li><a href="#!"><i class="fas fa-user"></i> by {{$Article->User->name}}</a></li>
+                                            <li><a href="#!"><i class="fas fa-calendar-day"></i> {{$Article->created_at->format('Y.m.d')}}</a></li>
+                                        </ul>
+                                        <h3 class="item_title"><a href="blog_details.html">{{$Article->title}}</a></h3>
+                                        <p class="mb-0">{{$Article->description}}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-6">
-                            <div class="blog_item">
-                                <ul class="badge_group unorder_list_right">
-                                    <li><a class="badge badge_sale" href="#!">CATEGORY</a></li>
-                                </ul><a class="item_image" href="blog_details.html"><img
-                                        src="{{url('public')}}/images/blog/blog_image_2.jpg" alt="Pet Care Image"></a>
-                                <div class="item_content">
-                                    <ul class="post_meta unorder_list">
-                                        <li><a href="#!"><i class="fas fa-user"></i> by Corabelle Durrad</a></li>
-                                        <li><a href="#!"><i class="fas fa-calendar-day"></i> 02.01.2022</a></li>
-                                    </ul>
-                                    <h3 class="item_title"><a href="blog_details.html">Your Dog Desperately Needs From
-                                            You</a></h3>
-                                    <p class="mb-0">Amet porttitor eget dolor morbi non arcu risus quis varius sodales
-                                        ut etiam sit amet</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-6">
-                            <div class="blog_item">
-                                <ul class="badge_group unorder_list_right">
-                                    <li><a class="badge badge_sale" href="#!">CATEGORY</a></li>
-                                </ul><a class="item_image" href="blog_details.html"><img
-                                        src="{{url('public')}}/images/blog/blog_image_3.jpg" alt="Pet Care Image"></a>
-                                <div class="item_content">
-                                    <ul class="post_meta unorder_list">
-                                        <li><a href="#!"><i class="fas fa-user"></i> by Corabelle Durrad</a></li>
-                                        <li><a href="#!"><i class="fas fa-calendar-day"></i> 02.01.2022</a></li>
-                                    </ul>
-                                    <h3 class="item_title"><a href="blog_details.html">Top Cat Foods to Consider If You
-                                            Are a First Time Owner</a></h3>
-                                    <p class="mb-0">Vel eros donec ac odio tempor orci dapibus ultrices. Arcu felis
-                                        bibendum ut tristique et egestas quis</p>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                            <p>Looks like there are no articles!</p>
+                        @endforelse
                     </div>
                 </div>
             </section>

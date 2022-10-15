@@ -144,263 +144,39 @@
                 </div>
                 <div class="product_carousel">
                     <div class="row common_carousel_4col" data-slick='{"dots": false, "centerMode": true}'>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_1.jpg" alt="Pink Spiked Collar"></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Pink Spiked Collar</a></h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><span>$22.99</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <ul class="badge_group unorder_list_right">
-                                    <li><a class="badge badge_sale" href="#!">Sale</a></li>
-                                </ul>
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_2.jpg" alt="Squeezz Ball Dog Toy"></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Squeezz Ball Dog Toy</a></h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><del>$12.39</del> <span>$7.99</span></div>
+                        @forelse($TopProducts as $Product)
+                            <div class="col carousel_item">
+                                <div class="product_item">
+                                    <div class="item_image">
+                                        <a class="image_wrap" href="{{route('product.single' , [$Product->slug, $Product->id])}}">
+                                            <img src="{{$Product->imagePath}}" alt="{{$Product->title}}"></a>
+                                        <ul class="cart_btns_group">
+                                            <li><a href="#!">Add To Cart</a></li>
+                                            <li><a href="#!"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="item_content">
+                                        <h3 class="item_title"><a href="{{route('product.single' , [$Product->slug, $Product->id])}}">{{$Product->title}}</a></h3>
+                                        <ul class="rating_star">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                        <div class="item_price"><span>${{$Product->price}}</span></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_3.jpg"
-                                            alt="Hydrolyzed Dry Dog Food"></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Hydrolyzed Dry Dog Food</a></h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><span>$12.39</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_4.jpg"
-                                            alt="Flying Fish Cat Scratching "></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Flying Fish Cat Scratching</a>
-                                    </h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><span>$25.89</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_5.jpg" alt="Tug Dog Toy"></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Tug Dog Toy</a></h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><span>$99.99</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_1.jpg" alt="Pink Spiked Collar"></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Pink Spiked Collar</a></h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><span>$22.99</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <ul class="badge_group unorder_list_right">
-                                    <li><a class="badge badge_sale" href="#!">Sale</a></li>
-                                </ul>
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_2.jpg" alt="Squeezz Ball Dog Toy"></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Squeezz Ball Dog Toy</a></h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><del>$12.39</del> <span>$7.99</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_3.jpg"
-                                            alt="Hydrolyzed Dry Dog Food"></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Hydrolyzed Dry Dog Food</a></h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><span>$12.39</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_4.jpg"
-                                            alt="Flying Fish Cat Scratching "></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Flying Fish Cat Scratching</a>
-                                    </h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><span>$25.89</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col carousel_item">
-                            <div class="product_item">
-                                <div class="item_image"><a class="image_wrap" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_5.jpg" alt="Tug Dog Toy"></a>
-                                    <ul class="cart_btns_group">
-                                        <li><a href="#!">Add To Cart</a></li>
-                                        <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i
-                                                    class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Tug Dog Toy</a></h3>
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="item_price"><span>$99.99</span></div>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                        @endforelse
                     </div>
                     <div class="carousel_arrow">
-                        <div class="container"><button type="button" class="cc4c_left_arrow"><i
-                                    class="far fa-arrow-left"></i></button> <button type="button"
-                                class="cc4c_right_arrow"><i class="far fa-arrow-right"></i></button></div>
+                        <div class="container">
+                            <button type="button" class="cc4c_left_arrow"><i class="far fa-arrow-left"></i></button>
+                            <button type="button" class="cc4c_right_arrow"><i class="far fa-arrow-right"></i></button>
+                        </div>
                     </div>
                 </div>
             </section>

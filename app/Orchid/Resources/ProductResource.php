@@ -68,6 +68,7 @@ class ProductResource extends Resource
                 ->required(),
             Upload::make('attachments')
                 ->title('Attachments')
+                ->groups('gallery')
                 ->maxFiles(5)
                 ->maxFileSize(2)
                 ->acceptedFiles('image/*')
@@ -94,6 +95,7 @@ class ProductResource extends Resource
             CheckBox::make('is_featured')
                 ->title('Make as Featured')
                 ->placeholder('Mark as Featured')
+                ->sendTrueOrFalse()
         ];
     }
 
@@ -157,8 +159,10 @@ class ProductResource extends Resource
     */
     public function onSave(ResourceRequest $request, Model $model)
     {
-        $ProductData = $request->all();
+        $ProductData = $request->except('attachments');
+        $Attachments = $request->attachments;
         $ProductData['user_id'] = auth()->user()->id;
-        $model->forceFill(array_filter($ProductData))->save();
+        $model->forceFill($ProductData)->save();
+        $model->attachment()->syncWithoutDetaching($Attachments);
     }
 }

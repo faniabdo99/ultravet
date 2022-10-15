@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProductController;
 Route::get('/', [HomeController::class, 'getHome'])->name('home');
 //Authentication System
 Route::middleware('guest')->group(function(){
@@ -30,6 +31,9 @@ Route::get('activate/{id}/{hash}' , [UserController::class, 'activate'])->name('
 Route::prefix('blog')->group(function(){
     Route::get('/' , [ArticleController::class, 'getBlog'])->name('blog');
     Route::get('/{slug}/{id}' , [ArticleController::class, 'getSingle'])->name('blog.single');
+});
+Route::prefix('product')->group(function(){
+    Route::get('{slug}/{id}' , [ProductController::class, 'getSingle'])->name('product.single');
 });
 Route::get('about' , [PageController::class, 'getAbout'])->name('about');
 Route::get('contact' , [ContactController::class, 'getContact'])->name('getContact');

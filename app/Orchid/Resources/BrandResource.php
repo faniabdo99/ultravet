@@ -36,6 +36,7 @@ class BrandResource extends Resource {
                     ->title('Slug')
                     ->required(),
             Cropper::make('image')
+                    ->title('Brand Logo')
                     ->required()
                     ->width(500)
                     ->height(500)

@@ -1,7 +1,5 @@
 <?php
-
 declare(strict_types=1);
-
 use App\Orchid\Screens\PlatformScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
@@ -12,9 +10,6 @@ use App\Orchid\Screens\User\UserProfileScreen;
 //Roles
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -27,24 +22,17 @@ use App\Orchid\Screens\Role\RoleListScreen;
 */
 // Main
 Route::screen('/main', PlatformScreen::class)->name('platform.main');
-
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)->name('platform.profile');
-
 // Platform > System > Users
 Route::screen('users/{user}/edit', UserEditScreen::class)->name('platform.systems.users.edit');
-
 // Platform > System > Users > Create
 Route::screen('users/create', UserEditScreen::class)->name('platform.systems.users.create');
-
 // Platform > System > Users > User
 Route::screen('users', UserListScreen::class)->name('platform.systems.users');
-
 // Platform > System > Roles > Role
 Route::screen('roles/{role}/edit', RoleEditScreen::class)->name('platform.systems.roles.edit');
-
 // Platform > System > Roles > Create
 Route::screen('roles/create', RoleEditScreen::class)->name('platform.systems.roles.create');
-
 // Platform > System > Roles
 Route::screen('roles', RoleListScreen::class)->name('platform.systems.roles');

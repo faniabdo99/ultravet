@@ -1,10 +1,25 @@
+<div id="added-to-cart-success">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="col-9">
+                <h4>Item Added to Cart</h4>
+                <p>This item has been added to your shopping cart</p>
+                <a href="javascript:;" id="close-added-to-cart">Continue Shopping</a>
+                <a href="{{route('cart.all')}}">View Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
 <footer class="footer_section">
     <div class="footer_widget_area section_space_lg">
         <div class="container">
             <div class="row justify-content-lg-between">
                 <div class="col col-lg-3 col-md-6 col-sm-6">
                     <div class="footer_widget footer_about">
-                        <div class="site_logo"><a href="index.html"><img class="logo_before"
+                        <div class="site_logo"><a href="{{route('home')}}"><img class="logo_before"
                                     src="{{url('public')}}/images/logo/logo.svg" alt="Petopia Logo"></a></div>
                         <p>Tristique nulla aliquet enim tortor at auctor urna nunc. Massa enim nec dui nunc
                             mattis enim ut tellus. Sed ut perspiciatis unde ...</p>
@@ -34,10 +49,10 @@
                         <h3 class="footer_widget_title">Useful Links</h3>
                         <div class="page_list">
                             <ul class="unorder_list_block">
-                                <li><a href="index.html"><i class="fas fa-circle"></i>Home</a></li>
-                                <li><a href="about.html"><i class="fas fa-circle"></i>About</a></li>
+                                <li><a href="{{route('home')}}"><i class="fas fa-circle"></i>Home</a></li>
+                                <li><a href="{{route('about')}}"><i class="fas fa-circle"></i>About</a></li>
                                 <li><a href="service.html"><i class="fas fa-circle"></i>Services</a></li>
-                                <li><a href="shop.html"><i class="fas fa-circle"></i>Shop</a></li>
+                                <li><a href="{{route('product.all')}}"><i class="fas fa-circle"></i>Shop</a></li>
                             </ul>
                             <ul class="unorder_list_block">
                                 <li><a href="faq.html"><i class="fas fa-circle"></i>FAQ</a></li>

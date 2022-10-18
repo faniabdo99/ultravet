@@ -13,8 +13,6 @@
                             <li><a href="{{route('about')}}">About Us</a></li>
                             <li><a href="{{route('getContact')}}">Contact Us</a></li>
                             <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="error.html">Error 404</a></li>
-                            <li><a href="team.html">Our Team</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -25,32 +23,41 @@
                     data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false"
                     aria-label="Toggle navigation"><i class="far fa-bars"></i></button>
             </li>
-            @guest
-            <li><a href="{{route('user.getSignup')}}" class="cart_btn"><i class="fas fa-user"></i> Signup</a></li>
-            <li><a href="{{route('user.getLogin')}}" class="cart_btn"><i class="fas fa-user"></i> Login</a></li>
-            @endguest
-            @auth
-                <li class="dropdown"><button class="cart_btn" type="button" id="cart_dropdown" data-bs-toggle="dropdown"
-                        aria-expanded="false"><i class="fas fa-shopping-cart"></i> <small class="cart_counter">2</small>
-                        <span>item</span></button>
-                    <div class="cart_dropdown dropdown-menu" aria-labelledby="cart_dropdown">
-                        <ul class="cart_items_list unorder_list_block">
+
+            <li class="dropdown">
+                <button class="cart_btn" type="button" id="cart_dropdown" data-bs-toggle="dropdown"  aria-expanded="false">
+                    <i class="fas fa-shopping-cart"></i>
+                    <small class="cart_counter">{{userCart(getUserId())->count()}}</small>
+                    <span>item</span>
+                </button>
+                <div class="cart_dropdown dropdown-menu" aria-labelledby="cart_dropdown">
+                    <ul class="cart_items_list unorder_list_block">
+                        @forelse(userCart(getUserId()) as $CartItem)
                             <li>
-                                <a class="item_image" href="shop_details.html">
-                                    <img src="{{ url('public') }}/images/cart/cart_img_2.jpg" alt="Pet Care Service">
+                                <a class="item_image" href="{{route('product.single', [$CartItem->Product->slug, $CartItem->Product->id])}}">
+                                    <img src="{{$CartItem->Product->imagePath}}" alt="{{$CartItem->Product->title}}">
                                 </a>
                                 <div class="item_content">
-                                    <h3 class="item_title"><a href="shop_details.html">Pet Bed</a></h3>
-                                    <span class="item_price">1 × $58.16</span>
+                                    <h3 class="item_title"><a href="{{route('product.single', [$CartItem->Product->slug, $CartItem->Product->id])}}">{{$CartItem->Product->title}}</a></h3>
+                                    <span class="item_price">{{$CartItem->qty}} × {{$CartItem->Product->finalPrice}}$</span>
                                 </div>
-                                <button class="remove_btn" type="button"><i class="fal fa-times"></i></button>
+                                <button class="remove_btn delete-from-cart" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button"><i class="fal fa-times"></i></button>
                             </li>
-                        </ul>
-                        <hr>
-                        <div class="total_price"><span>Total</span> <strong>$70.51</strong></div>
-                        <a class="btn border_primary" href="cart.html">Update Cart</a> <a class="btn btn_primary" href="cart.html">Checkout</a>
-                    </div>
-                </li>
+                        @empty
+                            <li>You don't have anything in your cart</li>
+                        @endforelse
+                    </ul>
+                    <hr>
+                    <div class="total_price"><span>Total</span> <strong>{{getCartTotal()}}$</strong></div>
+                    <a class="btn border_primary" href="{{route('cart.all')}}">Update Cart</a>
+                    <a class="btn btn_primary" href="cart.html">Checkout</a>
+                </div>
+            </li>
+            @guest
+                <li><a href="{{route('user.getSignup')}}" class="cart_btn"><i class="fas fa-user"></i> Signup</a></li>
+                <li><a href="{{route('user.getLogin')}}" class="cart_btn"><i class="fas fa-user"></i> Login</a></li>
+            @endguest
+            @auth
                 <li class="dropdown">
                     <button class="cart_btn" type="button" id="cart_dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user"></i><span>{{auth()->user()->name}}</span>

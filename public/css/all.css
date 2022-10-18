@@ -32214,3 +32214,33 @@ blockquote cite {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     border: 1px solid #ccc;
 }
+#added-to-cart-success{
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 30%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0 ,0 ,0 ,0.25);
+    z-index: 99999;
+    background-color: #fff;
+    padding: 40px;
+}
+#added-to-cart-success i{
+    color: #7c58d3;
+    font-size: 50px;
+}
+#added-to-cart-success h4 {
+    font-size: 1.2em;
+}
+#added-to-cart-success p {
+    font-size: 0.9em;
+    color: #6d6d6d;
+}
+#added-to-cart-success a {
+    background-color: #7c58d3;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.8em;
+    padding:5px 10px;
+}

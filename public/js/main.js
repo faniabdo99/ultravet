@@ -202,21 +202,7 @@
                 o++, (!t || o <= t) && (e[0].value = o++)
             })
         })
-    }, inputNumber(n(".input_number")), n("#slider-range").length && (n("#slider-range").slider({
-        range: !0,
-        min: 0,
-        max: 1e3,
-        values: [5, 355],
-        slide: function (o, e) {
-            n("#amount").val("$" + e.values[0] + " - $" + e.values[1])
-        }
-    }), n("#amount").val("$" + n("#slider-range").slider("values", 0) + " - $" + n("#slider-range").slider("values", 1))), n(".ar_top").on("click", function () {
-        var o = n(this).next().attr("id"),
-            o = document.getElementById(o),
-            e = o.value;
-        if (n(".proceed_to_checkout .update-cart").removeAttr("disabled"), isNaN(e)) return !1;
-        o.value++
-    })
+    },
 
     //Custom scripts
     n(".newsletter-submit").click(function(e){
@@ -246,5 +232,55 @@
             }
         });
     });
-
 }(jQuery);
+//Cart system
+$(document).on('click', '.addtocart_btn', function() {
+    let That = $(this);
+    let ItemId = $(this).data('id');
+    let UserId = $(this).data('user');
+    let Target = $(this).data('target');
+    let Qty = parseInt($("input[name='qty']").val());
+    //Change the button to loader
+    $(this).html('<i class="fas fa-spinner fa-spin"></i>');
+    $.ajax({
+        url : Target,
+        method: 'post',
+        data:{
+            'product_id':ItemId,
+            'user_id':UserId,
+            'qty': (Qty) ? Qty : 1
+        },
+        success: function(response){
+            //Show the modal here
+            $('#added-to-cart-success').fadeIn('fast');
+            That.html('<i class="fas fa-check"></i> Added to cart');
+        },
+        error: function(response){
+            That.html('<i class="fas fa-cart-plus"></i> Add to cart');
+        }
+    });
+});
+//Delete item from cart
+$('.delete-from-cart').click(function(e){
+    e.preventDefault();
+    let That = $(this);
+    let ItemId = $(this).data('id');
+    let Target = $(this).data('target');
+    //Change the button to loader
+    $(this).html('<i class="fas fa-spinner fa-spin"></i>');
+    $.ajax({
+        url : Target,
+        method: 'post',
+        data:{
+            'cart_id':ItemId,
+        },
+        success: function(){
+            //Show the modal here
+            That.parent().fadeOut();
+        },
+        error: function(response){
+            //TODO: Add an error message or something
+            console.log(response);
+        }
+    });
+});

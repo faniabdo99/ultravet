@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -39,3 +40,6 @@ Route::prefix('products')->group(function(){
 Route::get('about' , [PageController::class, 'getAbout'])->name('about');
 Route::get('contact' , [ContactController::class, 'getContact'])->name('getContact');
 Route::post('contact' , [ContactController::class, 'postContact'])->name('postContact');
+Route::prefix('order')->group(function(){
+    Route::get('cart' , [CartController::class, 'getAll'])->name('cart.all');
+});

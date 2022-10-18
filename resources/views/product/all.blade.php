@@ -18,16 +18,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-lg-9">
-                        <div class="filter_topdar">
-                            <div class="filter_search_result">Showing <span>1-9</span> of <span>20</span> results</div>
-                            <div class="select_option mb-0"><select>
-                                    <option data-display="Sorting The Products">Select A Option</option>
-                                    <option value="1" selected="selected">Default Sorting</option>
-                                    <option value="2">Sort By Date</option>
-                                    <option value="3">Sort By Price</option>
-                                    <option value="4">Sort Category</option>
-                                </select></div>
-                        </div>
                         <div class="row">
                             @forelse($AllProducts as $Product)
                                 <div class="col col-lg-4 col-md-6 col-sm-6">
@@ -38,8 +28,9 @@
                                             </a>
                                             <ul class="cart_btns_group">
                                                 <li><a href="#!">Add To Cart</a></li>
-                                                <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                                <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i class="far fa-eye"></i></a></li>
+                                                @auth
+                                                    <li><a href="#!"><i class="far fa-heart"></i></a></li>
+                                                @endauth
                                             </ul>
                                         </div>
                                         <div class="item_content">
@@ -51,7 +42,14 @@
                                                 <li><i class="fas fa-star"></i></li>
                                                 <li><i class="far fa-star"></i></li>
                                             </ul>
-                                            <div class="item_price"><span>{{$Product->price}}$</span></div>
+                                            <div class="item_price">
+                                                @if($Product->hasDiscount)
+                                                    <del>{{$Product->price}}$</del>
+                                                    <span>{{$Product->finalPrice}}$</span>
+                                                @else
+                                                    <span>{{$Product->finalPrice}}$</span>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -70,52 +68,70 @@
                     <div class="col col-lg-3">
                         <aside class="sidebar_section">
                             <div class="sb_widget">
-                                <h3 class="sb_widget_title" data-bs-toggle="collapse" data-bs-target="#collapse_categories" aria-expanded="false">Categories</h3>
-                                <div class="collapse show" id="collapse_categories">
-                                    <div class="card card-body">
-                                        <form action="#!">
+                                <form action="{{route('product.all')}}" method="GET">
+                                    <h3 class="sb_widget_title" data-bs-toggle="collapse" data-bs-target="#collapse_categories" aria-expanded="false">Categories</h3>
+                                    <div class="collapse show" id="collapse_categories">
+                                        <div class="card card-body">
                                             <ul class="filter_category_list unorder_list_block">
                                                 @forelse($AllCategories as $Category)
-                                                    {{-- TODO: Add links--}}
                                                     <li>
-                                                        <div class="checkbox_item"><input type="checkbox" id="checkbox_parrot"><label for="checkbox_parrot"><span>{{$Category->title}}</span><small>{{$Category->Products->count()}}</small></label></div>
+                                                        <div class="checkbox_item">
+                                                            <input type="radio" value="{{$Category->id}}" @if(request()->category_id == $Category->id) checked @endif name="category_id">
+                                                            <label><span>{{$Category->title}}</span><small>{{$Category->Products->count()}}</small></label>
+                                                        </div>
                                                     </li>
                                                 @empty
                                                     <p>No categories</p>
                                                 @endforelse
-
                                             </ul>
-                                        </form>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="sb_widget">
-                                <h3 class="sb_widget_title" data-bs-toggle="collapse" data-bs-target="#collapse_range" aria-expanded="false">Price range</h3>
-                                <div class="collapse show" id="collapse_range">
-                                    <div class="card card-body">
-                                        <form action="#">
+
+                                    <h3 class="sb_widget_title mt-5" data-bs-toggle="collapse" data-bs-target="#collapse_range" aria-expanded="false">Price range</h3>
+                                    <div class="collapse show" id="collapse_range">
+                                        <div class="card card-body">
                                             <div class="price-range-area clearfix">
                                                 <div id="slider-range" class="slider-range"></div>
-                                                <div class="price-text"><span>Range:</span><input type="text" id="amount" readonly="readonly"></div><button type="button" class="price_filter_btn">Apply Filter</button>
+                                                <div class="price-text"><span>Range:</span><input type="text" id="amount" name="price" readonly="readonly"></div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="sb_widget">
-                                <h3 class="sb_widget_title" data-bs-toggle="collapse" data-bs-target="#collapse_product_type" aria-expanded="false">Pet type</h3>
-                                <div class="collapse show" id="collapse_product_type">
-                                    <div class="card card-body">
-                                        <ul class="page_list unorder_list_block">
-                                            @forelse($AllPets as $Pet)
-                                                {{-- TODO: Add urls to filter --}}
-                                                <li><a href="#!"><i class="fas fa-circle"></i> {{$Pet->title}}</a></li>
-                                            @empty
-                                                <p>No pets to show</p>
-                                            @endforelse
-                                        </ul>
+                                    <h3 class="sb_widget_title mt-5" data-bs-toggle="collapse" data-bs-target="#collapse_product_type" aria-expanded="false">Brands</h3>
+                                    <div class="collapse show" id="collapse_product_type">
+                                        <div class="card card-body">
+                                            <ul class="filter_category_list unorder_list_block">
+                                                @forelse($AllBrands as $Brand)
+                                                    <li>
+                                                        <div class="checkbox_item">
+                                                            <input type="radio" value="{{$Brand->id}}" @if(request()->brand_id == $Brand->id) checked @endif name="brand_id">
+                                                            <label for="checkbox_parrot"><span>{{$Brand->title}}</span></label>
+                                                        </div>
+                                                    </li>
+                                                @empty
+                                                    <p>No pets to show</p>
+                                                @endforelse
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
+                                    <h3 class="sb_widget_title mt-5" data-bs-toggle="collapse" data-bs-target="#collapse_product_type" aria-expanded="false">Pet type</h3>
+                                    <div class="collapse show" id="collapse_product_type">
+                                        <div class="card card-body">
+                                            <ul class="filter_category_list unorder_list_block">
+                                                @forelse($AllPets as $Pet)
+                                                    <li>
+                                                        <div class="checkbox_item">
+                                                            <input type="radio" value="{{$Pet->id}}" @if(request()->pet_id == $Pet->id) checked @endif name="pet_id">
+                                                            <label for="checkbox_parrot"><span>{{$Pet->title}}</span></label>
+                                                        </div>
+                                                    </li>
+                                                @empty
+                                                    <p>No pets to show</p>
+                                                @endforelse
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary d-block mt-5"><i class="fas fa-paw"></i> Apply Filters</button>
+                                </form>
                             </div>
                             <div class="sb_widget">
                                 <h3 class="sb_widget_title" data-bs-toggle="collapse" data-bs-target="#collapse_related_products" aria-expanded="false">Featured products</h3>
@@ -127,11 +143,18 @@
                                                 </a>
                                                 <div class="item_content">
                                                     <h3 class="item_title"><a href="{{route('product.single' , [$FProduct->slug, $FProduct->id])}}">{{$FProduct->title}}</a></h3>
-                                                    <div class="item_price"><span>{{$FProduct->price}}$</span></div>
+                                                    <div class="item_price">
+                                                        @if($FProduct->hasDiscount)
+                                                            <del>{{$FProduct->price}}$</del>
+                                                            <span>{{$FProduct->finalPrice}}$</span>
+                                                        @else
+                                                            <span>{{$FProduct->finalPrice}}$</span>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                         @empty
-                                            <p>THere are no featured products</p>
+                                            <p>There are no featured products</p>
                                         @endforelse
 
                                     </div>
@@ -142,58 +165,28 @@
                 </div>
             </div>
         </section>
-        <div class="modal fade" id="quick_view_popup" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></button>
-                    <div class="modal-body">
-                        <div class="product_details">
-                            <div class="row">
-                                <div class="col col-lg-6">
-                                    <div class="details_image mb-0"><img src="{{url('public')}}/images/shop/product_img_27.jpg" alt="Dog Residence Mat"></div>
-                                </div>
-                                <div class="col col-lg-6">
-                                    <div class="details_content">
-                                        <h2 class="item_title">Cat Collection</h2>
-                                        <p>Ornare arcu dui vivamus arcu felis bibendum ut. Auctor neque vitae tempus quam pellentesque. Nibh ipsum consequat nisl vel pretium lectus quam.</p>
-                                        <div class="item_review_info d-flex align-items-center">
-                                            <ul class="rating_star">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                            </ul>
-                                            <div class="review_counter"><span>2</span> Reviews</div>
-                                        </div>
-                                        <div class="item_price"><del>$12.39</del><span>$7.99</span></div>
-                                        <ul class="cart_action_wrap unorder_list">
-                                            <li>
-                                                <div class="quantity_wrap"><span class="quantity_title">Qty:</span>
-                                                    <form action="#">
-                                                        <div class="quantity_form"><button type="button" class="input_number_decrement"><i class="far fa-angle-down"></i></button><input class="input_number" type="text" value="1"><button type="button" class="input_number_increment"><i class="far fa-angle-up"></i></button></div>
-                                                    </form>
-                                                </div>
-                                            </li>
-                                            <li><a class="btn btn_primary addtocart_btn" href="service.html"><i class="fas fa-paw"></i> Add to Cart</a></li>
-                                        </ul>
-                                        <ul class="details_item_info icon_list unorder_list_block">
-                                            <li><strong>SKU:</strong><span>74141</span></li>
-                                            <li class="categories_tags"><strong>Categories:</strong><span><a href="#!">Toys</a><a href="#!">Other</a></span></li>
-                                            <li class="categories_tags"><strong>Tags:</strong><span><a href="#!">Beds</a><a href="#!">Other</a></span></li>
-                                            <li class="share_links"><strong>Share:</strong><span><a href="#!"><i class="fab fa-instagram"></i></a><a href="#!"><i class="fab fa-twitter"></i></a><a href="#!"><i class="fab fa-whatsapp"></i></a></span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         @include('includes.newsletter')
     </main>
     @include('layout.footer')
 </div>
 @include('layout.scripts')
+<script>
+    inputNumber($(".input_number")), $("#slider-range").length && ($("#slider-range").slider({
+        range: !0,
+        min: {{$AllProducts->min('price') ?? 0}},
+        max: {{$AllProducts->max('price') ?? 0}},
+        values: [{{$AllProducts->min('price') ?? 0}}, {{$AllProducts->max('price') ?? 0}}],
+        slide: function (o, e) {
+            $("#amount").val("$" + e.values[0] + " - $" + e.values[1])
+        }
+    }), $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1))),
+        $(".ar_top").on("click", function () {
+            var o = $(this).next().attr("id"),
+                o = document.getElementById(o),
+                e = o.value;
+            if ($(".proceed_to_checkout .update-cart").removeAttr("disabled"), isNaN(e)) return !1;
+            o.value++
+        })
+</script>
 </body>
 </html>

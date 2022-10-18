@@ -6,16 +6,7 @@
             <div class="main_menu_inner collapse navbar-collapse" id="main_menu_dropdown">
                 <ul class="main_menu_list unorder_list_center">
                     <li><a class="nav-link" href="{{route('home')}}">Home</a></li>
-                    <li class="dropdown"><a class="nav-link" href="#" id="shop_submenu" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                        <ul class="dropdown-menu" aria-labelledby="shop_submenu">
-                            <li><a href="shop.html">Our Shop</a></li>
-                            <li><a href="shop_details.html">Shop Details</a></li>
-                            <li><a href="sales.html">Sales Page</a></li>
-                            <li><a href="cart.html">Shopping Cart</a></li>
-                            <li><a href="shipping_info.html">Shipping Info</a></li>
-                        </ul>
-                    </li>
+                    <li><a class="nav-link" href="{{route('product.all')}}">Shop</a></li>
                     <li><a class="nav-link" href="{{route('blog')}}">Blog</a></li>
                     <li class="dropdown"><a class="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
                         <ul class="dropdown-menu" aria-labelledby="pages_submenu">

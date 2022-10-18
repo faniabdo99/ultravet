@@ -16,6 +16,9 @@ class Category extends Model {
     public function User(){
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function Products(){
+        return $this->hasMany(Product::class);
+    }
     public function scopeParent($query){
         return $query->where('is_parent' , 1);
     }

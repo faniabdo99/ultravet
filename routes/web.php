@@ -32,7 +32,8 @@ Route::prefix('blog')->group(function(){
     Route::get('/' , [ArticleController::class, 'getBlog'])->name('blog');
     Route::get('/{slug}/{id}' , [ArticleController::class, 'getSingle'])->name('blog.single');
 });
-Route::prefix('product')->group(function(){
+Route::prefix('products')->group(function(){
+    Route::get('/' , [ProductController::class, 'getAll'])->name('product.all');
     Route::get('{slug}/{id}' , [ProductController::class, 'getSingle'])->name('product.single');
 });
 Route::get('about' , [PageController::class, 'getAbout'])->name('about');

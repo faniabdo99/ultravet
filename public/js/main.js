@@ -256,6 +256,16 @@ $(document).on('click', '.addtocart_btn', function() {
             That.html('<i class="fas fa-check"></i> Added to cart');
         },
         error: function(response){
+            $('body').append(`
+                    <div class="notification error-notification">
+                        <div class="notification-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="notification-content">
+                            <b>Error!</b>
+                            <p class="mb-0">${response.responseText}</p>
+                        </div>
+                    </div>`);
             That.html('<i class="fas fa-cart-plus"></i> Add to cart');
         }
     });

@@ -50,7 +50,7 @@
                     <hr>
                     <div class="total_price"><span>Total</span> <strong>{{getCartTotal()}}$</strong></div>
                     <a class="btn border_primary" href="{{route('cart.all')}}">Update Cart</a>
-                    <a class="btn btn_primary" href="cart.html">Checkout</a>
+                    <a class="btn btn_primary" href="{{route('checkout.get')}}">Checkout</a>
                 </div>
             </li>
             @guest

@@ -73,7 +73,7 @@
                                 <ul class="subtotal_info unorder_list_block">
                                     <li>Subtotal before delivery</li>
                                     <li>{{$SubTotal}}$</li>
-                                    <li><a class="btn btn_primary" href="#!"><i class="fas fa-paw"></i> Checkout</a></li>
+                                    <li><a class="btn btn_primary" href="{{route('checkout.get')}}"><i class="fas fa-paw"></i> Checkout</a></li>
                                 </ul>
                             </div>
                         </div>

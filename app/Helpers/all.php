@@ -42,6 +42,9 @@ function convertCurrency($amount , $from , $to){
         return ceil(intval($amount) * Setting::first()->lb_usd_exchange_rate);
     }
 }
+function getExchangeRate(){
+    return Setting::first()->lb_usd_exchange_rate;
+}
 function isInUserCart($user_id , $product_id){
     $TheItem = Cart::where('user_id',$user_id)->where('product_id' , $product_id)->where('status' , 'active')->first();
     if($TheItem){
@@ -57,7 +60,7 @@ function getCartTotal(){
     $Cart = Cart::where('user_id' , getUserId())->where('status' , 'active')->get();
     $CartSubTotalArray = $Cart->map(function($item) {
         if($item->Product != null){
-            if($item->Product->status == 'Available'){
+            if($item->Product->status == 'available'){
                 return $item->Product->finalPrice * $item->qty;
             }else{
                 return 0;

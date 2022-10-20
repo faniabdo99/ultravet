@@ -8,6 +8,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
 Route::get('/', [HomeController::class, 'getHome'])->name('home');
 //Authentication System
 Route::middleware('guest')->group(function(){
@@ -42,4 +43,6 @@ Route::get('contact' , [ContactController::class, 'getContact'])->name('getConta
 Route::post('contact' , [ContactController::class, 'postContact'])->name('postContact');
 Route::prefix('order')->group(function(){
     Route::get('cart' , [CartController::class, 'getAll'])->name('cart.all');
+    Route::get('checkout' , [CheckoutController::class, 'getCheckout'])->name('checkout.get');
+    Route::post('checkout' , [CheckoutController::class, 'postCheckout'])->name('checkout.post');
 });

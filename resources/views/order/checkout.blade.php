@@ -32,7 +32,7 @@
                                        required>
                             </div>
                             <div class="form_item">
-                                <label class="input_title" for="input_notes">Order Notes<sup>*</sup></label>
+                                <label class="input_title" for="input_notes">Order Notes</label>
                                 <textarea id="input_notes" name="order_notes"
                                           placeholder="Do you have any notes about your order?"></textarea>
                             </div>

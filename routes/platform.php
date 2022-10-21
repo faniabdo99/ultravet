@@ -36,3 +36,7 @@ Route::screen('roles/{role}/edit', RoleEditScreen::class)->name('platform.system
 Route::screen('roles/create', RoleEditScreen::class)->name('platform.systems.roles.create');
 // Platform > System > Roles
 Route::screen('roles', RoleListScreen::class)->name('platform.systems.roles');
+// Orders
+Route::screen('orders', \App\Orchid\Screens\OrderScreen::class)->name('platform.orders');
+Route::screen('order/{id}', \App\Orchid\Screens\SingleOrderScreen::class)->name('platform.order');
+Route::screen('order/edit/{id}', \App\Orchid\Screens\EditOrderScreen::class)->name('platform.order.edit');

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->float('exchange_rate')->default(getExchangeRate());
+            $table->float('exchange_rate')->default(1);
         });
     }
 

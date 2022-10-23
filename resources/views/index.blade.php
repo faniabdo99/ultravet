@@ -400,19 +400,19 @@
             <section class="blog_section section_space_md">
                 <div class="container">
                     <div class="section_title text-center">
-                        <h2 class="title_text mb-0"><span class="sub_title">Our Blog</span> Tatest Post</h2>
+                        <h2 class="title_text mb-0"><span class="sub_title">Our Blog</span> Latest Post</h2>
                     </div>
                     <div class="row justify-content-center mt-5">
                         @forelse($LatestArticles as $Article)
                             <div class="col col-lg-4 col-md-6 col-sm-6">
                                 <div class="blog_item">
-                                    <a class="item_image" href="blog_details.html"><img src="{{$Article->imagePath}}" alt="{{$Article->title}}"></a>
+                                    <a class="item_image" href="{{route('blog.single', [$Article->slug, $Article->id])}}"><img src="{{$Article->imagePath}}" alt="{{$Article->title}}"></a>
                                     <div class="item_content">
                                         <ul class="post_meta unorder_list">
                                             <li><a href="#!"><i class="fas fa-user"></i> by {{$Article->User->name}}</a></li>
                                             <li><a href="#!"><i class="fas fa-calendar-day"></i> {{$Article->created_at->format('Y.m.d')}}</a></li>
                                         </ul>
-                                        <h3 class="item_title"><a href="blog_details.html">{{$Article->title}}</a></h3>
+                                        <h3 class="item_title"><a href="{{route('blog.single', [$Article->slug, $Article->id])}}">{{$Article->title}}</a></h3>
                                         <p class="mb-0">{{$Article->description}}</p>
                                     </div>
                                 </div>

@@ -34,7 +34,7 @@ class ProductController extends Controller{
             //Default products list
             $AllProducts = Product::latest()->get();
         }
-        return view('product.all' , compact('AllProducts','FeaturedProducts', 'AllPets', 'AllCategories', 'AllBrands'));
+        return view('product.index' , compact('AllProducts','FeaturedProducts', 'AllPets', 'AllCategories', 'AllBrands'));
     }
     public function getSingle($slug, $id){
         $TheProduct = Product::findOrFail($id);

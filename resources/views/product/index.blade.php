@@ -156,7 +156,6 @@
                                         @empty
                                             <p>There are no featured products</p>
                                         @endforelse
-
                                     </div>
                                 </div>
                             </div>

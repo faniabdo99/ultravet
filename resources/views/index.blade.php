@@ -240,167 +240,167 @@
                     </div>
                 </div>
             </section>
-            <section class="more_products_section section_space_md">
-                <div class="container">
-                    <div class="row">
-                        <div class="col col-lg-4">
-                            <div class="small_products_wrap">
-                                <h3 class="wrap_title">Featured Products</h3>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_6.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Detachable Gravity Bowl Food
-                                                Feeder</a></h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$20.12</span></div>
-                                    </div>
-                                </div>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_7.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Dog Collar for Small, Medium,
-                                                Large Dogs</a></h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$16.88</span></div>
-                                    </div>
-                                </div>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_8.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Pink Embossed Spiked
-                                                Collar</a></h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$34.98</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="small_products_wrap">
-                                <h3 class="wrap_title">On Sale Products</h3>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_9.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Black Leather Spike Dog
-                                                Collar, Small</a></h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$23.55</span></div>
-                                    </div>
-                                </div>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_10.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Dog Chew Toys for Chewers</a>
-                                        </h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$8.99</span></div>
-                                    </div>
-                                </div>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_11.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Duck Jerky Strips Dog
-                                                Treats</a></h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$32.99</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="small_products_wrap">
-                                <h3 class="wrap_title">Top Rated Products</h3>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_12.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Carrying Bag for Cats
-                                                Weighing up to 6 kg</a></h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$70.43</span></div>
-                                    </div>
-                                </div>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_13.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Rhinestone Pet Collar</a>
-                                        </h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$35.66</span></div>
-                                    </div>
-                                </div>
-                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img
-                                            src="{{url('public')}}/images/shop/product_img_14.png" alt="Pet Accessories"></a>
-                                    <div class="item_content">
-                                        <h3 class="item_title"><a href="shop_details.html">Teeth Cleaning Toy for
-                                                Dogs</a></h3>
-                                        <ul class="rating_star">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <div class="item_price"><span>$12.98</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+{{--            <section class="more_products_section section_space_md">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col col-lg-4">--}}
+{{--                            <div class="small_products_wrap">--}}
+{{--                                <h3 class="wrap_title">Featured Products</h3>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_6.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Detachable Gravity Bowl Food--}}
+{{--                                                Feeder</a></h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$20.12</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_7.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Dog Collar for Small, Medium,--}}
+{{--                                                Large Dogs</a></h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$16.88</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_8.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Pink Embossed Spiked--}}
+{{--                                                Collar</a></h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$34.98</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col col-lg-4">--}}
+{{--                            <div class="small_products_wrap">--}}
+{{--                                <h3 class="wrap_title">On Sale Products</h3>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_9.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Black Leather Spike Dog--}}
+{{--                                                Collar, Small</a></h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$23.55</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_10.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Dog Chew Toys for Chewers</a>--}}
+{{--                                        </h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$8.99</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_11.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Duck Jerky Strips Dog--}}
+{{--                                                Treats</a></h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$32.99</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col col-lg-4">--}}
+{{--                            <div class="small_products_wrap">--}}
+{{--                                <h3 class="wrap_title">Top Rated Products</h3>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_12.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Carrying Bag for Cats--}}
+{{--                                                Weighing up to 6 kg</a></h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$70.43</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_13.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Rhinestone Pet Collar</a>--}}
+{{--                                        </h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$35.66</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="small_product_item"><a class="item_image" href="shop_details.html"><img--}}
+{{--                                            src="{{url('public')}}/images/shop/product_img_14.png" alt="Pet Accessories"></a>--}}
+{{--                                    <div class="item_content">--}}
+{{--                                        <h3 class="item_title"><a href="shop_details.html">Teeth Cleaning Toy for--}}
+{{--                                                Dogs</a></h3>--}}
+{{--                                        <ul class="rating_star">--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                            <li><i class="fas fa-star"></i></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <div class="item_price"><span>$12.98</span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </section>--}}
             @include('includes.newsletter')
             <section class="blog_section section_space_md">
                 <div class="container">
                     <div class="section_title text-center">
-                        <h2 class="title_text mb-0"><span class="sub_title">Our Blog</span> Latest Post</h2>
+                        <h2 class="title_text mb-0"><span class="sub_title">Our Blog</span> Latest Posts</h2>
                     </div>
                     <div class="row justify-content-center mt-5">
                         @forelse($LatestArticles as $Article)
@@ -418,51 +418,51 @@
                                 </div>
                             </div>
                         @empty
-                            <p>Looks like there are no articles!</p>
+                            <p class="text-center">Looks like there are no articles!</p>
                         @endforelse
                     </div>
                 </div>
             </section>
-            <section class="instagram_section section_space_md pb-0">
-                <div class="container">
-                    <div class="section_title">
-                        <h2 class="title_text mb-0"><span class="sub_title">Instagram</span> Join Our Instagram</h2>
-                    </div>
-                    <div class="instagram_carousel_wrap">
-                        <div class="instagram_carousel row" data-slick='{"dots": false}'>
-                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img
-                                        src="{{url('public')}}/images/instagram/instagram_img_1.jpg" alt="Pet Image"> <span
-                                        class="item_title">@petopia-shop</span></a></div>
-                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img
-                                        src="{{url('public')}}/images/instagram/instagram_img_2.jpg" alt="Pet Image"> <span
-                                        class="item_title">@petopia-shop</span></a></div>
-                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img
-                                        src="{{url('public')}}/images/instagram/instagram_img_3.jpg" alt="Pet Image"> <span
-                                        class="item_title">@petopia-shop</span></a></div>
-                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img
-                                        src="{{url('public')}}/images/instagram/instagram_img_4.jpg" alt="Pet Image"> <span
-                                        class="item_title">@petopia-shop</span></a></div>
-                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img
-                                        src="{{url('public')}}/images/instagram/instagram_img_1.jpg" alt="Pet Image"> <span
-                                        class="item_title">@petopia-shop</span></a></div>
-                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img
-                                        src="{{url('public')}}/images/instagram/instagram_img_2.jpg" alt="Pet Image"> <span
-                                        class="item_title">@petopia-shop</span></a></div>
-                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img
-                                        src="{{url('public')}}/images/instagram/instagram_img_3.jpg" alt="Pet Image"> <span
-                                        class="item_title">@petopia-shop</span></a></div>
-                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img
-                                        src="{{url('public')}}/images/instagram/instagram_img_4.jpg" alt="Pet Image"> <span
-                                        class="item_title">@petopia-shop</span></a></div>
-                        </div>
-                        <div class="carousel_arrow">
-                            <div class="container"><button type="button" class="ic_left_arrow"><i
-                                        class="far fa-arrow-left"></i></button> <button type="button"
-                                    class="ic_right_arrow"><i class="far fa-arrow-right"></i></button></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+{{--            <section class="instagram_section section_space_md pb-0">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="section_title">--}}
+{{--                        <h2 class="title_text mb-0"><span class="sub_title">Instagram</span> Join Our Instagram</h2>--}}
+{{--                    </div>--}}
+{{--                    <div class="instagram_carousel_wrap">--}}
+{{--                        <div class="instagram_carousel row" data-slick='{"dots": false}'>--}}
+{{--                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img--}}
+{{--                                        src="{{url('public')}}/images/instagram/instagram_img_1.jpg" alt="Pet Image"> <span--}}
+{{--                                        class="item_title">@petopia-shop</span></a></div>--}}
+{{--                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img--}}
+{{--                                        src="{{url('public')}}/images/instagram/instagram_img_2.jpg" alt="Pet Image"> <span--}}
+{{--                                        class="item_title">@petopia-shop</span></a></div>--}}
+{{--                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img--}}
+{{--                                        src="{{url('public')}}/images/instagram/instagram_img_3.jpg" alt="Pet Image"> <span--}}
+{{--                                        class="item_title">@petopia-shop</span></a></div>--}}
+{{--                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img--}}
+{{--                                        src="{{url('public')}}/images/instagram/instagram_img_4.jpg" alt="Pet Image"> <span--}}
+{{--                                        class="item_title">@petopia-shop</span></a></div>--}}
+{{--                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img--}}
+{{--                                        src="{{url('public')}}/images/instagram/instagram_img_1.jpg" alt="Pet Image"> <span--}}
+{{--                                        class="item_title">@petopia-shop</span></a></div>--}}
+{{--                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img--}}
+{{--                                        src="{{url('public')}}/images/instagram/instagram_img_2.jpg" alt="Pet Image"> <span--}}
+{{--                                        class="item_title">@petopia-shop</span></a></div>--}}
+{{--                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img--}}
+{{--                                        src="{{url('public')}}/images/instagram/instagram_img_3.jpg" alt="Pet Image"> <span--}}
+{{--                                        class="item_title">@petopia-shop</span></a></div>--}}
+{{--                            <div class="col carousel_item"><a class="instagram_item" href="#!"><img--}}
+{{--                                        src="{{url('public')}}/images/instagram/instagram_img_4.jpg" alt="Pet Image"> <span--}}
+{{--                                        class="item_title">@petopia-shop</span></a></div>--}}
+{{--                        </div>--}}
+{{--                        <div class="carousel_arrow">--}}
+{{--                            <div class="container"><button type="button" class="ic_left_arrow"><i--}}
+{{--                                        class="far fa-arrow-left"></i></button> <button type="button"--}}
+{{--                                    class="ic_right_arrow"><i class="far fa-arrow-right"></i></button></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </section>--}}
         </main>
         @include('layout.footer')
     </div>

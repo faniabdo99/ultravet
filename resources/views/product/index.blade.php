@@ -164,7 +164,6 @@
                 </div>
             </div>
         </section>
-        @include('includes.newsletter')
     </main>
     @include('layout.footer')
 </div>

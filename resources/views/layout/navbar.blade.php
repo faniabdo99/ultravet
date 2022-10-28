@@ -12,7 +12,6 @@
                         <ul class="dropdown-menu" aria-labelledby="pages_submenu">
                             <li><a href="{{route('about')}}">About Us</a></li>
                             <li><a href="{{route('getContact')}}">Contact Us</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -44,7 +43,7 @@
                                 <button class="remove_btn delete-from-cart" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button"><i class="fal fa-times"></i></button>
                             </li>
                         @empty
-                            <li>You don't have anything in your cart</li>
+                            <li class="text-center">You don't have anything in your cart</li>
                         @endforelse
                     </ul>
                     <hr>

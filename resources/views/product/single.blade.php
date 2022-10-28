@@ -60,6 +60,8 @@
                                     </li>
                                     @if($TheProduct->cartReady)
                                         <li><a class="btn btn_primary addtocart_btn" data-id="{{$TheProduct->id}}" data-user="{{getUserId()}}" data-target="{{route('cart.add')}}" href="javascript:;"><i class="fas fa-paw"></i> Add to Cart</a></li>
+                                    @else
+                                        <li><b><i>Out of Stock</i></b></li>
                                     @endif
                                 </ul>
                                 <ul class="details_item_info icon_list unorder_list_block">

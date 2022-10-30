@@ -1,7 +1,6 @@
 @include('layout.header')
 <body>
 <div class="body_wrap">
-    @include('layout.navbar')
     <main>
         <section class="error_section">
             <div class="container text-center">
@@ -18,7 +17,6 @@
             </ul>
         </section>
     </main>
-    @include('layout.footer')
 </div>
 @include('layout.scripts')
 </body>

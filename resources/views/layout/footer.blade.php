@@ -65,15 +65,8 @@
                 </div>
                 <div class="col col-lg-3 col-md-6 col-sm-6">
                     <div class="footer_widget">
-                        <h3 class="footer_widget_title">Newsletter</h3>
-                        <form action="#">
-                            <div class="footer_newslatter">
-                                <p>Be first in the queue! Get our latest news straight to your inbox.</p>
-                                <div class="form_item"><input type="text" name="newsletter-email"
-                                        placeholder="Email"> <button type="submit"><i
-                                            class="far fa-arrow-right"></i></button></div>
-                            </div>
-                        </form>
+                        <h3 class="footer_widget_title">Find Us</h3>
+                        <iframe class="footer-map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26496.124610805782!2d35.486729807793004!3d33.88925268053532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f17215880a78f%3A0x729182bae99836b4!2sBeirut%2C%20Lebanon!5e0!3m2!1sen!2seg!4v1667162208432!5m2!1sen!2seg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

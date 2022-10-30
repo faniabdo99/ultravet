@@ -120,4 +120,10 @@ class CouponResource extends Resource
             $model->forceFill($CouponData)->save();
         }
     }
+    public function onDelete(Model $model){
+        $model->update([
+            'slug' => $model->slug.'_deleted'
+        ]);
+        $model->delete();
+    }
 }

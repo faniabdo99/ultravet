@@ -10,7 +10,7 @@ return new class extends Migration {
             $table->id();
             $table->integer('cart_id');
             $table->integer('order_id');
-            $table->integer('user_id')->nullable();
+            $table->string('user_id')->nullable();
             $table->integer('product_id');
             $table->timestamps();
         });

@@ -8,25 +8,43 @@ use Orchid\Attachment\Attachable;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model {
-    use HasFactory, AsSource, Filterable, Attachable;
+    use HasFactory, AsSource, Filterable, Attachable, SoftDeletes;
     protected $guarded = [];
     //Relations
     public function Category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withDefault([
+            'title' => 'Deleted Category',
+            'slug' => 'deleted-category',
+        ]);
     }
     public function Brand(){
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Brand::class)->withDefault([
+            'title' => 'Deleted Brand',
+            'slug' => 'deleted-brand',
+        ]);
     }
     public function Pet(){
-        return $this->belongsTo(Pet::class);
+        return $this->belongsTo(Pet::class)->withDefault([
+            'title' => 'Deleted Pet',
+            'slug' => 'deleted-pet',
+        ]);
     }
     public function Discount(){
-        return $this->belongsTo(Discount::class);
+        return $this->belongsTo(Discount::class)->withDefault([
+            'title' => 'Deleted Discount',
+            'slug' => 'deleted-discount',
+        ]);
     }
     //Custom Attributes & Methods
     public function getImagePathAttribute(){
         return url($this->image);
+    }
+
+    public function Related(){
+        // Fetch related products to the current one
+        return Product::where('category_id' , $this->category_id)->limit(10)->get();
     }
     /*
      * Below method determines id the product is ready to be added to a cart
@@ -74,4 +92,15 @@ class Product extends Model {
     public function scopeFeatured($query){
         return $query->where('is_featured' , 1);
     }
+
+    // Admin panel
+    protected $allowedSorts = [
+        'title',
+        'sku',
+        'created_at',
+        'updated_at'
+    ];
+    protected $allowedFilters = [
+        'title',
+    ];
 }

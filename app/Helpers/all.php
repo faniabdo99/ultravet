@@ -2,9 +2,17 @@
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\Brand;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cookie;
-
+function getBrands($featured = false) {
+    if($featured){
+        $Brands = Brand::featured()->get();
+    }else{
+        $Brands = Brand::all();
+    }
+    return $Brands;
+}
 function getFeaturedProducts(){
     return Product::featured()->latest()->get();
 }

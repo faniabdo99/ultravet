@@ -6,8 +6,10 @@
                 <p class="description_text">Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit.</p>
                 <form action="#">
                     <div class="form_item mb-0">
-                        <input type="email" name="email" placeholder="Type your Email"> 
-                        <button class="btn btn_warning newsletter-submit" data-action="{{route('newsletter.postNew')}}" type="submit">Subscribe</button>
+                        <input type="email" name="email" placeholder="Type your Email">
+                        <button class="btn btn_warning newsletter-submit" data-action="{{route('newsletter.postNew')}}" type="submit">
+                            <i class="far fa-arrow-right"></i>
+                        </button>
                     </div>
                 </form>
                 <div class="newsletter-response mt-3"></div>

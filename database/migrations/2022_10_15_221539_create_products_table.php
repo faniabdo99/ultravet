@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->string('slug');
             $table->string('status');
             $table->string('image');
-            $table->string('sku');
+            $table->string('sku')->nullable();
             $table->text('description');
             $table->integer('price');
             $table->text('content');

@@ -40,4 +40,24 @@ class ProductController extends Controller{
         $TheProduct = Product::findOrFail($id);
         return view('product.single' , compact('TheProduct'));
     }
+
+    /**
+     * @param string $slug
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function getBrand(string $slug){
+        // Get all products in brand
+        $TheBrand = Brand::where('slug' , $slug)->firstOrFail();
+        return view('product.brand' , compact('TheBrand'));
+    }
+
+    /**
+     * @param string $slug
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function getPet(string $slug){
+        // Get all products in brand
+        $ThePet = Pet::where('slug' , $slug)->firstOrFail();
+        return view('product.pet' , compact('ThePet'));
+    }
 }

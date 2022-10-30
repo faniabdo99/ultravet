@@ -97,7 +97,7 @@ class DiscountResource extends Resource {
             'title' => ['required' , 'min:3', 'max:255'],
             'value' => ['required' , 'numeric'],
             'type' => ['required' , 'in:percent,fixed'],
-            
+
         ];
     }
     /**
@@ -115,5 +115,11 @@ class DiscountResource extends Resource {
         }else{
             $model->forceFill($DiscountData)->save();
         }
+    }
+    public function onDelete(Model $model){
+        $model->update([
+            'slug' => $model->slug.'_deleted'
+        ]);
+        $model->delete();
     }
 }

@@ -116,4 +116,10 @@ class PetResource extends Resource {
         $PetData['user_id'] = auth()->user()->id;
         $model->forceFill($PetData)->save();
     }
+    public function onDelete(Model $model){
+        $model->update([
+            'slug' => $model->slug.'_deleted'
+        ]);
+        $model->delete();
+    }
 }

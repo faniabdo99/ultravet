@@ -54,8 +54,7 @@ class ProductResource extends Resource
                 ->title('Image')
                 ->required(),
             Input::make('sku')
-                ->title('Stock Keeping Unit (SKU)')
-                ->required(),
+                ->title('Stock Keeping Unit (SKU)'),
             TextArea::make('description')
                 ->title('Description')
                 ->required(),
@@ -108,15 +107,14 @@ class ProductResource extends Resource
     {
         return [
             TD::make('id'),
-            TD::make('sku'),
-            TD::make('title'),
+            TD::make('sku')->sort(),
+            TD::make('title')->sort()->filter(Input::make()),
             TD::make('price'),
             TD::make('qty'),
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
                     return $model->created_at->toDateTimeString();
                 }),
-
             TD::make('updated_at', 'Update date')
                 ->render(function ($model) {
                     return $model->updated_at->toDateTimeString();
@@ -164,5 +162,11 @@ class ProductResource extends Resource
         $ProductData['user_id'] = auth()->user()->id;
         $model->forceFill($ProductData)->save();
         $model->attachment()->syncWithoutDetaching($Attachments);
+    }
+    public function onDelete(Model $model){
+        $model->update([
+            'slug' => $model->slug.'_deleted'
+        ]);
+        $model->delete();
     }
 }

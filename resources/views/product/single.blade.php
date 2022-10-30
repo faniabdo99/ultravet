@@ -65,25 +65,23 @@
                                     @endif
                                 </ul>
                                 <ul class="details_item_info icon_list unorder_list_block">
-                                    <li><strong>SKU:</strong> <span>{{$TheProduct->sku}}</span></li>
+                                    @if ($TheProduct->sku)
+                                        <li><strong>SKU:</strong> <span>{{$TheProduct->sku}}</span></li>
+                                    @endif
                                     <li class="categories_tags"><strong>Category:</strong> <span><a href="#!">{{$TheProduct->Category->title}}</a></span></li>
-                                    <li class="categories_tags"><strong>Brand:</strong> <span><a href="#!">{{$TheProduct->Brand->title}}</a></span></li>
-                                    <li class="categories_tags"><strong>For Pet:</strong> <span><a href="#!">{{$TheProduct->Pet->title}}</a></span></li>
+                                    <li class="categories_tags"><strong>Brand:</strong> <span><a href="{{route('product.pet' , $TheProduct->Brand->slug)}}">{{$TheProduct->Brand->title}}</a></span></li>
+                                    <li class="categories_tags"><strong>For Pet:</strong> <span><a href="{{route('product.pet' , $TheProduct->Pet->slug)}}">{{$TheProduct->Pet->title}}</a></span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="details_info_box">
                         <ul class="nav tabs_nav_pill" role="tablist">
-                            <li role="presentation"><button class="active" data-bs-toggle="tab" data-bs-target="#tab_description" type="button" role="tab" aria-selected="true">Description</button></li>
-                            <li role="presentation"><button data-bs-toggle="tab" data-bs-target="#tab_additional_info" type="button" role="tab" aria-selected="false">Additional Info</button></li>
+                            <li role="presentation"><button class="active" data-bs-toggle="tab" data-bs-target="#tab_additional_info" type="button" role="tab" aria-selected="false">Additional Info</button></li>
+                            <li role="presentation"><button data-bs-toggle="tab" data-bs-target="#tab_description" type="button" role="tab" aria-selected="true">Description</button></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="tab_description" role="tabpanel">
-                                <h3>Product Description</h3>
-                                {!! $TheProduct->content !!}
-                            </div>
-                            <div class="tab-pane fade" id="tab_additional_info" role="tabpanel">
+                            <div class="tab-pane fade show active" id="tab_additional_info" role="tabpanel">
                                 <ul class="additional_info_table unorder_list_block">
                                     <li><span>Brand</span> <span>Envato</span></li>
                                     <li><span>Color</span> <span>Black</span></li>
@@ -92,21 +90,73 @@
                                     <li><span>Dimensions</span> <span>16x22x123 CM</span></li>
                                 </ul>
                             </div>
+                            <div class="tab-pane fade" id="tab_description" role="tabpanel">
+                                <h3>Product Description</h3>
+                                {!! $TheProduct->content !!}
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            @include('includes.featured-products')
+
+            <section class="product_section section_space_lg">
+                <div class="container">
+                    <div class="section_title">
+                        <h2 class="title_text mb-0"><span class="sub_title">Our Products</span> Related Products</h2>
+                    </div>
+                </div>
+                <div class="product_carousel">
+                    <div class="row common_carousel_4col" data-slick='{"dots": false, "centerMode": true}'>
+                        @forelse($TheProduct->Related() as $Product)
+                            <div class="col carousel_item">
+                                <div class="product_item">
+                                    <div class="item_image">
+                                        <a class="image_wrap" href="{{route('product.single' , [$Product->slug, $Product->id])}}">
+                                            <img src="{{$Product->imagePath}}" alt="{{$Product->title}}"></a>
+                                        <ul class="cart_btns_group">
+                                            <li><a href="#!">Add To Cart</a></li>
+                                            <li><a href="#!"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="item_content">
+                                        <h3 class="item_title"><a href="{{route('product.single' , [$Product->slug, $Product->id])}}">{{$Product->title}}</a></h3>
+                                        <ul class="rating_star">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                        <div class="item_price"><span>${{$Product->price}}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                        @endforelse
+                    </div>
+                    <div class="carousel_arrow">
+                        <div class="container">
+                            <button type="button" class="cc4c_left_arrow"><i class="far fa-arrow-left"></i></button>
+                            <button type="button" class="cc4c_right_arrow"><i class="far fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <div class="modal fade" id="quick_view_popup" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
-                    <div class="modal-content"><button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"><i class="fal fa-times"></i></button>
+                    <div class="modal-content">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fal fa-times"></i>
+                        </button>
                         <div class="modal-body">
                             <div class="product_details">
                                 <div class="row">
                                     <div class="col col-lg-6">
-                                        <div class="details_image mb-0"><img src="{{url('public')}}/images/shop/product_img_27.jpg"
-                                                alt="{{$TheProduct->title}}"></div>
+                                        <div class="details_image mb-0">
+                                            <img src="{{url('public')}}/images/shop/product_img_27.jpg" alt="{{$TheProduct->title}}">
+                                        </div>
                                     </div>
                                     <div class="col col-lg-6">
                                         <div class="details_content">

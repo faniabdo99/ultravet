@@ -8,6 +8,7 @@ use Orchid\Crud\ResourceRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 //Inputs
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Cropper;
 //Legend
@@ -39,7 +40,11 @@ class BrandResource extends Resource {
                     ->title('Brand Logo')
                     ->required()
                     ->width(500)
-                    ->height(500)
+                    ->height(500),
+            CheckBox::make('is_featured')
+                ->title('Make as Featured')
+                ->placeholder('Mark as Featured')
+                ->sendTrueOrFalse()
         ];
     }
 
@@ -57,7 +62,6 @@ class BrandResource extends Resource {
                 ->render(function ($model) {
                     return $model->created_at->toDateTimeString();
                 }),
-
             TD::make('updated_at', 'Update date')
                 ->render(function ($model) {
                     return $model->updated_at->toDateTimeString();
@@ -105,5 +109,12 @@ class BrandResource extends Resource {
     public function filters(): array
     {
         return [];
+    }
+
+    public function onDelete(Model $model){
+        $model->update([
+            'slug' => $model->slug.'_deleted'
+        ]);
+        $model->delete();
     }
 }

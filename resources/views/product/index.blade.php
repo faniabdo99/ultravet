@@ -76,8 +76,8 @@
                                                 @forelse($AllCategories as $Category)
                                                     <li>
                                                         <div class="checkbox_item">
-                                                            <input type="radio" value="{{$Category->id}}" @if(request()->category_id == $Category->id) checked @endif name="category_id">
-                                                            <label><span>{{$Category->title}}</span><small>{{$Category->Products->count()}}</small></label>
+                                                            <input type="radio" id="category-{{$Category->id}}" value="{{$Category->id}}" @if(request()->category_id == $Category->id) checked @endif name="category_id">
+                                                            <label for="category-{{$Category->id}}"><span>{{$Category->title}}</span><small>{{$Category->Products->count()}}</small></label>
                                                         </div>
                                                     </li>
                                                 @empty
@@ -103,8 +103,8 @@
                                                 @forelse($AllBrands as $Brand)
                                                     <li>
                                                         <div class="checkbox_item">
-                                                            <input type="radio" value="{{$Brand->id}}" @if(request()->brand_id == $Brand->id) checked @endif name="brand_id">
-                                                            <label for="checkbox_parrot"><span>{{$Brand->title}}</span></label>
+                                                            <input type="radio" id="brand-{{$Brand->id}}" value="{{$Brand->id}}" @if(request()->brand_id == $Brand->id) checked @endif name="brand_id">
+                                                            <label for="brand-{{$Brand->id}}"><span>{{$Brand->title}}</span></label>
                                                         </div>
                                                     </li>
                                                 @empty
@@ -120,8 +120,8 @@
                                                 @forelse($AllPets as $Pet)
                                                     <li>
                                                         <div class="checkbox_item">
-                                                            <input type="radio" value="{{$Pet->id}}" @if(request()->pet_id == $Pet->id) checked @endif name="pet_id">
-                                                            <label for="checkbox_parrot"><span>{{$Pet->title}}</span></label>
+                                                            <input type="radio" id="pet-{{$Pet->id}}" value="{{$Pet->id}}" @if(request()->pet_id == $Pet->id) checked @endif name="pet_id">
+                                                            <label for="pet-{{$Pet->id}}"><span>{{$Pet->title}}</span></label>
                                                         </div>
                                                     </li>
                                                 @empty

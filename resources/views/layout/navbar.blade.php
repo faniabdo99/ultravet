@@ -1,6 +1,6 @@
 <div class="backtotop"><a href="#" class="scroll"><i class="far fa-arrow-up"></i></a></div>
-<header class="header_section @if(request()->route()->getName() == 'home') header_transparent @else header_default @endif">
-    @if(request()->route()->getName() != 'home')
+<header class="header_section @if(request()->route() && request()->route()->getName() == 'home') header_transparent @else header_default @endif">
+    @if(request()->route() && request()->route()->getName() != 'home')
         <div class="header_top">
             <div class="container">
                 <ul class="social_links unorder_list">
@@ -18,7 +18,7 @@
     <div class="header_bottom">
     @endif
         <div class="container">
-            <div class="site_logo"><a href="index.html"><img class="logo_before" src="{{ url('public') }}/images/logo/logo.svg" alt="Petopia Logo"></a></div>
+            <div class="site_logo"><a href="{{route('home')}}"><img class="logo_before" src="{{ url('public') }}/images/logo/logo.svg" alt="Petopia Logo"></a></div>
             <nav class="main_menu navbar navbar-expand-lg">
                 <div class="main_menu_inner collapse navbar-collapse" id="main_menu_dropdown">
                     <ul class="main_menu_list unorder_list_center">
@@ -86,7 +86,7 @@
                 @endauth
             </ul>
         </div>
-    @if(request()->route()->getName() != "home")
+    @if(request()->route() && request()->route()->getName() != "home")
         </div>
     @endif
 </header>

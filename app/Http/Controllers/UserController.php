@@ -2,11 +2,11 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Hash;
-use Auth;
-use Session;
-use Mail;
-use Socialite;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Laravel\Socialite\Facades\Socialite;
 use App\Mail\ResetPassword;
 use App\Mail\WelcomeNewUser;
 class UserController extends Controller{
@@ -28,7 +28,7 @@ class UserController extends Controller{
          try {
              Mail::to($UserData['email'])->send(new WelcomeNewUser([$TheUser->id, md5($TheUser->id)]));
          } catch(\Exception $e){
-            //The error happend here
+            //The error happened here
          }
          //Log the user in
          Auth::loginUsingId($TheUser->id);

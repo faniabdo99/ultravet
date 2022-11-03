@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     public function up(){
-        Schema::table('brands', function (Blueprint $table) {
-            $table->boolean('is_featured')->default(false);
+        Schema::table('coupons', function (Blueprint $table) {
+            $table->integer('active')->default(true);
         });
     }
 
     public function down(){
-        Schema::table('brands', function (Blueprint $table) {
-            $table->dropColumn('is_featured');
+        Schema::table('coupons', function (Blueprint $table) {
+            $table->dropColumn('active');
         });
     }
 };

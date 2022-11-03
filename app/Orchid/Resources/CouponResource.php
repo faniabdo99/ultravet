@@ -3,6 +3,7 @@
 namespace App\Orchid\Resources;
 
 use Orchid\Crud\Resource;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\TD;
 use Orchid\Crud\ResourceRequest;
 use Illuminate\Database\Eloquent\Model;
@@ -50,6 +51,9 @@ class CouponResource extends Resource
                 ->title('Amount')
                 ->type('number')
                 ->required(),
+            CheckBox::make('active')
+                    ->title('Active')
+                    ->sendTrueOrFalse()
         ];
     }
 

@@ -28227,20 +28227,16 @@ hr {
 
 .category_item .item_image {
     z-index: 1;
-    width: 250px;
-    height: 220px;
-    flex: 0 0 250px;
+    width: 100px;
+    height: 100%;
+    flex: 0 0 150px;
     position: relative;
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    margin: -34px -15px -36px -72px
+    padding: 15px;
+    margin: -34px 0px -36px -20px;
 }
-
-.category_item .item_image img {
-    max-width: 220px
-}
-
 .category_item .item_content {
     flex: 1;
     z-index: 2;
@@ -28259,8 +28255,7 @@ hr {
 }
 
 .category_item .page_list ul {
-    width: 50%;
-    padding: 10px
+    padding: 10px;
 }
 
 .category_item .page_list li {

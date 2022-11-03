@@ -114,8 +114,7 @@
                         <div class="col col-lg-2"></div>
                         @forelse($FeaturedPets as $Pet)
                             <div class="col col-lg-4">
-                                <div class="category_item"
-                                    style="background-image: url('{{url('public')}}/images/shape/shape_path_2.svg');">
+                                <div class="category_item" style="background-image: url('{{url('public')}}/images/shape/shape_path_2.svg');">
                                     <div class="item_image"><img src="{{$Pet->imagePath}}" alt="{{$Pet->title}}"></div>
                                     <div class="item_content">
                                         <a href="{{route('product.pet' , $Pet->slug)}}">

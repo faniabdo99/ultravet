@@ -28,7 +28,7 @@
                                             <ul class="cart_btns_group">
                                                 <li><a href="#!">Add To Cart</a></li>
                                                 @auth
-                                                    <li><a href="#!"><i class="far fa-heart"></i></a></li>
+                                                    <li><a class="@if(isInUserWishlist(getUserId(), $Product->id)) active @endif add-to-wishlist" data-target="{{route('wishlist.add')}}" data-id="{{$Product->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="far fa-heart"></i></a></li>
                                                 @endauth
                                             </ul>
                                         </div>

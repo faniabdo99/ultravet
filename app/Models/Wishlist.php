@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Filters\Filterable;
-use Orchid\Screen\AsSource;
 use Illuminate\Database\Eloquent\SoftDeletes;
-class ProductVariation extends Model {
-    use HasFactory, AsSource, Filterable, Attachable, SoftDeletes;
+class Wishlist extends Model{
+    use SoftDeletes;
+    use HasFactory;
     protected $guarded = [];
     // Relations
     public function Product(){
@@ -21,7 +19,4 @@ class ProductVariation extends Model {
             'image' => url('storage/placeholder.png')
         ]);
     }
-    protected $allowedFilters = [
-        'product_id'
-    ];
 }

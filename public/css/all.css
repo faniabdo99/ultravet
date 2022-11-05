@@ -32244,3 +32244,7 @@ blockquote cite {
     width: 100%;
     height: 200px;
 }
+.add-to-wishlist.active{
+    background-color: #ca4e4e;
+    color: #fff;
+}

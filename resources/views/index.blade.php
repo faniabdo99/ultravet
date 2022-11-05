@@ -140,69 +140,6 @@
                 </div>
             </section>
             @include('includes.featured-products')
-            <div class="modal fade" id="quick_view_popup" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content"><button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"><i class="fal fa-times"></i></button>
-                        <div class="modal-body">
-                            <div class="product_details">
-                                <div class="row">
-                                    <div class="col col-lg-6">
-                                        <div class="details_image mb-0"><img src="{{url('public')}}/images/shop/product_img_27.jpg"
-                                                alt="Dog Residence Mat"></div>
-                                    </div>
-                                    <div class="col col-lg-6">
-                                        <div class="details_content">
-                                            <h2 class="item_title">Cat Collection</h2>
-                                            <p>Ornare arcu dui vivamus arcu felis bibendum ut. Auctor neque vitae tempus
-                                                quam pellentesque. Nibh ipsum consequat nisl vel pretium lectus quam.
-                                            </p>
-                                            <div class="item_review_info d-flex align-items-center">
-                                                <ul class="rating_star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <div class="review_counter"><span>2</span> Reviews</div>
-                                            </div>
-                                            <div class="item_price"><del>$12.39</del> <span>$7.99</span></div>
-                                            <ul class="cart_action_wrap unorder_list">
-                                                <li>
-                                                    <div class="quantity_wrap"><span class="quantity_title">Qty:</span>
-                                                        <form action="#">
-                                                            <div class="quantity_form"><button type="button"
-                                                                    class="input_number_decrement"><i
-                                                                        class="far fa-angle-down"></i></button> <input
-                                                                    class="input_number" type="text" value="1"> <button
-                                                                    type="button" class="input_number_increment"><i
-                                                                        class="far fa-angle-up"></i></button></div>
-                                                        </form>
-                                                    </div>
-                                                </li>
-                                                <li><a class="btn btn_primary addtocart_btn" href="service.html"><i
-                                                            class="fas fa-paw"></i> Add to Cart</a></li>
-                                            </ul>
-                                            <ul class="details_item_info icon_list unorder_list_block">
-                                                <li><strong>SKU:</strong> <span>74141</span></li>
-                                                <li class="categories_tags"><strong>Categories:</strong> <span><a
-                                                            href="#!">Toys</a> <a href="#!">Other</a></span></li>
-                                                <li class="categories_tags"><strong>Tags:</strong> <span><a
-                                                            href="#!">Beds</a> <a href="#!">Other</a></span></li>
-                                                <li class="share_links"><strong>Share:</strong> <span><a href="#!"><i
-                                                                class="fab fa-instagram"></i></a> <a href="#!"><i
-                                                                class="fab fa-twitter"></i></a> <a href="#!"><i
-                                                                class="fab fa-whatsapp"></i></a></span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <section class="offer_banner_section section_space_md">
                 <div class="container">
                     <div class="row">

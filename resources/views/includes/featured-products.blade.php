@@ -11,22 +11,16 @@
                     <div class="product_item">
                         <div class="item_image">
                             <a class="image_wrap" href="{{route('product.single' , [$Product->slug, $Product->id])}}">
-                                <img src="{{$Product->imagePath}}" alt="{{$Product->title}}"></a>
+                            <img src="{{$Product->imagePath}}" alt="{{$Product->title}}"></a>
                             <ul class="cart_btns_group">
                                 <li><a href="#!">Add To Cart</a></li>
-                                <li><a href="#!"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#!" data-bs-toggle="modal" data-bs-target="#quick_view_popup"><i class="far fa-eye"></i></a></li>
+                                @auth
+                                    <li><a class="@if(isInUserWishlist(getUserId(), $Product->id)) active @endif add-to-wishlist" data-target="{{route('wishlist.add')}}" data-id="{{$Product->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="far fa-heart"></i></a></li>
+                                @endauth
                             </ul>
                         </div>
                         <div class="item_content">
                             <h3 class="item_title"><a href="{{route('product.single' , [$Product->slug, $Product->id])}}">{{$Product->title}}</a></h3>
-                            <ul class="rating_star">
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                            </ul>
                             <div class="item_price"><span>${{$Product->price}}</span></div>
                         </div>
                     </div>

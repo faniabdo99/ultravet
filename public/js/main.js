@@ -266,6 +266,7 @@ $(document).on('submit', '.addtocart_form', function(e) {
         }
     });
 });
+
 //Delete item from cart
 $('.delete-from-cart').click(function(e){
     e.preventDefault();
@@ -287,6 +288,41 @@ $('.delete-from-cart').click(function(e){
         error: function(response){
             //TODO: Add an error message or something
             console.log(response);
+        }
+    });
+});
+
+// Add item to wishlist
+$(document).on('click', '.add-to-wishlist', function(e){
+    let That = $(this);
+    let ItemId = $(this).data('id');
+    let UserId = $(this).data('user');
+    let Target = $(this).data('target');
+    //Change the button to loader
+    That.html('<i class="fas fa-spinner fa-spin"></i>');
+    $.ajax({
+        url : Target,
+        method: 'post',
+        data: {
+            'product_id': ItemId,
+            'user_id': UserId
+        },
+        success: function(response){
+            That.html('<i class="far fa-heart"></i>');
+            That.addClass('active');
+        },
+        error: function(response){
+            $('body').append(`
+                    <div class="notification error-notification">
+                        <div class="notification-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="notification-content">
+                            <b>Error!</b>
+                            <p class="mb-0">${response.responseText}</p>
+                        </div>
+                    </div>`);
+            That.html('<i class="far fa-heart"></i>');
         }
     });
 });

@@ -80,6 +80,7 @@
                         </button>
                     <div class="cart_dropdown dropdown-menu" aria-labelledby="cart_dropdown">
                         <a class="btn border_primary" href="cart.html">View Profile</a>
+                        <a class="btn border_primary" href="{{route('user.wishlist')}}">My Wishlist</a>
                         <a class="btn btn_primary" href="{{route('user.logout')}}">Logout</a>
                     </div>
                 </li>

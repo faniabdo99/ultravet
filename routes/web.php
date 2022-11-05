@@ -27,6 +27,7 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     //User must be logged-in to view these routes
     Route::get('logout' , [UserController::class, 'logout'])->name('user.logout');
+    Route::get('wishlist', [UserController::class, 'getWishlist'])->name('user.wishlist');
 });
 Route::get('activate/{id}/{hash}' , [UserController::class, 'activate'])->name('user.activate');
 

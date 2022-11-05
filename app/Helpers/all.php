@@ -4,6 +4,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Setting;
+use App\Models\Wishlist;
 use Illuminate\Support\Facades\Cookie;
 function getBrands($featured = false) {
     if($featured){
@@ -55,6 +56,14 @@ function getExchangeRate(){
 }
 function isInUserCart($user_id , $product_id){
     $TheItem = Cart::where('user_id',$user_id)->where('product_id' , $product_id)->where('status' , 'active')->first();
+    if($TheItem){
+        return true;
+    }else{
+        return false;
+    }
+}
+function isInUserWishlist($user_id , $product_id){
+    $TheItem = Wishlist::where('user_id',$user_id)->where('product_id' , $product_id)->first();
     if($TheItem){
         return true;
     }else{

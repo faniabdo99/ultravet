@@ -63,4 +63,9 @@ class User extends Authenticatable{
         'updated_at',
         'created_at',
     ];
+
+    // Relations
+    public function Wishlist(){
+        return $this->hasMany(Wishlist::class, 'user_id');
+    }
 }

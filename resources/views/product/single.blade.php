@@ -76,9 +76,15 @@
                                     @if ($TheProduct->sku)
                                         <li><strong>SKU:</strong> <span>{{$TheProduct->sku}}</span></li>
                                     @endif
-                                    <li class="categories_tags"><strong>Category:</strong> <span><a href="#!">{{$TheProduct->Category->title}}</a></span></li>
-                                    <li class="categories_tags"><strong>Brand:</strong> <span><a href="{{route('product.pet' , $TheProduct->Brand->slug)}}">{{$TheProduct->Brand->title}}</a></span></li>
-                                    <li class="categories_tags"><strong>For Pet:</strong> <span><a href="{{route('product.pet' , $TheProduct->Pet->slug)}}">{{$TheProduct->Pet->title}}</a></span></li>
+                                    @if($TheProduct->Category->slug != 'deleted-category' && $TheProduct->Pet->slug != 'deleted-pet')
+                                        <li class="categories_tags"><strong>Category:</strong> <span><a href="{{route('product.category-brand' , [$TheProduct->Category->slug, $TheProduct->Pet->slug])}}">{{$TheProduct->Category->title}}</a></span></li>
+                                    @endif
+                                    @if($TheProduct->Brand->slug != 'deleted-brand')
+                                        <li class="categories_tags"><strong>Brand:</strong> <span><a href="{{route('product.pet' , $TheProduct->Brand->slug)}}">{{$TheProduct->Brand->title}}</a></span></li>
+                                    @endif
+                                    @if($TheProduct->Pet->slug != 'deleted-pet')
+                                        <li class="categories_tags"><strong>For Pet:</strong> <span><a href="{{route('product.pet' , $TheProduct->Pet->slug)}}">{{$TheProduct->Pet->title}}</a></span></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -91,11 +97,7 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="tab_additional_info" role="tabpanel">
                                 <ul class="additional_info_table unorder_list_block">
-                                    <li><span>Brand</span> <span>Envato</span></li>
-                                    <li><span>Color</span> <span>Black</span></li>
-                                    <li><span>Size</span> <span>Medium</span></li>
-                                    <li><span>Weight</span> <span>27 KG</span></li>
-                                    <li><span>Dimensions</span> <span>16x22x123 CM</span></li>
+                                    <li><span>Brand</span> <span>{{$TheProduct->Brand->title}}</span></li>
                                 </ul>
                             </div>
                             <div class="tab-pane fade" id="tab_description" role="tabpanel">

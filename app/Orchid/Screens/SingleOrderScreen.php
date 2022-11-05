@@ -94,6 +94,14 @@ class SingleOrderScreen extends Screen
                     $ToReturn = '<ul>';
                     foreach($model->Products as $Item){
                         $ToReturn .= '<li><a target="_blank" href="'.route('product.single' , [$Item->Product->slug,$Item->Product->id]).'">'.$Item->Product->title.' <b>X'.$Item->Cart->qty.'</b></a></li>';
+                        if($Item->Cart->product_variations){
+                            $VariationsArray = unserialize($Item->Cart->product_variations);
+                            // Remove the default values, all the reset are variations
+                            unset($VariationsArray['qty'],$VariationsArray['product_id'],$VariationsArray['user_id']);
+                            foreach ($VariationsArray as $key => $Variation) {
+                                $ToReturn .= "<b>".str_replace('variation_' , '' ,$key).": </b>" .$Variation. "<br>";
+                            }
+                        }
                     }
                     $ToReturn .= '</ul>';
                     return $ToReturn;

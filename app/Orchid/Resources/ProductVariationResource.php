@@ -47,8 +47,9 @@ class ProductVariationResource extends Resource {
             TD::make('id'),
             TD::make('label', 'Label'),
             TD::make('value', 'Value'),
-            TD::make('product_id', 'Product ID'),
+            TD::make('product_id', 'Product ID')->filter(),
             TD::make('product', 'Product')
+                ->filter()
                 ->render(function ($model){
                     return $model->Product->title;
                 }),

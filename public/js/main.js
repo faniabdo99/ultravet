@@ -234,26 +234,22 @@
     });
 }(jQuery);
 //Cart system
-$(document).on('click', '.addtocart_btn', function() {
+$(document).on('submit', '.addtocart_form', function(e) {
+    e.preventDefault();
     let That = $(this);
     let ItemId = $(this).data('id');
     let UserId = $(this).data('user');
     let Target = $(this).data('target');
-    let Qty = parseInt($("input[name='qty']").val());
     //Change the button to loader
-    $(this).html('<i class="fas fa-spinner fa-spin"></i>');
+    That.find('button').html('<i class="fas fa-spinner fa-spin"></i>');
     $.ajax({
         url : Target,
         method: 'post',
-        data:{
-            'product_id':ItemId,
-            'user_id':UserId,
-            'qty': (Qty) ? Qty : 1
-        },
+        data: That.serialize(),
         success: function(response){
             //Show the modal here
             $('#added-to-cart-success').fadeIn('fast');
-            That.html('<i class="fas fa-check"></i> Added to cart');
+            That.find('button').html('<i class="fas fa-check"></i> Added to cart');
         },
         error: function(response){
             $('body').append(`
@@ -266,7 +262,7 @@ $(document).on('click', '.addtocart_btn', function() {
                             <p class="mb-0">${response.responseText}</p>
                         </div>
                     </div>`);
-            That.html('<i class="fas fa-cart-plus"></i> Add to cart');
+            That.find('button').html('<i class="fas fa-cart-plus"></i> Add to cart');
         }
     });
 });

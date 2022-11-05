@@ -60,4 +60,14 @@ class ProductController extends Controller{
         $ThePet = Pet::where('slug' , $slug)->firstOrFail();
         return view('product.pet' , compact('ThePet'));
     }
+    public function getCategoryBrand($CategorySlug, $PetSlug){
+        // Get all products that match the category and brand
+        $TheCategoryId = Category::where('slug' , $CategorySlug)->firstOrFail()->id;
+        $ThePetId = Pet::where('slug' , $PetSlug)->firstOrFail()->id;
+        $AllProducts = Product::where([
+            ['category_id' , $TheCategoryId],
+            ['pet_id' , $ThePetId],
+        ])->get();
+        return view('product.filter' , compact('AllProducts'));
+    }
 }

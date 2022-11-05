@@ -35,35 +35,43 @@
                             <div class="details_content">
                                 <h2 class="item_title">{{$TheProduct->title}}</h2>
                                 <p>{{$TheProduct->description}}</p>
-                                <div class="item_review_info d-flex align-items-center">
-                                    <ul class="rating_star">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <div class="review_counter"><span>2</span> Reviews</div>
-                                </div>
                                 @if($TheProduct->has_discount)
                                     <div class="item_price"><del>{{$TheProduct->price}}$</del> <span>{{$TheProduct->finalPrice}}$</span></div>
                                 @else
                                     <div class="item_price"><span>{{$TheProduct->price}}$</span></div>
                                 @endif
-                                <ul class="cart_action_wrap unorder_list">
-                                    <li>
-                                        <div class="quantity_wrap"><span class="quantity_title">Qty:</span>
-                                            <div class="quantity_form">
-                                                <input class="input_number" name="qty" type="number" min="0" placeholder="1">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    @if($TheProduct->cartReady)
-                                        <li><a class="btn btn_primary addtocart_btn" data-id="{{$TheProduct->id}}" data-user="{{getUserId()}}" data-target="{{route('cart.add')}}" href="javascript:;"><i class="fas fa-paw"></i> Add to Cart</a></li>
-                                    @else
-                                        <li><b><i>Out of Stock</i></b></li>
+                                <form class="addtocart_form" data-target="{{route('cart.add')}}">
+                                    <input type="hidden" name="product_id" value="{{$TheProduct->id}}" />
+                                    <input type="hidden" name="user_id" value="{{getUserId()}}" />
+                                    @if($TheProduct->Variations->count())
+                                        {{-- Display all possible variations --}}
+                                        @forelse($TheProduct->Variations->groupBy('label') as $ProductVariation)
+                                            <label class="d-block" for="{{$ProductVariation[0]->label}}">{{$ProductVariation[0]->label}}: </label>
+                                            <select id="{{$ProductVariation[0]->label}}" class="w-100 mb-2" name="variation_{{$ProductVariation[0]->label}}">
+                                                <option value="">Choose {{$ProductVariation[0]->label}}</option>
+                                                @forelse($ProductVariation as $Variation)
+                                                    <option value="{{$Variation->value}}">{{$Variation->value}}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+                                        @empty
+                                        @endforelse
                                     @endif
-                                </ul>
+                                    <ul class="cart_action_wrap unorder_list">
+                                        <li>
+                                            <div class="quantity_wrap"><span class="quantity_title">Qty:</span>
+                                                <div class="quantity_form">
+                                                    <input class="input_number" name="qty" type="number" min="0" placeholder="1">
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @if($TheProduct->cartReady)
+                                            <li><button class="btn btn_primary" type="submit"><i class="fas fa-paw"></i> Add to Cart</button></li>
+                                        @else
+                                            <li><b><i>Out of Stock</i></b></li>
+                                        @endif
+                                    </ul>
+                                </form>
                                 <ul class="details_item_info icon_list unorder_list_block">
                                     @if ($TheProduct->sku)
                                         <li><strong>SKU:</strong> <span>{{$TheProduct->sku}}</span></li>

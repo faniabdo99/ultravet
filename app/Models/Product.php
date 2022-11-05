@@ -37,6 +37,9 @@ class Product extends Model {
             'slug' => 'deleted-discount',
         ]);
     }
+    public function Variations(){
+        return $this->hasMany(ProductVariation::class, 'product_id');
+    }
     //Custom Attributes & Methods
     public function getImagePathAttribute(){
         return url($this->image);

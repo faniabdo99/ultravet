@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
-    public function getAll()
-    {
+    public function getAll() {
         $CartHasCoupon = false;
         $AppliedCoupon = null;
         $CouponDiscount = 0;
@@ -44,13 +43,13 @@ class CartController extends Controller
         return view('order.cart', compact('Cart', 'Total', 'CartHasCoupon', 'AppliedCoupon', 'CouponDiscount', 'SubTotal'));
     }
 
-    public function addToCart(Request $r)
-    {
+    public function addToCart(Request $r) {
         /*
             Add an Item to Cart
             #1 Check if the requested data available in inventory
             #2 Check if the item already exist, if so add to the current value
         */
+        $r->qty = ($r->qty) ? intval($r->qty) : 1;
         //Validate the Request
         $Rules = [
             'user_id' => 'required',
@@ -77,6 +76,7 @@ class CartController extends Controller
                             'product_id' => $TheProduct->id,
                             'user_id' => $r->user_id,
                             'status' => 'active',
+                            'product_variations' => (count($r->all()) > 3) ? serialize($r->all()) : null,
                             'qty' => $r->qty
                         ]);
                     }
@@ -95,9 +95,8 @@ class CartController extends Controller
     {
         $TheCart = Cart::findOrFail($r->cart_id);
         //Make the item available again
-        $TheCart->Product->update([
-            'status' => 'Available'
-        ]);
+        $TheCart->Product->increment('qty', $TheCart->qty);
+        $TheCart->Product->update(['status' => 'available']);
         //Remove the item from cart
         $TheCart->update([
             'status' => 'deleted'

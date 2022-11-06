@@ -20,7 +20,7 @@
                 <div class="col col-lg-3 col-md-6 col-sm-6">
                     <div class="footer_widget footer_about">
                         <div class="site_logo"><a href="{{route('home')}}"><img class="logo_before"
-                                    src="{{url('public')}}/images/logo/logo.svg" alt="Petopia Logo"></a></div>
+                                    src="{{url('public')}}/images/logo/logo.png" alt="Petopia Logo"></a></div>
                         <p>Tristique nulla aliquet enim tortor at auctor urna nunc. Massa enim nec dui nunc
                             mattis enim ut tellus. Sed ut perspiciatis unde ...</p>
                         <div class="footer_hotline iconbox_item iconbox_lefticon">

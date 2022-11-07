@@ -27,14 +27,15 @@ class CartController extends Controller
         });
         $SubTotal = $CartSubTotalArray->sum();
         //Check id there is a coupon code applied
-        if (isset($Cart->first()->applied_coupon)) {//There is an applied coupon
+        if (isset($Cart->first()->applied_coupon)) {
+            //There is an applied coupon
             $CartHasCoupon = true;
             $AppliedCoupon = $Cart->first()->applied_coupon;
             $CouponData = explode('-', $Cart->first()->coupon_amount);
             if ($CouponData[1] == 'fixed') {
                 $CouponDiscount = $CouponData[0];
             } elseif ($CouponData[1] == 'percent') {
-                $CouponDiscount = ($Total * $CouponData[0]) / 100;
+                $CouponDiscount = ($SubTotal * $CouponData[0]) / 100;
             } else {
                 $CouponDiscount = $CouponData[0];
             }
@@ -91,8 +92,7 @@ class CartController extends Controller
         }
     }
 
-    public function delete(Request $r)
-    {
+    public function delete(Request $r) {
         $TheCart = Cart::findOrFail($r->cart_id);
         //Make the item available again
         $TheCart->Product->increment('qty', $TheCart->qty);
@@ -103,4 +103,6 @@ class CartController extends Controller
         ]);
         return response('Item deleted successfully', 200);
     }
+
+
 }

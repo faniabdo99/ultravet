@@ -20,39 +20,7 @@
                     <div class="col col-lg-9">
                         <div class="row">
                             @forelse($AllProducts as $Product)
-                                <div class="col col-lg-4 col-md-6 col-sm-6">
-                                    <div class="product_item">
-                                        <div class="item_image">
-                                            <a class="image_wrap" href="{{route('product.single' , [$Product->slug, $Product->id])}}">
-                                                <img src="{{$Product->imagePath}}" alt="{{$Product->title}}">
-                                            </a>
-                                            <ul class="cart_btns_group">
-                                                <li><a href="#!">Add To Cart</a></li>
-                                                @auth
-                                                    <li><a class="@if(isInUserWishlist(getUserId(), $Product->id)) active @endif add-to-wishlist" data-target="{{route('wishlist.add')}}" data-id="{{$Product->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="far fa-heart"></i></a></li>
-                                                @endauth
-                                            </ul>
-                                        </div>
-                                        <div class="item_content">
-                                            <h3 class="item_title"><a href="{{route('product.single' , [$Product->slug, $Product->id])}}">{{$Product->title}}</a></h3>
-                                            <ul class="rating_star">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <div class="item_price">
-                                                @if($Product->hasDiscount)
-                                                    <del>{{$Product->price}}$</del>
-                                                    <span>{{$Product->finalPrice}}$</span>
-                                                @else
-                                                    <span>{{$Product->finalPrice}}$</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <x-product-card :product="$Product"></x-product-card>
                             @empty
                                 <p>There are no products to show at the moment</p>
                             @endforelse

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CouponController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -28,6 +29,7 @@ Route::middleware('auth')->group(function(){
     //User must be logged-in to view these routes
     Route::get('logout' , [UserController::class, 'logout'])->name('user.logout');
     Route::get('wishlist', [UserController::class, 'getWishlist'])->name('user.wishlist');
+    Route::get('orders' , [UserController::class, 'getOrders'])->name('user.orders');
 });
 Route::get('activate/{id}/{hash}' , [UserController::class, 'activate'])->name('user.activate');
 
@@ -49,4 +51,5 @@ Route::prefix('order')->group(function(){
     Route::get('cart' , [CartController::class, 'getAll'])->name('cart.all');
     Route::get('checkout' , [CheckoutController::class, 'getCheckout'])->name('checkout.get');
     Route::post('checkout' , [CheckoutController::class, 'postCheckout'])->name('checkout.post');
+    Route::post('apply-cuopon' , [CouponController::class, 'applyCoupon'])->name('checkout.applyCoupon');
 });

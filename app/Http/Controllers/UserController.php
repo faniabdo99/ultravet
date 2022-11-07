@@ -147,6 +147,9 @@ class UserController extends Controller{
     public function getWishlist(){
         return view('auth.wishlist');
     }
+    public function getOrders(){
+        return view('auth.orders');
+    }
     public function logout(){
         Session::flush();
         Auth::logout();

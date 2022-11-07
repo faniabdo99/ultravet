@@ -3,11 +3,8 @@
 <div class="body_wrap">
     @include('layout.navbar')
     <main>
-        <section class="cart_section section_space_lg">
+        <section class="cart_section">
             <div class="container">
-                <div class="section_title">
-                    <h2 class="title_text mb-0">Your Cart</h2>
-                </div>
                 <div class="cart_table_wrap">
                     <div class="table_header d-none d-lg-block">
                         <ul class="table_wrap unorder_list">
@@ -46,14 +43,19 @@
                             </ul>
                         @empty
                         @endforelse
-
                     </div>
                     <div class="table_footer">
                         <div class="row align-items-center">
                             <div class="col col-lg-6">
                                 <div class="coupon_form">
-                                    <form action="#">
-                                        <div class="form_item mb-0"><input type="text" name="coupon" placeholder="Coupon Code"><button type="submit" class="btn border_primary">Apply Coupon</button></div>
+                                    <form action="{{route('checkout.applyCoupon')}}" method="post">
+                                        @csrf
+                                        <div class="form_item mb-0">
+                                            <input type="text" name="coupuon_code" placeholder="Coupon Code" @if($CartHasCoupon) disabled value="Coupon: {{$AppliedCoupon}} (-{{$CouponDiscount}}$)" @endif>
+                                            @if(!$CartHasCoupon)
+                                                <button type="submit" class="btn border_primary">Apply Coupon</button>
+                                            @endif
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -71,8 +73,13 @@
                             </div>
                             <div class="col col-lg-6">
                                 <ul class="subtotal_info unorder_list_block">
-                                    <li>Subtotal before delivery</li>
+                                    <li>Subtotal</li>
                                     <li>{{$SubTotal}}$</li>
+                                    @if($CartHasCoupon)
+                                        <li class="text-success">{{$AppliedCoupon}} (-{{$CouponDiscount}}$)</li>
+                                        <li>Total</li>
+                                        <li>{{$Total}}$</li>
+                                    @endif
                                     <li><a class="btn btn_primary" href="{{route('checkout.get')}}"><i class="fas fa-paw"></i> Checkout</a></li>
                                 </ul>
                             </div>

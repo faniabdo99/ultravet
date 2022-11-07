@@ -233,6 +233,41 @@
         });
     });
 }(jQuery);
+// Quick add to cart
+$(document).on('click', '.quick-add-to-cart', function(e) {
+    let That = $(this);
+    let ItemId = $(this).data('id');
+    let UserId = $(this).data('user');
+    let Target = $(this).data('target');
+    //Change the button to loader
+    That.html('<i class="fas fa-spinner fa-spin"></i>');
+    $.ajax({
+        url : Target,
+        method: 'post',
+        data: {
+            user_id: UserId,
+            product_id: ItemId
+        },
+        success: function(response){
+            //Show the modal here
+            $('#added-to-cart-success').fadeIn('fast');
+            That.html('In Cart');
+        },
+        error: function(response){
+            $('body').append(`
+                    <div class="notification error-notification">
+                        <div class="notification-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="notification-content">
+                            <b>Error!</b>
+                            <p class="mb-0">${response.responseText}</p>
+                        </div>
+                    </div>`);
+            That.html('Add to cart');
+        }
+    });
+});
 //Cart system
 $(document).on('submit', '.addtocart_form', function(e) {
     e.preventDefault();

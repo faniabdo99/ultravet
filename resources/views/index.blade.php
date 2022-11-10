@@ -14,7 +14,7 @@
                         </div>
                         <div class="col col-lg-6">
                             <div class="banner_content">
-                                <h1 class="banner_title"><span class="banner_sub_title">We care for your pets</span> We
+                                <h1 class="banner_title"><span class="banner_sub_title">We treat your pet like family</span> We
                                     Help You Care for Animals with Nutrition</h1>
                                 <p class="banner_description">All offers are subject to availability. Ut tortor pretium
                                     viverra suspendisse potenti nullam ac tortor vitae. Consectetur a erat nam at.

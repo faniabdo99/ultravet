@@ -122,4 +122,11 @@ class PetResource extends Resource {
         ]);
         $model->delete();
     }
+    /**
+     * @return string|null
+     * This function adds an option to the roles actions list in the admin panel
+     */
+    public static function permission(): ?string {
+        return 'private-pet-resource';
+    }
 }

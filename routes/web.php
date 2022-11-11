@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -10,6 +11,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
+// Helpers & Utilities
+Route::get('switch-currency', [SettingController::class , 'getSwitchCurrency'] )->name('switchCurrency.get');
 Route::get('/', [HomeController::class, 'getHome'])->name('home');
 //Authentication System
 Route::middleware('guest')->group(function(){

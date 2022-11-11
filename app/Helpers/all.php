@@ -43,17 +43,6 @@ function getCurrency(){
     }
     return ['symbol' => $CurrencySymbol,'code' => $CurrencyCode];
 }
-function convertCurrency($amount , $from , $to){
-    //Check Old Data
-    if($to == 'USD'){
-        return $amount;
-    }else{
-        return ceil(intval($amount) * Setting::first()->lb_usd_exchange_rate);
-    }
-}
-function getExchangeRate(){
-    return Setting::first()->lb_usd_exchange_rate;
-}
 function isInUserCart($user_id , $product_id){
     $TheItem = Cart::where('user_id',$user_id)->where('product_id' , $product_id)->where('status' , 'active')->first();
     if($TheItem){
@@ -87,4 +76,21 @@ function getCartTotal(){
         }
     });
     return $CartSubTotalArray->sum();
+}
+function getExchangeRate(){
+    return Setting::first()->lb_usd_exchange_rate ?? 150;
+}
+function convertCurrency($amount , $to){
+    if($to == 'usd'){
+        return $amount;
+    }else{
+        return ceil(intval($amount) * getExchangeRate());
+    }
+}
+function getCurrencySymbole($currency){
+    if ($currency == 'lbp') {
+        return 'lbp';
+    }else{
+        return '$';
+    }
 }

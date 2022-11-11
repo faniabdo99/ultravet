@@ -12,6 +12,11 @@
                 <ul class="icon_list unorder_list">
                     <li><a href="#!"><i class="fas fa-phone"></i> <span>0000 - 123456789</span></a></li>
                     <li><a href="#!"><i class="fas fa-envelope"></i> <span>info@example.com</span></a></li>
+                    <li>
+                        <a href="{{route('switchCurrency.get' , ['currency' => 'usd'])}}">USD</a>
+                        <span class="text-white">|</span>
+                        <a href="{{route('switchCurrency.get' , ['currency' => 'lbp'])}}">LBP</a>
+                    </li>
                 </ul>
             </div>
         </div>

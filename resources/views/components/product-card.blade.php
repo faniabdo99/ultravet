@@ -28,10 +28,10 @@
             </ul>
             <div class="item_price">
                 @if($product->hasDiscount)
-                    <del>{{$product->price}}$</del>
-                    <span>{{$product->finalPrice}}$</span>
+                    <del>{{convertCurrency($product->price, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</del>
+                    <span>{{convertCurrency($product->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span>
                 @else
-                    <span>{{$product->finalPrice}}$</span>
+                    <span>{{convertCurrency($product->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span>
                 @endif
             </div>
         </div>

@@ -113,10 +113,10 @@
                                                     <h3 class="item_title"><a href="{{route('product.single' , [$FProduct->slug, $FProduct->id])}}">{{$FProduct->title}}</a></h3>
                                                     <div class="item_price">
                                                         @if($FProduct->hasDiscount)
-                                                            <del>{{$FProduct->price}}$</del>
-                                                            <span>{{$FProduct->finalPrice}}$</span>
+                                                            <del>{{convertCurrency($FProduct->price, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</del>
+                                                            <span>{{convertCurrency($FProduct->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span>
                                                         @else
-                                                            <span>{{$FProduct->finalPrice}}$</span>
+                                                            <span>{{convertCurrency($FProduct->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span>
                                                         @endif
                                                     </div>
                                                 </div>

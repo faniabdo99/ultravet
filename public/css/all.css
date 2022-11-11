@@ -27662,7 +27662,6 @@ hr {
     font-weight: 700;
     line-height: 30px;
     color: #0e081e;
-    margin-bottom: 20px
 }
 
 .sb_widget_title[data-bs-toggle=collapse] {
@@ -32243,6 +32242,20 @@ blockquote cite {
     border-radius: 4px;
     font-size: 0.8em;
     padding:5px 10px;
+    margin-bottom: 5px;
+}
+@media screen and (max-width: 768px){
+    #added-to-cart-success{
+        position: fixed;
+        bottom: 25px;
+        right: 0px;
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: 0px 0px 10px rgba(0 ,0 ,0 ,0.25);
+        z-index: 99999;
+        background-color: #fff;
+        padding: 40px;
+    }
 }
 .footer-map-iframe{
     width: 100%;

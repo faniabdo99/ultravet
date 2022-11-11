@@ -4,7 +4,7 @@
         @include('layout.navbar')
         <main>
             <section class="banner_section banner_style_2 decoration_wrap"
-                style="background-image: url('{{url('public')}}/images/banner/shape_banner_bg.svg');">
+                style="background-image: url('{{url('public')}}/images/banner/shape_banner_bg.png');">
                 <div class="section_overlay"
                     style="background-image: url('{{url('public')}}/images/overlay/shapes_overlay_2.svg');"></div>
                 <div class="container">

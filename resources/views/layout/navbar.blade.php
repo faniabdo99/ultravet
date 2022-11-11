@@ -42,16 +42,11 @@
                 </div>
             </nav>
             <ul class="header_btns_group unorder_list_right">
-                <li><button class="mobile_menu_btn" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false"
-                        aria-label="Toggle navigation"><i class="far fa-bars"></i></button>
-                </li>
-
                 <li class="dropdown">
                     <button class="cart_btn" type="button" id="cart_dropdown" data-bs-toggle="dropdown"  aria-expanded="false">
                         <i class="fas fa-shopping-cart"></i>
                         <small class="cart_counter">{{userCart(getUserId())->count()}}</small>
-                        <span>item</span>
+                        <span class="d-none d-lg-inline d-md-inline">item</span>
                     </button>
                     <div class="cart_dropdown dropdown-menu" aria-labelledby="cart_dropdown">
                         <ul class="cart_items_list unorder_list_block">
@@ -77,13 +72,13 @@
                     </div>
                 </li>
                 @guest
-                    <li><a href="{{route('user.getSignup')}}" class="cart_btn"><i class="fas fa-user"></i> Signup</a></li>
-                    <li><a href="{{route('user.getLogin')}}" class="cart_btn"><i class="fas fa-user"></i> Login</a></li>
+                    <li><a href="{{route('user.getSignup')}}" class="cart_btn"><i class="fas fa-user"></i> <span class="d-none d-lg-inline d-md-inline">Signup</span></a></li>
+                    <li><a href="{{route('user.getLogin')}}" class="cart_btn"><i class="fas fa-user"></i> <span class="d-none d-lg-inline d-md-inline">Login</span></a></li>
                 @endguest
                 @auth
                     <li class="dropdown">
                         <button class="cart_btn" type="button" id="cart_dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user"></i><span>{{auth()->user()->name}}</span>
+                            <i class="fas fa-user"></i><span class="d-none d-lg-inline d-md-inline">{{auth()->user()->name}}</span>
                         </button>
                     <div class="cart_dropdown dropdown-menu" aria-labelledby="cart_dropdown">
                         <a class="btn border_primary" href="{{route('user.orders')}}">My Orders</a>
@@ -92,6 +87,11 @@
                     </div>
                 </li>
                 @endauth
+                <li class="d-lg-none">
+                    <button class="mobile_menu_btn" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false"
+                            aria-label="Toggle navigation"><i class="far fa-bars"></i></button>
+                </li>
             </ul>
         </div>
     @if(request()->route() && request()->route()->getName() != "home")

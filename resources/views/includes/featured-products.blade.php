@@ -13,7 +13,13 @@
                             <a class="image_wrap" href="{{route('product.single' , [$Product->slug, $Product->id])}}">
                             <img src="{{$Product->imagePath}}" alt="{{$Product->title}}"></a>
                             <ul class="cart_btns_group">
-                                <li><a href="#!">Add To Cart</a></li>
+                                @if(isInUserCart(getUserId(), $Product->id))
+                                    <li><a href="javascript:;">In Cart</a></li>
+                                @else
+                                    @if($Product->CartReady)
+                                        <li><a class="quick-add-to-cart" data-id="{{$Product->id}}" data-user="{{getUserId()}}" data-target="{{route('cart.add')}}" href="javascript:;">Add To Cart</a></li>
+                                    @endif
+                                @endif
                                 @auth
                                     <li><a class="@if(isInUserWishlist(getUserId(), $Product->id)) active @endif add-to-wishlist" data-target="{{route('wishlist.add')}}" data-id="{{$Product->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="far fa-heart"></i></a></li>
                                 @endauth

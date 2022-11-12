@@ -7,8 +7,8 @@ use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Support\Facades\Validator;
 
-class CartController extends Controller
-{
+class CartController extends Controller {
+
     public function getAll() {
         $CartHasCoupon = false;
         $AppliedCoupon = null;
@@ -92,6 +92,35 @@ class CartController extends Controller
         }
     }
 
+    public function updateCartQty(Request $r, $id){
+        $Rules = [
+            'qty' => 'required',
+        ];
+        $Validator = Validator::make($r->all(), $Rules);
+        if ($Validator->fails()){
+            return back()->withErrors('Quantity cant be blank!');
+        }else{
+            $TheCartItem = Cart::find($id);
+            //Check if the product is available in inventory
+            $TheProduct = $TheCartItem->Product;
+            if ($TheProduct) {
+                if ($TheProduct->CartReady && $TheProduct->qty >= $r->qty) {
+                    // Decrease the product count
+                    // TODO: Find a logical way to calculate the stock, since the new qty is addition, the previous qty was already deducted
+                    $TheProduct->decrement('qty', $r->qty);
+                    // Add the item to the cart (or update existing cart)
+                    $TheCartItem->update(['qty' => $r->qty]);
+                    // Return the response
+                    return back()->withSuccess('Your cart has been updated!');
+                } else {
+                    return back()->withErrors('This amount is not available for sale right now');
+                }
+            } else {
+                return back()->withErrors('This product is not available for sale right now');
+            }
+        }
+    }
+
     public function delete(Request $r) {
         $TheCart = Cart::findOrFail($r->cart_id);
         //Make the item available again
@@ -103,6 +132,4 @@ class CartController extends Controller
         ]);
         return response('Item deleted successfully', 200);
     }
-
-
 }

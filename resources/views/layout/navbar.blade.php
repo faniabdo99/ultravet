@@ -24,7 +24,9 @@
     @endif
         <div class="container">
             <div class="site_logo">
-                <a href="{{route('home')}}"><img class="logo_before" src="{{ url('public') }}/images/logo/logo.png" alt="Petopia Logo"> Ultravet Mall</a>
+                <a href="{{route('home')}}"><img class="logo_before" src="{{ url('public') }}/images/logo/logo.png" alt="Ultravet Mall">
+                    <span class="d-none d-lg-inline d-md-inline">Ultravet Mall</span>
+                </a>
             </div>
             <nav class="main_menu navbar navbar-expand-lg">
                 <div class="main_menu_inner collapse navbar-collapse" id="main_menu_dropdown">
@@ -32,7 +34,8 @@
                         <li><a class="nav-link" href="{{route('home')}}">Home</a></li>
                         <li><a class="nav-link" href="{{route('product.all')}}">Shop</a></li>
                         <li><a class="nav-link" href="{{route('blog')}}">Blog</a></li>
-                        <li class="dropdown"><a class="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                        <li class="dropdown">
+                            <a class="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
                             <ul class="dropdown-menu" aria-labelledby="pages_submenu">
                                 <li><a href="{{route('about')}}">About Us</a></li>
                                 <li><a href="{{route('getContact')}}">Contact Us</a></li>
@@ -42,8 +45,9 @@
                 </div>
             </nav>
             <ul class="header_btns_group unorder_list_right">
+
                 <li class="dropdown">
-                    <button class="cart_btn" type="button" id="cart_dropdown" data-bs-toggle="dropdown"  aria-expanded="false">
+                    <button class="cart_btn" type="button" id="cart_dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-shopping-cart"></i>
                         <small class="cart_counter">{{userCart(getUserId())->count()}}</small>
                         <span class="d-none d-lg-inline d-md-inline">item</span>
@@ -59,7 +63,7 @@
                                         <h3 class="item_title"><a href="{{route('product.single', [$CartItem->Product->slug, $CartItem->Product->id])}}">{{$CartItem->Product->title}}</a></h3>
                                         <span class="item_price">{{$CartItem->qty}} × {{$CartItem->Product->finalPrice}}$</span>
                                     </div>
-                                    <button class="remove_btn delete-from-cart" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button"><i class="fal fa-times"></i></button>
+                                    <button class="remove_btn delete-from-cart" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button"><i class="fa fa-times"></i></button>
                                 </li>
                             @empty
                                 <li class="text-center">You don't have anything in your cart</li>

@@ -27320,10 +27320,6 @@ hr {
     border-top-left-radius: 0
 }
 
-.header_btns_group>li:first-child {
-    display: none
-}
-
 .header_btns_group>li:not(:last-child) {
     margin-right: 30px
 }
@@ -29508,13 +29504,13 @@ hr {
     font-family: Nunito, sans-serif;
     border-radius: 8px;
     color: #000;
-    border: 1px solid #00D9FF
+    border: 1px solid #000;
 }
 
 .cart_btn i {
     line-height: 1;
     margin-right: 8px;
-    color: #00D9FF;
+    color: #000;
     transition: .6s cubic-bezier(.165, .84, .44, 1)
 }
 
@@ -30477,18 +30473,17 @@ blockquote cite {
     .subscribe_wrap {
         padding: 120px 40px 150px
     }
-
-    .product_gallery_carousel {
-        padding-left: 110px
+    .product_gallery_carousel{
+        padding-left: 0px;
+        width: 100%;
     }
-
-    .product_gallery_carousel .product_gallery_nav {
-        max-width: 100px
-    }
-
     .product_gallery_carousel .product_gallery_nav .image_wrap {
         height: 100px;
         margin-bottom: 10px
+    }
+    .product_gallery_carousel .product_gallery_nav{
+        position: relative;
+        margin-top: 10px;
     }
 
     .details_info_box {
@@ -30500,9 +30495,9 @@ blockquote cite {
     }
 
     .tabs_nav_pill>li>button {
-        font-size: 18px;
+        font-size: 14px;
         line-height: 26px;
-        padding: 14px 26px
+        padding: 10px 20px
     }
 
     .sales_product_item .item_image {
@@ -32268,4 +32263,11 @@ blockquote cite {
 .site_logo a{
     color: #0b0b0b;
     font-weight: bold;
+}
+.update-qty-cart-button{
+    padding: 5px 10px;
+    background-color: #00D9FF;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
 }

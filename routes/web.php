@@ -54,5 +54,6 @@ Route::prefix('order')->group(function(){
     Route::get('cart' , [CartController::class, 'getAll'])->name('cart.all');
     Route::get('checkout' , [CheckoutController::class, 'getCheckout'])->name('checkout.get');
     Route::post('checkout' , [CheckoutController::class, 'postCheckout'])->name('checkout.post');
-    Route::post('apply-cuopon' , [CouponController::class, 'applyCoupon'])->name('checkout.applyCoupon');
+    Route::post('apply-coupon' , [CouponController::class, 'applyCoupon'])->name('checkout.applyCoupon');
+    Route::post('update-cart-qty/{id}' , [CartController::class, 'updateCartqty'])->name('cart.updateQty');
 });

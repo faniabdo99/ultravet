@@ -91,16 +91,16 @@
                     </div>
                     <div class="details_info_box">
                         <ul class="nav tabs_nav_pill" role="tablist">
-                            <li role="presentation"><button class="active" data-bs-toggle="tab" data-bs-target="#tab_additional_info" type="button" role="tab" aria-selected="false">Additional Info</button></li>
-                            <li role="presentation"><button data-bs-toggle="tab" data-bs-target="#tab_description" type="button" role="tab" aria-selected="true">Description</button></li>
+                            <li role="presentation"><button class="active" data-bs-toggle="tab" data-bs-target="#tab_description" type="button" role="tab" aria-selected="true">Description</button></li>
+                            <li role="presentation"><button data-bs-toggle="tab" data-bs-target="#tab_additional_info" type="button" role="tab" aria-selected="false">Additional Info</button></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="tab_additional_info" role="tabpanel">
+                            <div class="tab-pane fade" id="tab_additional_info" role="tabpanel">
                                 <ul class="additional_info_table unorder_list_block">
                                     <li><span>Brand</span> <span>{{$TheProduct->Brand->title}}</span></li>
                                 </ul>
                             </div>
-                            <div class="tab-pane fade" id="tab_description" role="tabpanel">
+                            <div class="tab-pane fade show active" id="tab_description" role="tabpanel">
                                 <h3>Product Description</h3>
                                 {!! $TheProduct->content !!}
                             </div>

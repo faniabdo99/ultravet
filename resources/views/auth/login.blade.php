@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-12">
                             <h1 class="text-center">Login to UltraVet</h1>
-                            <p class="text-center">Welcome back! login below</p>
+                            <p class="text-center">Welcome back! Don't have an account? <a href="{{route('user.getSignup')}}">Signup Now</a></p>
                             <form class="auth-form" action="{{route('user.postLogin')}}" method="post">
                                 @csrf
                                 <div class="form_item mb-4">

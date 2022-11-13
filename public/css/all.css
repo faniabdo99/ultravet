@@ -26543,7 +26543,7 @@ hr {
     margin: 1px 10px 0 0;
     transition: .6s cubic-bezier(.165, .84, .44, 1);
     background-color: #fff;
-    border: 2px solid #ebe5f7
+    border: 2px solid #bababa
 }
 
 .checkbox_item input:before {
@@ -29916,7 +29916,7 @@ hr {
     position: relative;
     padding-right: 30px;
     border-radius: 8px;
-    border: 2px solid #ebe5f7
+    border: 2px solid #bababa
 }
 
 .quantity_wrap input {
@@ -30012,12 +30012,14 @@ hr {
 }
 
 .additional_info_table span {
-    flex: 0 0 50%;
+    flex: 0 0 70%;
     font-size: 16px
 }
 
 .additional_info_table span:nth-child(1) {
-    font-weight: 600
+    font-weight: 600;
+    flex: 0 0 30%;
+
 }
 
 .additional_info_table span:nth-child(2) {
@@ -32206,7 +32208,7 @@ blockquote cite {
 }
 /* Auth System */
 .auth-section{
-    padding:200px 0;
+    padding:100px 0;
 }
 .auth-section .auth-form{
     margin: 50px auto 0 auto;
@@ -32215,6 +32217,12 @@ blockquote cite {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     border: 1px solid #ccc;
+}
+@media screen and (max-width: 768px){
+    .auth-section .auth-form{
+        padding: 20px;
+        width: 100%;
+    }
 }
 #added-to-cart-success{
     display: none;

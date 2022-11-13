@@ -361,3 +361,8 @@ $(document).on('click', '.add-to-wishlist', function(e){
         }
     });
 });
+$(document).ready(function(){
+    if ($(window).width() < 786) {
+        $('#collapse_filters').removeClass('show');
+    }
+});

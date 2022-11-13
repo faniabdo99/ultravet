@@ -21,7 +21,7 @@
                         <aside class="sidebar_section">
                             <div class="sb_widget">
                                 <h3 class="sb_widget_title" data-bs-toggle="collapse" data-bs-target="#collapse_filters" aria-expanded="false">Filter</h3>
-                                <div class="collapse" id="collapse_filters">
+                                <div class="collapse show" id="collapse_filters">
                                     <form action="{{route('product.all')}}" method="GET">
                                         <h3 class="sb_widget_title mt-4">Categories</h3>
                                         <div class="card card-body">
@@ -75,7 +75,7 @@
                                                 @endforelse
                                             </ul>
                                         </div>
-                                        <button type="submit" class="btn btn-primary d-block mt-5"><i class="fas fa-paw"></i> Apply Filters</button>
+                                        <button type="submit" class="btn btn_primary d-block mt-5"><i class="fas fa-paw"></i> Apply Filters</button>
                                     </form>
                                 </div>
                             </div>

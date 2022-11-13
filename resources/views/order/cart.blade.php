@@ -38,7 +38,7 @@
                                 <li><span class="col_title d-lg-none">Quantity</span>
                                     <form class="d-flex" action="{{route('cart.updateQty', $CartItem->id)}}" method="post">
                                         @csrf
-                                        <input class="input_number mr-3" name="qty" style="border: 1px solid #ccc;border-radius: 5px;" type="number" value="{{$CartItem->qty}}">
+                                        <input class="input_number mr-3" min="1" name="qty" style="border: 1px solid #ccc;border-radius: 5px;" type="number" value="{{$CartItem->qty}}">
                                         <button class="update-qty-cart-button">Save</button>
                                     </form>
                                 </li>

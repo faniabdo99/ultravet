@@ -63,7 +63,7 @@
                                         <li>
                                             <div class="quantity_wrap"><span class="quantity_title">Qty:</span>
                                                 <div class="quantity_form">
-                                                    <input class="input_number" name="qty" type="number" min="0" value="1">
+                                                    <input class="input_number" name="qty" type="number" min="1" value="1">
                                                 </div>
                                             </div>
                                         </li>
@@ -88,6 +88,7 @@
                                 <ul class="additional_info_table unorder_list_block">
                                     <li><span>Brand</span> <span>{{$TheProduct->Brand->title}}</span></li>
                                     <li><span>Category</span> <span>{{$TheProduct->Category->title}}</span></li>
+                                    <li><span>Pet</span> <span>{{$TheProduct->Pet->title}}</span></li>
                                 </ul>
                             </div>
                             <div class="tab-pane fade" id="tab_description" role="tabpanel">

@@ -73,7 +73,7 @@
                 </li>
                 @guest
                     <li><a href="{{route('user.getSignup')}}" class="cart_btn"><i class="fas fa-user"></i> <span class="d-none d-lg-inline d-md-inline">Signup</span></a></li>
-                    <li><a href="{{route('user.getLogin')}}" class="cart_btn"><i class="fas fa-user"></i> <span class="d-none d-lg-inline d-md-inline">Login</span></a></li>
+                    <li class="d-none d-lg-inline d-md-inline"><a href="{{route('user.getLogin')}}" class="cart_btn"><i class="fas fa-user"></i> <span class="d-none d-lg-inline d-md-inline">Login</span></a></li>
                 @endguest
                 @auth
                     <li class="dropdown">

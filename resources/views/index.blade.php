@@ -71,7 +71,7 @@
                         <div class="funfact_item">
                             <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_pets.svg" alt="Pets Icon"></div>
                             <div class="item_content">
-                                <h3 class="counter_text text-white"><span class="counter_value">120</span> <span
+                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('happy_clients')}}</span> <span
                                         class="plus_text">+</span></h3>
                                 <p class="item_title text-white mb-0">Happy Clients</p>
                             </div>
@@ -79,7 +79,7 @@
                         <div class="funfact_item">
                             <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_medal.svg" alt="Pets Icon"></div>
                             <div class="item_content">
-                                <h3 class="counter_text text-white"><span class="counter_value">20</span> <span
+                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('years')}}</span> <span
                                         class="plus_text">+</span></h3>
                                 <p class="item_title text-white mb-0">Years Experience</p>
                             </div>
@@ -88,7 +88,7 @@
                             <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_canned_food.svg" alt="Pets Icon">
                             </div>
                             <div class="item_content">
-                                <h3 class="counter_text text-white"><span class="counter_value">70</span> <span
+                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('brands')}}</span> <span
                                         class="plus_text">+</span></h3>
                                 <p class="item_title text-white mb-0">Brands Available</p>
                             </div>
@@ -97,7 +97,7 @@
                             <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_shopping_bag.svg" alt="Pets Icon">
                             </div>
                             <div class="item_content">
-                                <h3 class="counter_text text-white"><span class="counter_value">200</span> <span
+                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('products')}}</span> <span
                                         class="plus_text">+</span></h3>
                                 <p class="item_title text-white mb-0">Products for pets</p>
                             </div>

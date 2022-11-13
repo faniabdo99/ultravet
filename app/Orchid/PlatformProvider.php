@@ -50,7 +50,11 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make('Orders')
                 ->icon('handbag')
-                ->route('platform.orders')
+                ->route('platform.orders'),
+
+            Menu::make('System Variables')
+                ->icon('settings')
+                ->route('platform.system-variables')
         ];
     }
 

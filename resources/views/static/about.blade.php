@@ -23,7 +23,7 @@
                                     alt="Pet Care Image">
                                 <div class="experience_years"
                                     style="background-image: url('{{url('public')}}/images/shape/shape_circle_1.svg');">
-                                    <strong>20+</strong> <span>Years Experience</span></div>
+                                    <strong>{{getSystemSettings('years')}}+</strong> <span>Years Experience</span></div>
                             </div>
                         </div>
                         <div class="col col-lg-6">

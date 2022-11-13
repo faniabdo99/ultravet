@@ -3,15 +3,11 @@
     @if(request()->route() && request()->route()->getName() != 'home')
         <div class="header_top">
             <div class="container">
-                <ul class="social_links unorder_list">
-                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#!"><i class="fab fa-whatsapp"></i></a></li>
+                <ul>
                 </ul>
                 <ul class="icon_list unorder_list">
-                    <li><a href="#!"><i class="fas fa-phone"></i> <span>0000 - 123456789</span></a></li>
-                    <li><a href="#!"><i class="fas fa-envelope"></i> <span>info@example.com</span></a></li>
+                    <li><a href="#!"><i class="fas fa-phone"></i> <span>{{getSystemSettings('phone_number')}}</span></a></li>
+                    <li><a href="#!"><i class="fas fa-envelope"></i> <span>{{getSystemSettings('email')}}</span></a></li>
                     <li>
                         <a href="{{route('switchCurrency.get' , ['currency' => 'usd'])}}">USD</a>
                         <span class="text-white">|</span>

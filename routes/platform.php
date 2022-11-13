@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\SystemVariablesScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 //User
@@ -40,3 +41,6 @@ Route::screen('roles', RoleListScreen::class)->name('platform.systems.roles');
 Route::screen('orders', \App\Orchid\Screens\OrderScreen::class)->name('platform.orders');
 Route::screen('order/{id}', \App\Orchid\Screens\SingleOrderScreen::class)->name('platform.order');
 Route::screen('order/edit/{id}', \App\Orchid\Screens\EditOrderScreen::class)->name('platform.order.edit');
+
+// System variables
+Route::screen('system-variables', SystemVariablesScreen::class)->name('platform.system-variables');

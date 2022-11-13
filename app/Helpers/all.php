@@ -94,3 +94,6 @@ function getCurrencySymbole($currency){
         return '$';
     }
 }
+function getSystemSettings(string $attribute){
+    return Setting::first()->$attribute;
+}

@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col col-lg-4 col-md-7 col-sm-9">
                             <h1 class="page_title">Contact Us</h1>
-                            <p class="page_description mb-0">Tristique nulla aliquet enim tortor at auctor urna nunc. Massa enim nec dui nunc mattis enim ut tellus</p>
+                            <p class="page_description mb-0">Our team is always pleased to respond to your inquiries!</p>
                         </div>
                     </div>
                 </div>
@@ -26,8 +26,7 @@
                                     <div class="item_content">
                                         <h3 class="item_title">Phone</h3>
                                         <ul class="item_info_list unorder_list_block">
-                                            <li>(913) 756-3126</li>
-                                            <li>(921) 557-1203</li>
+                                            <li>{{getSystemSettings('phone_number')}}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -38,8 +37,7 @@
                                     <div class="item_content">
                                         <h3 class="item_title">Email</h3>
                                         <ul class="item_info_list unorder_list_block">
-                                            <li>petopia@example.com</li>
-                                            <li>petopia@email.com</li>
+                                            <li>{{getSystemSettings('email')}}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -50,8 +48,7 @@
                                     <div class="item_content">
                                         <h3 class="item_title">Address</h3>
                                         <ul class="item_info_list unorder_list_block">
-                                            <li>17 Parkman Place, 2122</li>
-                                            <li>United States</li>
+                                            <li>{{getSystemSettings('address')}}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -62,8 +59,9 @@
                                     <div class="item_content">
                                         <h3 class="item_title">Open Hours</h3>
                                         <ul class="item_info_list unorder_list_block">
-                                            <li>Mon - Fri: 7am - 6pm</li>
-                                            <li>Saturday: 9am - 4pm</li>
+                                            <li>{{getSystemSettings('working_hours_label_1')}} {{getSystemSettings('working_hours_value_1')}}</li>
+                                            <li>{{getSystemSettings('working_hours_label_2')}} {{getSystemSettings('working_hours_value_2')}}</li>
+                                            <li>{{getSystemSettings('working_hours_label_3')}} {{getSystemSettings('working_hours_value_3')}}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -74,8 +72,7 @@
                         <div class="col col-lg-6">
                             <div class="section_title">
                                 <h2 class="title_text"><span class="sub_title">Our Contacts</span> Contact Us</h2>
-                                <p class="mb-0">Massa enim nec dui nunc mattis enim ut tellus. Auctor augue mauris augue
-                                    neque gravida in fermentum</p>
+                                <p class="mb-0">If you need any help or you want to learn more about our services, email us and our team will respond to you ASAP</p>
                             </div>
                             <div class="contact_form">
                                 <form action="{{route('postContact')}}" method="post">
@@ -83,13 +80,13 @@
                                     <div class="row">
                                         <div class="col col-md-6 col-sm-6">
                                             <div class="form_item mb-0">
-                                                <label class="input_title" for="input_name">Name<sup>*</sup></label> 
+                                                <label class="input_title" for="input_name">Name<sup>*</sup></label>
                                                 <input id="input_name" type="text" name="name" placeholder="Type Your Name" required>
                                             </div>
                                         </div>
                                         <div class="col col-md-6 col-sm-6">
                                             <div class="form_item mb-0">
-                                                <label class="input_title" for="input_email">Email<sup>*</sup></label> 
+                                                <label class="input_title" for="input_email">Email<sup>*</sup></label>
                                                 <input id="input_email" type="email" name="email" placeholder="Type Your Email" required>
                                             </div>
                                         </div>
@@ -107,7 +104,7 @@
                         <div class="col col-lg-6">
                             <div class="mapouter">
                                 <div class="gmap_canvas">
-                                    <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d208.22360958292492!2d35.4793335!3d33.3820881!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151e95dad2776bfb%3A0xd1d5e689073ffa18!2sUltraVet%20Veterinary%20Center!5e0!3m2!1sen!2seg!4v1668121471431!5m2!1sen!2seg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>

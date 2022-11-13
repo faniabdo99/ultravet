@@ -19,13 +19,6 @@
         </div>
         <div class="item_content">
             <h3 class="item_title"><a href="{{route('product.single' , [$product->slug, $product->id])}}">{{$product->title}}</a></h3>
-            <ul class="rating_star">
-                <li><i class="fas fa-star"></i></li>
-                <li><i class="fas fa-star"></i></li>
-                <li><i class="fas fa-star"></i></li>
-                <li><i class="fas fa-star"></i></li>
-                <li><i class="far fa-star"></i></li>
-            </ul>
             <div class="item_price">
                 @if($product->hasDiscount)
                     <del>{{convertCurrency($product->price, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</del>

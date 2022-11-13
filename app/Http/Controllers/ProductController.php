@@ -60,6 +60,16 @@ class ProductController extends Controller{
         $ThePet = Pet::where('slug' , $slug)->firstOrFail();
         return view('product.pet' , compact('ThePet'));
     }
+    /**
+     * @param string $slug
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function getCategory(string $slug){
+        // Get all products in brand
+        $TheCategory = Category::where('slug' , $slug)->firstOrFail();
+        return view('product.category' , compact('TheCategory'));
+    }
+
     public function getCategoryBrand($CategorySlug, $PetSlug){
         // Get all products that match the category and brand
         $TheCategoryId = Category::where('slug' , $CategorySlug)->firstOrFail()->id;

@@ -41,7 +41,9 @@
                 </div>
             </nav>
             <ul class="header_btns_group unorder_list_right">
-
+                <li>
+                    <button class="nav-search-toggler"><i class="fa fa-search"></i></button>
+                </li>
                 <li class="dropdown">
                     <button class="cart_btn" type="button" id="cart_dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-shopping-cart"></i>
@@ -99,27 +101,66 @@
     @endif
 </header>
 <!-- notifications -->
+
 @if(session()->has('success'))
-    <div class="notification success-notification">
-        <div class="notification-icon">
-            <i class="fas fa-check"></i>
-        </div>
-        <div class="notification-content">
-            <b>Success!</b>
-            <p class="mb-0">{{session('success')}}</p>
+    <div class="notification notification-success">
+        <button class="close-notification-button"><i class="fas fa-times"></i></button>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 notification-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="col-9">
+                    <h4>Success!</h4>
+                    <p>{{session('success')}}</p>
+                </div>
+            </div>
         </div>
     </div>
 @endif
 @if($errors->any())
-    <div class="notification error-notification">
-        <div class="notification-icon">
-            <i class="fas fa-times"></i>
-        </div>
-        <div class="notification-content">
-            <b>Error!</b>
-            @foreach ($errors->all() as $error)
-                <p class="mb-0">{{$error}}</p>
-            @endforeach
+    <div class="notification notification-danger">
+        <button class="close-notification-button"><i class="fas fa-times"></i></button>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 notification-icon">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="col-9">
+                    <h4>Error!</h4>
+                    @foreach ($errors->all() as $error)
+                        <p>{{$error}}</p>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 @endif
+<div id="added-to-cart-success">
+    <button class="close-notification-button"><i class="fas fa-times"></i></button>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 notification-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="col-9">
+                <h4>Item Added to Cart</h4>
+                <p>This item has been added to your shopping cart</p>
+                <a href="{{route('product.all')}}" id="close-added-to-cart">Continue Shopping</a>
+                <a href="{{route('cart.all')}}">View Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="navbar-search-overlay">
+    <a href="javascript:;" id="close-search-form"><i class="fas fa-times"></i></a>
+    <div class="search-form-group">
+        <div class="mb-5">
+            <form action="{{route('product.search')}}" method="get" class="d-flex search-form-element">
+                <input type="text" id="search-box" class="mr-2" name="search" placeholder="What are you looking for?" autofocus required>
+                <button type="submit" class="navbar-search-button"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div id="navbar-search-results"></div>
+    </div>
+</div>

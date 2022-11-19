@@ -21,10 +21,10 @@
             <h3 class="item_title"><a href="{{route('product.single' , [$product->slug, $product->id])}}">{{$product->title}}</a></h3>
             <div class="item_price">
                 @if($product->hasDiscount)
-                    <del>{{convertCurrency($product->price, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</del>
-                    <span>{{convertCurrency($product->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span>
+                    <del>{{convertCurrency($product->price, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</del>
+                    <span>{{convertCurrency($product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
                 @else
-                    <span>{{convertCurrency($product->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span>
+                    <span>{{convertCurrency($product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
                 @endif
             </div>
         </div>

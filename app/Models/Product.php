@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model {
     use HasFactory, AsSource, Filterable, Attachable, SoftDeletes;
     protected $guarded = [];
+    protected $appends = ['image_path'];
     //Relations
     public function Category(){
         return $this->belongsTo(Category::class)->withDefault([

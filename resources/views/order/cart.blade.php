@@ -29,9 +29,9 @@
                                 <li><span class="col_title d-lg-none">Price</span>
                                     <div class="item_price">
                                         @if($CartItem->Product->hasDiscount)
-                                            <del>{{$CartItem->Product->price}}$</del><span>{{$CartItem->Product->finalPrice}}$</span>
+                                            <del>{{convertCurrency($CartItem->Product->price, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</del><span>{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
                                         @else
-                                            <span>{{$CartItem->Product->finalPrice}}$</span>
+                                            <span>{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
                                         @endif
                                     </div>
                                 </li>
@@ -43,7 +43,7 @@
                                     </form>
                                 </li>
                                 <li><span class="col_title d-lg-none">Total</span>
-                                    <div class="item_price"><span>{{$CartItem->TotalPrice}}$</span></div>
+                                    <div class="item_price"><span>{{convertCurrency($CartItem->TotalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span></div>
                                 </li>
                             </ul>
                         @empty
@@ -57,7 +57,7 @@
                                     <form action="{{route('checkout.applyCoupon')}}" method="post">
                                         @csrf
                                         <div class="form_item mb-0">
-                                            <input type="text" name="coupuon_code" placeholder="Coupon Code" @if($CartHasCoupon) disabled value="Coupon: {{$AppliedCoupon}} (-{{$CouponDiscount}}$)" @endif>
+                                            <input type="text" name="coupuon_code" placeholder="Coupon Code" @if($CartHasCoupon) disabled value="Coupon: {{$AppliedCoupon}} (-{{convertCurrency($CouponDiscount, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}})" @endif>
                                             @if(!$CartHasCoupon)
                                                 <button type="submit" class="btn border_primary">Apply Coupon</button>
                                             @endif

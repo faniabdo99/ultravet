@@ -1,3 +1,5 @@
+const getUrl = window.location;
+const baseUrl = getUrl .protocol + "//" + getUrl.host + "/";
 ! function (n) {
     "use strict";
 
@@ -362,7 +364,84 @@ $(document).on('click', '.add-to-wishlist', function(e){
     });
 });
 $(document).ready(function(){
+    // Hide the filters by default on mobile screens
     if ($(window).width() < 786) {
         $('#collapse_filters').removeClass('show');
     }
+    // Close notification button
+    $('.close-notification-button').click(function(e){
+       $(this).parent().fadeOut('fast');
+    });
+    // Search function
+    $('.nav-search-toggler').click(function(){
+        //Clear the search form
+        $('#navbar-search-results').html('').fadeOut();
+        //Show the search form
+        $('.navbar-search-overlay').fadeIn('fast');
+        $('#search-box').val('').focus();
+        //Stop the body scroll
+        $('body').css('overflow-y' , 'hidden');
+    });
+    //Hide the search box based on a icon click
+    $('#close-search-form').click(function(){
+        $('.navbar-search-overlay').fadeOut('fast');
+        $('body').css('overflow-y' , 'scroll');
+    });
+    //Hide the search box when clicking escape button
+    $(document).keyup(function(e) {
+        if (e.key === "Escape") { // escape key maps to keycode `27`
+            $('.navbar-search-overlay').fadeOut('fast');
+            $('body').css('overflow-y' , 'scroll');
+        }
+    });
+    // The search function
+    $('.search-form-element').submit(function(e){
+        e.preventDefault();
+        //Validate the request and clean bad codes
+        var SearchTerm = $('#search-box').val().replace(/[^a-zA-Z0-9\s]/gm, '');
+        $('#navbar-search-results').fadeIn();
+        $('#navbar-search-results').html('<p class="text-center text-white"><i class="fas fa-spinner fa-spin fa-5x"></i></p>');
+        $.ajax({
+            url: baseUrl+'api/search',
+            method: 'post',
+            data: {
+                'search' : SearchTerm
+            },
+            success: function(response){
+                $('#navbar-search-results').html('');
+                if (response.length > 0){
+                    response.forEach((item) => {
+                        $('#navbar-search-results').append(`
+                        <a href="${baseUrl}/products/${item.slug}/${item.id}">
+                            <div class="single-search-result">
+                                <a class="search-result-image" href="${baseUrl}products/${item.slug}/${item.id}">
+                                    <img src="${item.image_path}" class="h-auto">
+                                </a>
+                                <a class="search-result-data" href="${baseUrl}products/${item.slug}/${item.id}">
+                                    <p>
+                                        <small><b>${item.brand.title}</b></small>
+                                        <br>
+                                        ${item.title}
+                                        <br>
+                                        ${item.price != 0 ? item.price+'$' : '' }
+                                        <br>
+                                    </p>
+                                </a>
+                            </div>
+                        </a>
+                    `);
+                    });
+                }else{
+                    $('#navbar-search-results').html('<p class="text-center">There are no results!</p>');
+                }
+            },
+            error: function(data , errorThrown){
+                if(data.status == 429){
+                    $('#navbar-search-results').html('<p class="text-center text-white">Too many requests, please try again in 30 seconds or refresh the page</p>');
+                }else{
+                    $('#navbar-search-results').html('<p class="text-center text-white">'+data.responseText+'</p>');
+                }
+            }
+        });
+    });
 });

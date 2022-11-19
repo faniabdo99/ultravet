@@ -87,9 +87,9 @@ function convertCurrency($amount , $to){
         return ceil(intval($amount) * getExchangeRate());
     }
 }
-function getCurrencySymbole($currency){
+function getCurrencySymbol($currency){
     if ($currency == 'lbp') {
-        return 'lbp';
+        return 'L.L';
     }else{
         return '$';
     }

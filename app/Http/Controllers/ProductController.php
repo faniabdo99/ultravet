@@ -80,4 +80,18 @@ class ProductController extends Controller{
         ])->get();
         return view('product.filter' , compact('AllProducts'));
     }
+
+    /**
+     * @param Request $r
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response/Models/Product
+     */
+    public function postSearch(Request $r){
+        if(empty($r->search)){
+            return response('Please enter a search term!' , 400);
+        }else{
+             $SearchTerm = $r->search;
+             $Products = Product::where('title' , 'LIKE' , "%$SearchTerm%")->with(['Category', 'Brand', 'Pet'])->get();
+             return response($Products, 200);
+        }
+    }
 }

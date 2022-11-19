@@ -38,9 +38,9 @@
                                     <p class="product-meta-data">By <a href="{{route('product.brand' , $TheProduct->Brand->slug)}}">{{$TheProduct->Brand->title}}</a></p>
                                 @endif
                                 @if($TheProduct->has_discount)
-                                    <div class="item_price"><del>{{convertCurrency($TheProduct->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</del> <span>{{convertCurrency($TheProduct->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span></div>
+                                    <div class="item_price"><del>{{convertCurrency($TheProduct->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</del> <span>{{convertCurrency($TheProduct->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span></div>
                                 @else
-                                    <div class="item_price"><span>{{convertCurrency($TheProduct->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span></div>
+                                    <div class="item_price"><span>{{convertCurrency($TheProduct->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span></div>
                                 @endif
                                 <form class="addtocart_form" data-target="{{route('cart.add')}}">
                                     <input type="hidden" name="product_id" value="{{$TheProduct->id}}" />
@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="item_content">
                                         <h3 class="item_title"><a href="{{route('product.single' , [$Product->slug, $Product->id])}}">{{$Product->title}}</a></h3>
-                                        <div class="item_price"><span>{{convertCurrency($Product->finalPrice, session()->get('currency')) . getCurrencySymbole(session()->get('currency'))}}</span></div>
+                                        <div class="item_price"><span>{{convertCurrency($Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span></div>
                                     </div>
                                 </div>
                             </div>

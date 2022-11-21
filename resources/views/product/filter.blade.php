@@ -23,6 +23,7 @@
                             @empty
                                 <p class="text-center">There are no products to show at the moment</p>
                             @endforelse
+                                {{ $AllProducts->links('vendor.pagination.default') }}
                         </div>
                     </div>
                 </div>

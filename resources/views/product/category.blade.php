@@ -18,11 +18,12 @@
                 <div class="row">
                     <div class="col col-lg-12">
                         <div class="row">
-                            @forelse($TheCategory->Products as $Product)
+                            @forelse($AllProducts as $Product)
                                 <x-product-card :product="$Product"></x-product-card>
                             @empty
                                 <p class="text-center">There are no products to show at the moment</p>
                             @endforelse
+                                {{ $AllProducts->links('vendor.pagination.default') }}
                         </div>
                     </div>
                 </div>

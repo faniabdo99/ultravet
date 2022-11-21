@@ -48,7 +48,8 @@ class ProductController extends Controller{
     public function getBrand(string $slug){
         // Get all products in brand
         $TheBrand = Brand::where('slug' , $slug)->firstOrFail();
-        return view('product.brand' , compact('TheBrand'));
+        $AllProducts = Product::where('brand_id', $TheBrand->id)->latest()->paginate(12);
+        return view('product.brand' , compact('TheBrand','AllProducts'));
     }
 
     /**
@@ -58,7 +59,8 @@ class ProductController extends Controller{
     public function getPet(string $slug){
         // Get all products in brand
         $ThePet = Pet::where('slug' , $slug)->firstOrFail();
-        return view('product.pet' , compact('ThePet'));
+        $AllProducts = Product::where('pet_id', $ThePet->id)->latest()->paginate(12);
+        return view('product.pet' , compact('ThePet', 'AllProducts'));
     }
     /**
      * @param string $slug
@@ -67,7 +69,8 @@ class ProductController extends Controller{
     public function getCategory(string $slug){
         // Get all products in brand
         $TheCategory = Category::where('slug' , $slug)->firstOrFail();
-        return view('product.category' , compact('TheCategory'));
+        $AllProducts = Product::where('category_id', $TheCategory->id)->latest()->paginate(12);
+        return view('product.category' , compact('TheCategory', 'AllProducts'));
     }
 
     public function getCategoryBrand($CategorySlug, $PetSlug){

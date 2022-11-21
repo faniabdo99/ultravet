@@ -29,10 +29,10 @@ class ProductController extends Controller{
                 $FiltersArray[] = ['price', '>=' , $PriceFilter[0]];
                 $FiltersArray[] = ['price', '<=' , $PriceFilter[1]];
             }
-            $AllProducts = Product::where($FiltersArray)->latest()->get();
+            $AllProducts = Product::where($FiltersArray)->latest()->paginate(12);
         }else{
             //Default products list
-            $AllProducts = Product::latest()->get();
+            $AllProducts = Product::latest()->paginate(12);
         }
         return view('product.index' , compact('AllProducts','FeaturedProducts', 'AllPets', 'AllCategories', 'AllBrands'));
     }

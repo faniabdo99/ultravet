@@ -90,13 +90,7 @@
                                 <p>There are no products to show at the moment</p>
                             @endforelse
                         </div>
-                        <div class="pagination_wrap">
-                            <ul class="pagination_nav unorder_list">
-                                <li class="active"><a href="#!">1</a></li>
-                                <li><a href="#!">2</a></li>
-                                <li><a href="#!">3</a></li>
-                            </ul>
-                        </div>
+                        {{ $AllProducts->links('vendor.pagination.default')  }}
                     </div>
 
                 </div>

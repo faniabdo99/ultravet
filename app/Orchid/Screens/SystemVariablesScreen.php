@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Setting;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Quill;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Screen;
@@ -128,6 +129,9 @@ class SystemVariablesScreen extends Screen {
                 Input::make('working_hours_value_3')
                     ->title('Working Hours Value #3')
                     ->value($this->setting->working_hours_value_3),
+                Quill::make('toc')
+                    ->title('Terms & Conditions page')
+                    ->value($this->setting->toc)
             ])
         ];
     }

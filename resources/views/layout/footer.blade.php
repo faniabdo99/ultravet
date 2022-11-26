@@ -45,7 +45,7 @@
                                 <li><a href="faq.html"><i class="fas fa-circle"></i>FAQ</a></li>
                                 <li><a href="gallery.html"><i class="fas fa-circle"></i>Gallery</a></li>
                                 <li><a href="shipping_info.html"><i class="fas fa-circle"></i>Delivery</a></li>
-                                <li><a href="deals.html"><i class="fas fa-circle"></i>Sales</a></li>
+                                <li><a href="{{route('toc')}}"><i class="fas fa-circle"></i>Terms & Conditions</a></li>
                             </ul>
                         </div>
                     </div>

@@ -49,8 +49,10 @@ Route::prefix('products')->group(function(){
     Route::get('{slug}/{id}' , [ProductController::class, 'getSingle'])->name('product.single');
 });
 Route::get('about' , [PageController::class, 'getAbout'])->name('about');
+Route::get('faq' , [PageController::class, 'getFaq'])->name('faq');
 Route::get('contact' , [ContactController::class, 'getContact'])->name('getContact');
 Route::post('contact' , [ContactController::class, 'postContact'])->name('postContact');
+Route::get('terms-and-conditions', [PageController::class, 'getToc'])->name('toc');
 Route::prefix('order')->group(function(){
     Route::get('cart' , [CartController::class, 'getAll'])->name('cart.all');
     Route::get('checkout' , [CheckoutController::class, 'getCheckout'])->name('checkout.get');

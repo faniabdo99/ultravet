@@ -35,6 +35,7 @@
                             <ul class="dropdown-menu" aria-labelledby="pages_submenu">
                                 <li><a href="{{route('about')}}">About Us</a></li>
                                 <li><a href="{{route('getContact')}}">Contact Us</a></li>
+                                <li><a href="{{route('faq')}}">FAQs</a></li>
                             </ul>
                         </li>
                     </ul>

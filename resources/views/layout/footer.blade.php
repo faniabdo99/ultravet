@@ -38,14 +38,11 @@
                             <ul class="unorder_list_block">
                                 <li><a href="{{route('home')}}"><i class="fas fa-circle"></i>Home</a></li>
                                 <li><a href="{{route('about')}}"><i class="fas fa-circle"></i>About</a></li>
-                                <li><a href="service.html"><i class="fas fa-circle"></i>Services</a></li>
                                 <li><a href="{{route('product.all')}}"><i class="fas fa-circle"></i>Shop</a></li>
                             </ul>
                             <ul class="unorder_list_block">
-                                <li><a href="faq.html"><i class="fas fa-circle"></i>FAQ</a></li>
-                                <li><a href="gallery.html"><i class="fas fa-circle"></i>Gallery</a></li>
-                                <li><a href="shipping_info.html"><i class="fas fa-circle"></i>Delivery</a></li>
-                                <li><a href="{{route('toc')}}"><i class="fas fa-circle"></i>Terms & Conditions</a></li>
+                                <li><a href="{{route('faq')}}"><i class="fas fa-circle"></i>FAQ</a></li>
+                                <li><a href="{{route('toc')}}"><i class="fas fa-circle"></i>T&C</a></li>
                             </ul>
                         </div>
                     </div>

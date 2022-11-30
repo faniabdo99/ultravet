@@ -303,7 +303,24 @@ $(document).on('submit', '.addtocart_form', function(e) {
         }
     });
 });
-
+function updateCartTotal(){
+    // Run an Ajax request to update the cart total in both navbar & cart page
+    $.ajax({
+        url: '/api/fetch-cart-total',
+        headers: {
+            'Auth': $("meta[name='user_token']").attr("content")
+        },
+        method: 'POST',
+        success: function (response){
+            // Update the total in navbar
+            $('.navbar-cart-total').html(response.total)
+            $('.cart-page-total').html(response.total)
+        },
+        error: function (response){
+            console.log(response);
+        }
+    })
+}
 //Delete item from cart
 $('.delete-from-cart').click(function(e){
     e.preventDefault();
@@ -320,7 +337,12 @@ $('.delete-from-cart').click(function(e){
         },
         success: function(){
             //Show the modal here
-            That.parent().fadeOut();
+            if (That.data('location') === 'navbar'){
+                That.parent().fadeOut();
+            }else{
+                That.parent().parent().parent().fadeOut();
+            }
+            updateCartTotal()
         },
         error: function(response){
             //TODO: Add an error message or something
@@ -329,6 +351,52 @@ $('.delete-from-cart').click(function(e){
     });
 });
 
+//Update cart qty
+$('.add-one-qty').click(function(){
+    let That = $(this);
+    let ItemId = $(this).data('id');
+    let Target = $(this).data('target');
+    $.ajax({
+        url: Target,
+        method: 'POST',
+        data: {
+            item_id: ItemId
+        },
+        success: function(response){
+            // Increment the shown number
+            That.parent().find('.qty-total').html(response.qty)
+            updateCartTotal()
+        },
+        error: function(response){
+            alert(response.responseText);
+        }
+    })
+});
+$('.remove-one-qty').click(function(){
+    let That = $(this);
+    let ItemId = $(this).data('id');
+    let Target = $(this).data('target');
+    $.ajax({
+        url: Target,
+        method: 'POST',
+        data: {
+            item_id: ItemId
+        },
+        success: function(response){
+            if(response === 'item-deleted'){
+                // Delete the item from view
+                That.parent().parent().parent().fadeOut();
+            }else{
+                // Increment the shown number
+                That.parent().find('.qty-total').html(response.qty)
+            }
+            updateCartTotal()
+        },
+        error: function(response){
+            alert(response.responseText);
+        }
+    })
+});
 // Add item to wishlist
 $(document).on('click', '.add-to-wishlist', function(e){
     let That = $(this);

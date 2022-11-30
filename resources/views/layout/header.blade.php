@@ -18,5 +18,8 @@
     <link rel="mask-icon" href="{{url('public')}}/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#ffffff">
+    @auth
+    <meta name="user_token" content="{{getUserId()}}">
+    @endauth
     {{-- @vite(['resources/js/app.js']) --}}
 </head>

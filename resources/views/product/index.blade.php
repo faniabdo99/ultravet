@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col col-lg-4 col-md-7 col-sm-9">
                         <h1 class="page_title">Shop</h1>
-                        <p class="page_description mb-0">Nisl rhoncus mattis rhoncus urna neque. Montes nascetur ridiculus mus mauris vitae ultricies</p>
+                        <p class="page_description mb-0">Shop all of your pets needs in one place!</p>
                     </div>
                 </div>
             </div>
@@ -103,9 +103,9 @@
 <script>
     inputNumber($(".input_number")), $("#slider-range").length && ($("#slider-range").slider({
         range: !0,
-        min: {{$AllProducts->min('price') ?? 0}},
-        max: {{$AllProducts->max('price') ?? 0}},
-        values: [{{$AllProducts->min('price') ?? 0}}, {{$AllProducts->max('price') ?? 0}}],
+        min: {{$NonPaginatedProducts->min('price') ?? 0}},
+        max: {{$NonPaginatedProducts->max('price') ?? 0}},
+        values: [{{$NonPaginatedProducts->min('price') ?? 0}}, {{$NonPaginatedProducts->max('price') ?? 0}}],
         slide: function (o, e) {
             $("#amount").val("$" + e.values[0] + " - $" + e.values[1])
         }

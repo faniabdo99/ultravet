@@ -92,35 +92,64 @@ class CartController extends Controller {
         }
     }
 
-    public function updateCartQty(Request $r, $id){
-        $Rules = [
-            'qty' => 'required',
-        ];
-        $Validator = Validator::make($r->all(), $Rules);
-        if ($Validator->fails()){
-            return back()->withErrors('Quantity cant be blank!');
-        }else{
-            $TheCartItem = Cart::find($id);
-            //Check if the product is available in inventory
-            $TheProduct = $TheCartItem->Product;
-            if ($TheProduct) {
-                if ($TheProduct->CartReady && $TheProduct->qty >= $r->qty) {
-                    // Decrease the product count
-                    // TODO: Find a logical way to calculate the stock, since the new qty is addition, the previous qty was already deducted
-                    $TheProduct->decrement('qty', $r->qty);
-                    // Add the item to the cart (or update existing cart)
-                    $TheCartItem->update(['qty' => $r->qty]);
-                    // Return the response
-                    return back()->withSuccess('Your cart has been updated!');
-                } else {
-                    return back()->withErrors('This amount is not available for sale right now');
-                }
-            } else {
-                return back()->withErrors('This product is not available for sale right now');
-            }
+    public function addOneQty(Request $r){
+        // Check if the item_id is there
+        $TheCartItem = Cart::find($r->item_id);
+        if(!$TheCartItem){
+            return response('There is no such cart item!', 404);
         }
+        // Ensure the product has enough qty
+        $TheProduct = $TheCartItem->Product;
+        if($TheProduct->qty <= 0){
+            // Deny the request
+            return response('This is the last item in stock!', 400);
+        }
+        // Update the item_id record
+        $TheCartItem->increment('qty' , 1);
+        $TheProduct->decrement('qty' , 1);
+        // Return a success
+        return response($TheCartItem, 200);
     }
 
+    public function removeOneQty(Request $r){
+        // Check if the item_id is there
+        $TheCartItem = Cart::find($r->item_id);
+        if(!$TheCartItem){
+            return response('There is no such cart item!', 404);
+        }
+        // Fetch the product
+        $TheProduct = $TheCartItem->Product;
+        // Update the item_id record
+        $TheCartItem->decrement('qty' , 1);
+        $TheProduct->increment('qty' , 1);
+        // Delete the cart item if it reaches 0
+        if($TheCartItem->qty == 0){
+            $TheCartItem->delete();
+            return response('item-deleted', 200);
+        }
+        // Return a success
+        return response($TheCartItem, 200);
+    }
+
+    public function fetchCartTotal(Request $r){
+        if(!$r->hasHeader('Auth')){
+            return response('User authentication is not valid!', 403);
+        }
+        // Get the user cart by the user id
+        $TheCart = Cart::where('user_id' , $r->header('Auth'))->where('status' , 'active')->get();
+        $CartSubTotalArray = $TheCart->map(function ($item) {
+            if ($item->Product != null) {
+                if ($item->Product->status == 'available') {
+                    return $item->Product->finalPrice * $item->qty;
+                } else {
+                    return 0;
+                }
+            } else {
+                $item->delete();
+            }
+        });
+        return response(['total' => $CartSubTotalArray->sum()], 200);
+    }
     public function delete(Request $r) {
         $TheCart = Cart::findOrFail($r->cart_id);
         //Make the item available again

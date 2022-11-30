@@ -1,5 +1,6 @@
 @charset "UTF-8";
-
+// Vars
+$brand: #00D9FF;
 /*!
 Animate.css - http://daneden.me/animate
 Licensed under the MIT license
@@ -25752,17 +25753,17 @@ body {
 
 ::-moz-selection {
     color: #fff;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 ::selection {
     color: #fff;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 ::-moz-selection {
     color: #fff;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 iframe {
@@ -25906,7 +25907,7 @@ hr {
     position: relative;
     align-items: center;
     border-radius: 100%;
-    color: #00D9FF;
+    color: $brand;
     justify-content: center;
     background-color: #fff;
     box-shadow: 0 10px 33.25px 1.75px rgba(0, 0, 0, .15)
@@ -25981,7 +25982,7 @@ hr {
 }
 
 .btn.btn_primary {
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .btn.btn_primary i {
@@ -25994,16 +25995,16 @@ hr {
 
 .btn.border_primary {
     color: #1c103b;
-    border-color: #00D9FF
+    border-color: $brand
 }
 
 .btn.border_primary i {
-    color: #00D9FF
+    color: $brand
 }
 
 .btn.border_primary:hover {
     color: #fff;
-    background-color: #00D9FF;
+    background-color: $brand;
     box-shadow: 0 10px 30px 0 rgba(124, 88, 211, .3)
 }
 
@@ -26041,7 +26042,7 @@ hr {
     content: "";
     bottom: -1px;
     position: absolute;
-    background: #00D9FF;
+    background: $brand;
     transition: width .4s cubic-bezier(.34, 1.56, .64, 1)
 }
 
@@ -26052,7 +26053,7 @@ hr {
 }
 
 .btn_unfill:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .btn_unfill:hover i {
@@ -26105,8 +26106,8 @@ hr {
     color: #fff;
     font-weight: 700;
     padding: 5px 13px;
-    border-color: #00D9FF;
-    background-color: #00D9FF
+    border-color: $brand;
+    background-color: $brand
 }
 
 .cart_btns_group>li:first-child>a:hover {
@@ -26136,7 +26137,7 @@ hr {
 }
 
 .badge_new {
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .badge_hot {
@@ -26219,7 +26220,7 @@ hr {
 
 .icon_list li i {
     margin-right: 10px;
-    color: #00D9FF
+    color: $brand
 }
 
 .icon_list.unorder_list_block li:not(:last-child) {
@@ -26243,7 +26244,7 @@ hr {
     opacity: .3;
     font-size: 7px;
     margin-right: 8px;
-    color: #00D9FF;
+    color: $brand;
     transition: .6s cubic-bezier(.165, .84, .44, 1);
     transform: translateY(-2px)
 }
@@ -26271,11 +26272,11 @@ hr {
 
 .post_meta>li>a i {
     margin-right: 5px;
-    color: #00D9FF
+    color: $brand
 }
 
 .post_meta>li>a:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .tags_list {
@@ -26299,8 +26300,8 @@ hr {
 
 .tags_list a:hover {
     color: #fff;
-    border-color: #00D9FF;
-    background-color: #00D9FF
+    border-color: $brand;
+    background-color: $brand
 }
 
 .tags_list.blog_tags_list {
@@ -26330,7 +26331,7 @@ hr {
     line-height: 1;
     font-size: 16px;
     margin-bottom: 16px;
-    color: #00D9FF;
+    color: $brand;
     text-transform: uppercase
 }
 
@@ -26358,7 +26359,7 @@ hr {
     height: 10px;
     display: block;
     border-radius: 100%;
-    background-color: #00D9FF;
+    background-color: $brand;
     transition: .6s cubic-bezier(.165, .84, .44, 1)
 }
 
@@ -26383,7 +26384,7 @@ hr {
 }
 
 .carousel_arrow button:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .carousel_arrow button:not(:last-child) {
@@ -26408,7 +26409,7 @@ hr {
 
 .form_item input:focus,
 .form_item textarea:focus {
-    border-color: #00D9FF
+    border-color: $brand
 }
 
 .form_item input {
@@ -26516,13 +26517,13 @@ hr {
 
 .select_option .nice-select .list>li.selected,
 .select_option .nice-select .list>li:hover {
-    color: #00D9FF;
+    color: $brand;
     background-color: rgba(124, 88, 211, .1)
 }
 
 .select_option .nice-select.open,
 .select_option .nice-select:hover {
-    border-color: #00D9FF
+    border-color: $brand
 }
 
 .checkbox_item {
@@ -26560,11 +26561,11 @@ hr {
 }
 
 .checkbox_item input:checked {
-    border-color: #00D9FF
+    border-color: $brand
 }
 
 .checkbox_item input:checked:before {
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .checkbox_item label {
@@ -26573,13 +26574,11 @@ hr {
 }
 
 .coupon_form .form_item {
-    display: flex;
     align-items: center
 }
 
 .coupon_form .form_item input {
-    flex: 0 0 320px;
-    margin-right: 30px
+    margin-bottom: 15px
 }
 
 .tabs_nav {
@@ -26616,7 +26615,7 @@ hr {
 
 .tabs_nav>li>button.active,
 .tabs_nav>li>button:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .tabs_nav>li>button.active:before {
@@ -26642,8 +26641,8 @@ hr {
 .tabs_nav_pill>li>button.active,
 .tabs_nav_pill>li>button:hover {
     color: #fff;
-    border-color: #00D9FF;
-    background-color: #00D9FF
+    border-color: $brand;
+    background-color: $brand
 }
 
 .accordion .accordion-item {
@@ -26680,7 +26679,7 @@ hr {
     line-height: 40px;
     text-align: center;
     border-radius: 8px;
-    background: #00D9FF;
+    background: $brand;
     font-family: "Font Awesome 5 Pro"
 }
 
@@ -26690,11 +26689,11 @@ hr {
 }
 
 .accordion .accordion-button:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .accordion .accordion-button[aria-expanded=true] {
-    color: #00D9FF
+    color: $brand
 }
 
 .accordion .accordion-button[aria-expanded=true]:after {
@@ -26726,7 +26725,7 @@ hr {
 }
 
 .social_links a:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .pagination_wrap {
@@ -26758,8 +26757,8 @@ hr {
 .pagination_nav li.active a,
 .pagination_nav li:hover a {
     color: #fff;
-    border-color: #00D9FF;
-    background-color: #00D9FF
+    border-color: $brand;
+    background-color: $brand
 }
 
 .rating_star {
@@ -26887,7 +26886,7 @@ hr {
 }
 
 .comment_form .checkbox_item input:checked {
-    border-color: #00D9FF
+    border-color: $brand
 }
 
 .iconbox_item {
@@ -26937,7 +26936,7 @@ hr {
     height: 40px;
     font-size: 32px;
     margin-bottom: 15px;
-    color: #00D9FF
+    color: $brand
 }
 
 .iconbox_item.iconbox_default .policy_title {
@@ -26960,7 +26959,7 @@ hr {
     height: 70px;
     font-size: 24px;
     border-radius: 100%;
-    color: #00D9FF;
+    color: $brand;
     background-color: #ebe5f7
 }
 
@@ -26986,7 +26985,7 @@ hr {
 
 .iconbox_item.iconbox_overicon:hover .item_icon {
     color: #fff;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .iconbox_item.iconbox_overicon:hover .item_icon path {
@@ -26994,7 +26993,7 @@ hr {
 }
 
 .iconbox_item.iconbox_overicon:hover .item_content {
-    border-color: #00D9FF
+    border-color: $brand
 }
 
 .iconbox_item.iconbox_lefticon {
@@ -27004,7 +27003,7 @@ hr {
 .iconbox_item.iconbox_lefticon .item_icon {
     font-size: 52px;
     margin-right: 15px;
-    color: #00D9FF
+    color: $brand
 }
 
 .iconbox_item.iconbox_lefticon .item_title {
@@ -27033,7 +27032,7 @@ hr {
     border-radius: 100%;
     align-items: center;
     display: inline-flex;
-    color: #00D9FF;
+    color: $brand;
     justify-content: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -27107,7 +27106,7 @@ hr {
 .price-range-area .ui-slider-range {
     border: none;
     border-radius: 2px;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .price-range-area .ui-state-default {
@@ -27119,7 +27118,7 @@ hr {
     cursor: pointer;
     border-radius: 100%;
     border: 6px solid #fff;
-    background-color: #00D9FF;
+    background-color: $brand;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2)
 }
 
@@ -27162,8 +27161,8 @@ hr {
 
 .price-range-area .price_filter_btn:hover {
     color: #fff;
-    border-color: #00D9FF;
-    background-color: #00D9FF
+    border-color: $brand;
+    background-color: $brand
 }
 
 .countdown_timer {
@@ -27185,7 +27184,7 @@ hr {
     flex-direction: column;
     justify-content: center;
     border-radius: 8px;
-    border: 1px solid #00D9FF
+    border: 1px solid $brand
 }
 
 .countdown_timer>li:not(:last-child) {
@@ -27195,7 +27194,7 @@ hr {
 .countdown_timer strong {
     font-size: 24px;
     font-weight: 800;
-    color: #00D9FF;
+    color: $brand;
     font-family: Nunito, sans-serif
 }
 
@@ -27308,12 +27307,12 @@ hr {
 
 .main_menu_list .dropdown-menu>li.active>a,
 .main_menu_list .dropdown-menu>li:hover>a {
-    color: #00D9FF
+    color: $brand
 }
 
 .main_menu_list .dropdown-menu>li.active>a:before,
 .main_menu_list .dropdown-menu>li:hover>a:before {
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .main_menu_list .dropdown-menu .dropdown>a:after {
@@ -27412,7 +27411,7 @@ hr {
 
 .header_default .header_top {
     padding: 12px 0;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .header_default .header_bottom {
@@ -27500,7 +27499,7 @@ hr {
     display: inline-flex;
     justify-content: center;
     border-radius: 8px;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .footer_newslatter .form_item button:hover {
@@ -27512,7 +27511,7 @@ hr {
 }
 
 .footer_hotline .item_title a:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .breadcrumb_section {
@@ -27610,7 +27609,7 @@ hr {
 
 .breadcrumb_nav>li>a {
     display: block;
-    color: #00D9FF
+    color: $brand
 }
 
 .breadcrumb_nav>li>a:hover {
@@ -27737,7 +27736,7 @@ hr {
 .sb_category_list i {
     opacity: .6;
     margin-right: 10px;
-    color: #00D9FF;
+    color: $brand;
     transition: .6s cubic-bezier(.165, .84, .44, 1)
 }
 
@@ -27758,7 +27757,7 @@ hr {
 }
 
 .sb_category_list a:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .sb_category_list a:hover i {
@@ -27766,7 +27765,7 @@ hr {
 }
 
 .sb_category_list a:hover small {
-    color: #00D9FF
+    color: $brand
 }
 
 .twitter_feed>li:not(:last-child) {
@@ -27794,7 +27793,7 @@ hr {
     flex: 0 0 24px;
     margin-top: 3px;
     font-size: 16px;
-    color: #00D9FF
+    color: $brand
 }
 
 .vanilla-calendar {
@@ -27850,7 +27849,7 @@ hr {
 .vanilla-calendar-day__btn:hover,
 .vanilla-calendar-day__btn_today {
     color: #fff;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .vanilla-calendar-day__btn_holiday,
@@ -27886,7 +27885,7 @@ hr {
 
 .popup_video i {
     margin-left: 5px;
-    color: #00D9FF
+    color: $brand
 }
 
 .popup_video:hover:before {
@@ -27921,7 +27920,7 @@ hr {
     font-weight: 700;
     line-height: 19px;
     margin-bottom: 19px;
-    color: #00D9FF;
+    color: $brand;
     text-transform: uppercase
 }
 
@@ -28045,8 +28044,8 @@ hr {
 
 .banner_policy_items .iconbox_item.iconbox_lefticon:hover .item_icon {
     color: #fff;
-    border-color: #00D9FF;
-    background-color: #00D9FF
+    border-color: $brand;
+    background-color: $brand
 }
 
 .offer_banner_item {
@@ -28091,7 +28090,7 @@ hr {
 
 .offer_banner_item .btn_unfill {
     font-size: 18px;
-    color: #00D9FF
+    color: $brand
 }
 
 .offer_banner_item .badge {
@@ -28101,7 +28100,7 @@ hr {
     border-radius: 8px;
     padding: 20px 30px;
     font-family: Nunito, sans-serif;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .offer_banner_item.banner_big {
@@ -28187,7 +28186,7 @@ hr {
 .pricing_table_item .pricing_info_list i {
     font-size: 18px;
     margin-right: 10px;
-    color: #00D9FF
+    color: $brand
 }
 
 .pricing_table_item .pricing_info_list del {
@@ -28205,8 +28204,8 @@ hr {
 
 .pricing_table_item.active {
     color: #fff;
-    border: 2px solid #00D9FF;
-    background-color: #00D9FF
+    border: 2px solid $brand;
+    background-color: $brand
 }
 
 .pricing_table_item.active .pricing_heading {
@@ -28345,7 +28344,7 @@ hr {
 }
 
 .service_item .btn_unfill {
-    color: #00D9FF
+    color: $brand
 }
 
 .service_item .btn_unfill:before {
@@ -28360,8 +28359,8 @@ hr {
 }
 
 .service_item:hover {
-    border-color: #00D9FF;
-    background-color: #00D9FF
+    border-color: $brand;
+    background-color: $brand
 }
 
 .service_item:hover .item_price span,
@@ -28435,7 +28434,7 @@ hr {
 
 .service_price_item .service_time i {
     margin-right: 4px;
-    color: #00D9FF
+    color: $brand
 }
 
 .service_price_item .item_title {
@@ -28534,7 +28533,7 @@ hr {
 }
 
 .product_item:hover .item_title a {
-    color: #00D9FF
+    color: $brand
 }
 
 .item_price {
@@ -28550,7 +28549,7 @@ hr {
 }
 
 .item_price span {
-    color: #00D9FF
+    color: $brand
 }
 
 .small_products_wrap .wrap_title {
@@ -28606,7 +28605,7 @@ hr {
 }
 
 .small_product_item:hover .item_title>a {
-    color: #00D9FF
+    color: $brand
 }
 
 .small_product_item:hover .item_image img {
@@ -28714,7 +28713,7 @@ hr {
     overflow: hidden;
     border-radius: 8px;
     padding: 120px 40px;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .subscribe_wrap .overlay {
@@ -28826,7 +28825,7 @@ hr {
     background-size: auto;
     background-repeat: no-repeat;
     justify-content: space-between;
-    background-color: #00D9FF;
+    background-color: $brand;
     background-position: right -7px bottom -15px
 }
 
@@ -28907,7 +28906,7 @@ hr {
 }
 
 .testimonial_item:hover {
-    border-color: #00D9FF
+    border-color: $brand
 }
 
 .testimonial_item .testimonial_admin {
@@ -28954,7 +28953,7 @@ hr {
     line-height: 1;
     font-size: 56px;
     position: absolute;
-    color: #00D9FF
+    color: $brand
 }
 
 .about_section .shape_dot_1 {
@@ -29141,7 +29140,7 @@ hr {
     opacity: .7;
     position: absolute;
     transform: translateX(-50%);
-    background-color: #00D9FF;
+    background-color: $brand;
     transition: .6s cubic-bezier(.16, 1, .3, 1)
 }
 
@@ -29409,7 +29408,7 @@ hr {
 }
 
 .blog_item .btn_unfill {
-    color: #00D9FF
+    color: $brand
 }
 
 .blog_item:hover .item_image img {
@@ -29417,7 +29416,7 @@ hr {
 }
 
 .blog_item:hover .item_title>a {
-    color: #00D9FF
+    color: $brand
 }
 
 .small_post_wrap>li:not(:last-child) {
@@ -29456,7 +29455,7 @@ hr {
 }
 
 .small_blog_item .item_title a:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .small_blog_item .item_admin {
@@ -29472,7 +29471,7 @@ hr {
 
 .small_blog_item .item_admin i {
     margin-right: 5px;
-    color: #00D9FF
+    color: $brand
 }
 
 .small_blog_item:hover .item_image img {
@@ -29523,7 +29522,7 @@ hr {
 
 .cart_btn:hover {
     color: #fff;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .cart_btn:hover i {
@@ -29610,7 +29609,7 @@ hr {
     font-size: 16px;
     font-weight: 700;
     line-height: 19px;
-    color: #00D9FF
+    color: $brand
 }
 
 .cart_items_list>li .remove_btn {
@@ -29685,14 +29684,14 @@ hr {
     background: #fbf9ff;
     align-items: center;
     display: inline-flex;
-    color: #00D9FF;
+    color: $brand;
     justify-content: center;
     transform: translateY(-50%)
 }
 
 .cart_table_wrap .remove_btn:hover {
     color: #fff;
-    background-color: #00D9FF
+    background-color: $brand
 }
 
 .cart_table_wrap .table_footer {
@@ -29941,7 +29940,7 @@ hr {
 }
 
 .quantity_wrap button:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .quantity_wrap button:nth-child(1) {
@@ -29961,7 +29960,7 @@ hr {
 }
 
 .details_item_info a:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .details_item_info .categories_tags a {
@@ -30072,7 +30071,7 @@ blockquote i {
     line-height: 1;
     font-size: 52px;
     margin-bottom: 20px;
-    color: #00D9FF
+    color: $brand
 }
 
 blockquote p {
@@ -30111,7 +30110,7 @@ blockquote cite {
 }
 
 .tag_share_links .social_links a {
-    color: #00D9FF
+    color: $brand
 }
 
 .tag_share_links .social_links a:hover {
@@ -30166,12 +30165,12 @@ blockquote cite {
 }
 
 .prev_next_post a:hover {
-    color: #00D9FF
+    color: $brand
 }
 
 .prev_next_post i {
     font-size: 24px;
-    color: #00D9FF
+    color: $brand
 }
 
 .prev_next_post strong {
@@ -30236,7 +30235,7 @@ blockquote cite {
 .error_section .social_links a {
     line-height: 1;
     font-size: 26px;
-    color: #00D9FF
+    color: $brand
 }
 
 @media screen and (max-width:1440px) {
@@ -32262,7 +32261,7 @@ blockquote cite {
     }
 }
 #added-to-cart-success .notification-icon i{
-    color: #00D9FF;
+    color: $brand;
     font-size: 50px;
 }
 #added-to-cart-success h4 {
@@ -32273,7 +32272,7 @@ blockquote cite {
     color: #6d6d6d;
 }
 #added-to-cart-success a {
-    background-color: #00D9FF;
+    background-color: $brand;
     color: #fff;
     border-radius: 4px;
     font-size: 0.8em;
@@ -32333,7 +32332,7 @@ blockquote cite {
 }
 .navbar-search-overlay .search-form-group button {
     flex: 1;
-    background-color: #00D9FF;
+    background-color: $brand;
     color: #fff;
     border: 0;
     padding: 5px 10px;
@@ -32367,10 +32366,22 @@ blockquote cite {
     color: #000;
 }
 .navbar-search-overlay #navbar-search-results .single-search-result .search-result-data b {
-    color: #00D9FF;
+    color: $brand;
     font-size: 1.1em;
 }
 @media screen and (max-width: 768px){
+    .notification{
+        position: fixed;
+        bottom: 25px;
+        right: 3%;
+        left:3%;
+        width: 94%;
+        border-radius: 4px;
+        box-shadow: 0px 0px 10px rgba(0 ,0 ,0 ,0.25);
+        z-index: 99999;
+        background-color: #fff;
+        padding: 40px;
+    }
     #added-to-cart-success{
         position: fixed;
         bottom: 25px;
@@ -32416,7 +32427,7 @@ blockquote cite {
 }
 .update-qty-cart-button{
     padding: 5px 10px;
-    background-color: #00D9FF;
+    background-color: $brand;
     border-radius: 4px;
     color: #fff;
     font-size: 14px;
@@ -32427,10 +32438,10 @@ blockquote cite {
     font-size: .9em;
 }
 .product-meta-data a{
-    color: #00D9FF;
+    color: $brand;
 }
 .text-brand{
-    color: #00D9FF !important;
+    color: $brand !important;
 }
 .carousel_arrow{
     width: 30%;
@@ -32439,4 +32450,56 @@ blockquote cite {
 }
 .on-top{
     z-index: 99999999;
+}
+// Cart page
+.cart-item{
+    position: relative;
+    border: 1px solid #f7f7f7;
+    border-radius: 4px;
+    display:flex;
+    padding:10px;
+    margin-bottom: 15px;
+    .cart-item__image{
+        margin-right: 20px;
+        flex:1;
+        img{
+            width:100%;
+            height:auto;
+            border-radius: 4px;
+        }
+    }
+    .cart-item__content{
+        flex:2;
+        .cart-item__content__metadata{
+            list-style:none;
+            padding:0;
+            li{
+                display:inline-block;
+                margin-right:15px;
+                font-size: 0.9em;
+                i{
+                    color: $brand;
+                }
+            }
+        }
+        .remove_btn{
+            background: #ca4e4e;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color:#fff;
+            font-size: 0.8em;
+        }
+        .qty-container{
+            display:flex;
+            align-items: center;
+            justify-content:center;
+            flex-direction: column;
+            position: absolute;
+            top:15%;
+            right: -20px;
+            background-color: #d7d7d7;
+            padding: 10px;
+            border-radius: 30px;
+        }
+    }
 }

@@ -34,7 +34,8 @@ class ProductController extends Controller{
             //Default products list
             $AllProducts = Product::latest()->paginate(12);
         }
-        return view('product.index' , compact('AllProducts','FeaturedProducts', 'AllPets', 'AllCategories', 'AllBrands'));
+        $NonPaginatedProducts = Product::latest()->get();
+        return view('product.index' , compact('AllProducts','FeaturedProducts', 'AllPets', 'AllCategories', 'AllBrands', 'NonPaginatedProducts'));
     }
     public function getSingle($slug, $id){
         $TheProduct = Product::findOrFail($id);

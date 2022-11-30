@@ -5,51 +5,38 @@
     <main>
         <section class="cart_section">
             <div class="container">
+                <div class="row mt-5 pt-5">
+                    @forelse($Cart as $CartItem)
+                      <div class="col-lg-6 col-11">
+                          <div class="cart-item">
+                              <div class="cart-item__image">
+                                  <img src="{{$CartItem->Product->imagePath}}" >
+                              </div>
+                              <div class="cart-item__content">
+                                    <p>{{$CartItem->Product->title}}</p>
+                                    <ul class="cart-item__content__metadata">
+                                        <li><i class="fas fa-usd-circle"></i> {{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</li>
+                                    </ul>
+                                    <button class="remove_btn delete-from-cart" data-location="cart-page" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button">
+                                        <i class="fa fa-trash"></i> Remove
+                                    </button>
+                                      <div class="qty-container">
+                                        <button data-id="{{$CartItem->id}}" data-target="{{route('cart.addOneQty')}}" class="add-one-qty">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <span class="qty-total">{{$CartItem->qty}}</span>
+                                        <button data-id="{{$CartItem->id}}" data-target="{{route('cart.removeOneQty')}}"  class="remove-one-qty">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    @empty
+                        <p class="text-center">Your cart is empty!</p>
+                    @endforelse
+                </div>
                 <div class="cart_table_wrap">
-                    <div class="table_header d-none d-lg-block">
-                        <ul class="table_wrap unorder_list">
-                            <li><span class="col_title">Product</span></li>
-                            <li><span class="col_title">Price</span></li>
-                            <li><span class="col_title">Quantity</span></li>
-                            <li><span class="col_title">Total</span></li>
-                        </ul>
-                    </div>
-                    <div class="table_body">
-                        @forelse($Cart as $CartItem)
-                            <ul class="table_wrap unorder_list">
-                                <li>
-                                    <div class="small_product_item">
-                                        <div class="item_image"><img src="{{$CartItem->Product->imagePath}}" alt="{{$CartItem->Product->title}}"></div>
-                                        <div class="item_content">
-                                            <h3 class="item_title">{{$CartItem->Product->title}}</h3>
-                                        </div>
-                                    </div>
-                                    <button class="remove_btn delete-from-cart" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button"><i class="fa fa-times"></i></button>
-                                </li>
-                                <li><span class="col_title d-lg-none">Price</span>
-                                    <div class="item_price">
-                                        @if($CartItem->Product->hasDiscount)
-                                            <del>{{convertCurrency($CartItem->Product->price, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</del><span>{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
-                                        @else
-                                            <span>{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
-                                        @endif
-                                    </div>
-                                </li>
-                                <li><span class="col_title d-lg-none">Quantity</span>
-                                    <form class="d-flex" action="{{route('cart.updateQty', $CartItem->id)}}" method="post">
-                                        @csrf
-                                        <input class="input_number mr-3" min="1" name="qty" style="border: 1px solid #ccc;border-radius: 5px;" type="number" value="{{$CartItem->qty}}">
-                                        <button class="update-qty-cart-button">Save</button>
-                                    </form>
-                                </li>
-                                <li><span class="col_title d-lg-none">Total</span>
-                                    <div class="item_price"><span>{{convertCurrency($CartItem->TotalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span></div>
-                                </li>
-                            </ul>
-                        @empty
-                            <p class="text-center my-3">There are no items in your cart</p>
-                        @endforelse
-                    </div>
                     <div class="table_footer">
                         <div class="row align-items-center">
                             <div class="col col-lg-6">
@@ -81,11 +68,11 @@
 
                                 <ul class="subtotal_info unorder_list_block">
                                     <li>Subtotal</li>
-                                    <li>{{$SubTotal}}$</li>
+                                    <li><span class="cart-page-total">{{$SubTotal}}</span>$</li>
                                     @if($CartHasCoupon)
                                         <li class="text-success">{{$AppliedCoupon}} (-{{$CouponDiscount}}$)</li>
                                         <li>Total</li>
-                                        <li>{{$Total}}$</li>
+                                        <li>{{$Total}}</li>$
                                     @endif
                                 </ul>
                             </div>

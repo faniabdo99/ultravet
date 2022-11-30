@@ -62,14 +62,14 @@
                                         <h3 class="item_title"><a href="{{route('product.single', [$CartItem->Product->slug, $CartItem->Product->id])}}">{{$CartItem->Product->title}}</a></h3>
                                         <span class="item_price">{{$CartItem->qty}} × {{$CartItem->Product->finalPrice}}$</span>
                                     </div>
-                                    <button class="remove_btn delete-from-cart" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button"><i class="fa fa-times"></i></button>
+                                    <button class="remove_btn delete-from-cart" data-location="navbar" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button"><i class="fa fa-times"></i></button>
                                 </li>
                             @empty
                                 <li class="text-center">You don't have anything in your cart</li>
                             @endforelse
                         </ul>
                         <hr>
-                        <div class="total_price"><span>Total</span> <strong>{{getCartTotal()}}$</strong></div>
+                        <div class="total_price"><span>Total</span> <strong><span class="navbar-cart-total text-dark">{{getCartTotal()}}</span>$</strong></div>
                         <a class="btn border_primary" href="{{route('cart.all')}}">View Cart</a>
                         <a class="btn btn_primary" href="{{route('checkout.get')}}">Checkout</a>
                     </div>

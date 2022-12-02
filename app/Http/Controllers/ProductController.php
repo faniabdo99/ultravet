@@ -81,7 +81,7 @@ class ProductController extends Controller{
         $AllProducts = Product::where([
             ['category_id' , $TheCategoryId],
             ['pet_id' , $ThePetId],
-        ])->get();
+        ])->paginate(12);
         return view('product.filter' , compact('AllProducts'));
     }
 

@@ -84,7 +84,7 @@ function convertCurrency($amount , $to){
     if($to == 'usd'){
         return $amount;
     }else{
-        return ceil(intval($amount) * getExchangeRate());
+        return round(intval($amount) * getExchangeRate() , 3);
     }
 }
 function getCurrencySymbol($currency){

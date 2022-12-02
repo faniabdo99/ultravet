@@ -103,7 +103,11 @@
             <section class="product_section section_space_md">
                 <div class="container">
                     <div class="section_title">
-                        <h2 class="title_text mb-0 on-top"><span class="sub_title">Our Products</span> Products in <a class="text-brand" href="{{route('product.category', $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></h2>
+                        @if($TheProduct->Category->slug == 'deleted-category')
+                            <h2 class="title_text mb-0 on-top"><span class="sub_title">Our Products</span> Related Products</h2>
+                        @else
+                            <h2 class="title_text mb-0 on-top"><span class="sub_title">Our Products</span> Products in <a class="text-brand" href="{{route('product.category', $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></h2>
+                        @endif
                     </div>
                 </div>
                 <div class="product_carousel">

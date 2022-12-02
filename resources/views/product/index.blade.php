@@ -23,6 +23,21 @@
                                 <h3 class="sb_widget_title" data-bs-toggle="collapse" data-bs-target="#collapse_filters" aria-expanded="false">Filter</h3>
                                 <div class="collapse show" id="collapse_filters">
                                     <form action="{{route('product.all')}}" method="GET">
+                                        <h3 class="sb_widget_title mt-5">Pet type</h3>
+                                        <div class="card card-body">
+                                            <ul class="filter_category_list unorder_list_block">
+                                                @forelse($AllPets as $Pet)
+                                                    <li>
+                                                        <div class="checkbox_item">
+                                                            <input type="radio" id="pet-{{$Pet->id}}" value="{{$Pet->id}}" @if(request()->pet_id == $Pet->id) checked @endif name="pet_id">
+                                                            <label for="pet-{{$Pet->id}}"><span>{{$Pet->title}}</span></label>
+                                                        </div>
+                                                    </li>
+                                                @empty
+                                                    <p>No pets to show</p>
+                                                @endforelse
+                                            </ul>
+                                        </div>
                                         <h3 class="sb_widget_title mt-4">Categories</h3>
                                         <div class="card card-body">
                                             <ul class="filter_category_list unorder_list_block">
@@ -37,13 +52,6 @@
                                                     <p>No categories</p>
                                                 @endforelse
                                             </ul>
-                                        </div>
-                                        <h3 class="sb_widget_title mt-5">Price range</h3>
-                                        <div class="card card-body">
-                                            <div class="price-range-area clearfix">
-                                                <div id="slider-range" class="slider-range"></div>
-                                                <div class="price-text"><span>Range:</span><input type="text" id="amount" name="price" readonly="readonly"></div>
-                                            </div>
                                         </div>
                                         <h3 class="sb_widget_title mt-5">Brands</h3>
                                         <div class="card card-body">
@@ -60,20 +68,12 @@
                                                 @endforelse
                                             </ul>
                                         </div>
-                                        <h3 class="sb_widget_title mt-5">Pet type</h3>
+                                        <h3 class="sb_widget_title mt-5">Price range</h3>
                                         <div class="card card-body">
-                                            <ul class="filter_category_list unorder_list_block">
-                                                @forelse($AllPets as $Pet)
-                                                    <li>
-                                                        <div class="checkbox_item">
-                                                            <input type="radio" id="pet-{{$Pet->id}}" value="{{$Pet->id}}" @if(request()->pet_id == $Pet->id) checked @endif name="pet_id">
-                                                            <label for="pet-{{$Pet->id}}"><span>{{$Pet->title}}</span></label>
-                                                        </div>
-                                                    </li>
-                                                @empty
-                                                    <p>No pets to show</p>
-                                                @endforelse
-                                            </ul>
+                                            <div class="price-range-area clearfix">
+                                                <div id="slider-range" class="slider-range"></div>
+                                                <div class="price-text"><span>Range:</span><input type="text" id="amount" name="price" readonly="readonly"></div>
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn_primary d-block mt-5"><i class="fas fa-paw"></i> Apply Filters</button>
                                     </form>

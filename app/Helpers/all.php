@@ -89,7 +89,7 @@ function convertCurrency($amount , $to){
 }
 function getCurrencySymbol($currency){
     if ($currency == 'lbp') {
-        return 'L.L';
+        return ' L.L';
     }else{
         return '$';
     }

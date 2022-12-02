@@ -109,8 +109,8 @@ class ProductResource extends Resource
             TD::make('id'),
             TD::make('sku')->sort(),
             TD::make('title')->sort()->filter(Input::make()),
-            TD::make('price'),
-            TD::make('qty'),
+            TD::make('price')->sort(),
+            TD::make('qty')->sort(),
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
                     return $model->created_at->toDateTimeString();

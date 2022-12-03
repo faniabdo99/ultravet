@@ -160,4 +160,15 @@ class SystemVariablesScreen extends Screen {
         Setting::first()->update($r->all());
         Alert::success('System settings has been updated successfully!');
     }
+    /**
+     * Permission
+     *
+     * @return iterable|null
+     */
+    public function permission(): ?iterable
+    {
+        return [
+            'settings'
+        ];
+    }
 }

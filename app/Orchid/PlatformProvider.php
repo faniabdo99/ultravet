@@ -28,15 +28,6 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            // Menu::make('Blog')
-            //     ->icon('folder')
-            //     ->route('platform.article.list')
-            //     ->title('Resources'),
-
-            // Menu::make('Pets')
-            //     ->icon('folder')
-            //     ->route('platform.pet.list'),
-
             Menu::make(__('Users'))
                 ->icon('user')
                 ->route('platform.systems.users')
@@ -50,10 +41,12 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make('Orders')
                 ->icon('handbag')
+                ->permission('orders')
                 ->route('platform.orders'),
 
             Menu::make('System Variables')
                 ->icon('settings')
+                ->permission('settings')
                 ->route('platform.system-variables')
         ];
     }
@@ -78,7 +71,9 @@ class PlatformProvider extends OrchidServiceProvider
         return [
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
+                ->addPermission('platform.systems.users', __('Users'))
+                ->addPermission('orders', 'Orders')
+                ->addPermission('settings', 'System settings'),
         ];
     }
 }

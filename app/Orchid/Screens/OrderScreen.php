@@ -49,7 +49,17 @@ class OrderScreen extends Screen
                 ->icon('globe-alt'),
             ];
     }
-
+    /**
+     * Permission
+     *
+     * @return iterable|null
+     */
+    public function permission(): ?iterable
+    {
+        return [
+            'orders'
+        ];
+    }
     /**
      * Views.
      *

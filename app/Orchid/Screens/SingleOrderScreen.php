@@ -43,17 +43,17 @@ class SingleOrderScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Manage')
+            Button::make('Cancel')
                 ->icon('note')
-                ->href(route('platform.order.edit', $this->order->id))
-                ->canSee($this->order->exists),
-            Button::make('Delete')
-                ->icon('trash')
-                ->method('remove')
+                ->method('cancel')
                 ->canSee($this->order->exists),
             Button::make('Completed')
                 ->icon('check')
                 ->method('complete')
+                ->canSee($this->order->exists),
+            Button::make('Delete')
+                ->icon('trash')
+                ->method('remove')
                 ->canSee($this->order->exists),
 
         ];
@@ -120,6 +120,18 @@ class SingleOrderScreen extends Screen
         Alert::info('You have successfully deleted the order.');
         return redirect()->route('platform.orders');
     }
+    /**
+     * @param Order $order
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function cancel(Order $order){
+        $order->update(['status' => 'cancelled']);
+        Alert::info('You have successfully marked the order cancelled.');
+        return redirect()->route('platform.orders');
+    }
+
     /**
      * @param Order $order
      *

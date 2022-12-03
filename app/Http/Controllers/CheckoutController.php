@@ -11,7 +11,7 @@ class CheckoutController extends Controller{
         // Validate the requests
         $r->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'phone_number' => 'required',
             'address' => 'required'
         ]);

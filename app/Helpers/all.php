@@ -38,6 +38,7 @@ function getCurrency(){
             $CurrencyCode = 'LBP';
         }
     }else{
+        session(['currency' => 'USD']);
         $CurrencySymbol = '$';
         $CurrencyCode = 'USD';
     }

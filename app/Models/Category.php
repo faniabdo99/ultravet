@@ -20,6 +20,9 @@ class Category extends Model {
     public function Products(){
         return $this->hasMany(Product::class);
     }
+    public function Children(){
+        return $this->hasMany(Category::class, 'parent_id');
+    }
     public function scopeParent($query){
         return $query->where('is_parent' , 1);
     }

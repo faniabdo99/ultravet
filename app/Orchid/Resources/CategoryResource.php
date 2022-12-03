@@ -40,6 +40,7 @@ class CategoryResource extends Resource
                 ->title('Order Number')
                 ->type('number'),
             Relation::make('parent_id')
+                    ->allowEmpty()
                     ->fromModel(\App\Models\Category::class, 'title')
                     ->title('Parent Category')
                     ->applyScope('parent'),
@@ -120,9 +121,9 @@ class CategoryResource extends Resource
     public function onSave(ResourceRequest $request, Model $model)
     {
         $CategoryData = $request->all();
-        $CategoryData['is_parent'] = $request->has('parent_id');
+        $CategoryData['is_parent'] = ($request->parent_id == null) ? 0 : 1;
         $CategoryData['user_id'] = auth()->user()->id;
-        $model->forceFill(array_filter($CategoryData))->save();
+        $model->forceFill($CategoryData)->save();
     }
     public function onDelete(Model $model){
         $model->update([

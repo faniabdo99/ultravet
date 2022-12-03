@@ -19,11 +19,11 @@
                             </div>
                             <div class="form_item">
                                 <label class="input_title" for="input_email">Email<sup>*</sup></label>
-                                <input id="input_email" type="text" name="email" placeholder="Type Your Email" required>
+                                <input id="input_email" type="email" name="email" placeholder="Type Your Email" required>
                             </div>
                             <div class="form_item">
                                 <label class="input_title" for="input_phone_number">Phone Number<sup>*</sup></label>
-                                <input id="input_phone_number" type="text" name="phone_number"
+                                <input id="input_phone_number" type="number" name="phone_number"
                                        placeholder="Type Your Phone Number" required>
                             </div>
                             <div class="form_item">

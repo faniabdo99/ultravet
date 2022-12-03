@@ -44,9 +44,20 @@
                                                 @forelse($AllCategories as $Category)
                                                     <li>
                                                         <div class="checkbox_item">
-                                                            <input type="radio" id="category-{{$Category->id}}" value="{{$Category->id}}" @if(request()->category_id == $Category->id) checked @endif name="category_id">
-                                                            <label for="category-{{$Category->id}}"><span>{{$Category->title}}</span><small>{{$Category->Products->count()}}</small></label>
+                                                            <input type="radio" id="category-{{$Category->slug}}" value="{{$Category->id}}" @if(request()->category_id == $Category->id) checked @endif name="category_id">
+                                                            <label for="category-{{$Category->slug}}"><span>{{$Category->title}}</span><small>{{$Category->Products->count()}}</small></label>
                                                         </div>
+                                                        <ul class="ms-4 mt-3 filter_category_list unorder_list_block">
+                                                            <li>
+                                                                @forelse($Category->Children as $ChildCategory)
+                                                                    <div class="checkbox_item">
+                                                                        <input type="radio" id="category-{{$ChildCategory->slug}}" value="{{$ChildCategory->id}}" @if(request()->category_id == $ChildCategory->id) checked @endif name="category_id">
+                                                                        <label for="category-{{$ChildCategory->slug}}"><span>{{$ChildCategory->title}}</span><small>{{$ChildCategory->Products->count()}}</small></label>
+                                                                    </div>
+                                                                @empty
+                                                                @endforelse
+                                                            </li>
+                                                        </ul>
                                                     </li>
                                                 @empty
                                                     <p>No categories</p>

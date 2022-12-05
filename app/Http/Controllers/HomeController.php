@@ -9,8 +9,7 @@ use App\Models\Product;
 class HomeController extends Controller{
     public function getHome(){
         $FeaturedPets = Pet::featured()->get();
-        $Categories = Category::featured()->limit(4)->get();
         $LatestArticles = Article::latest()->limit(3)->get();
-        return view('index', compact('FeaturedPets' , 'Categories' , 'LatestArticles'));
+        return view('index', compact('FeaturedPets' , 'LatestArticles'));
     }
 }

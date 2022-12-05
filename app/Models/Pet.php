@@ -17,9 +17,6 @@ class Pet extends Model{
     public function User(){
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function Categories(){
-        return $this->hasMany(Pet::class, 'pet_id');
-    }
     // Scopes
     public function scopeFeatured($query){
         return $query->where('is_featured' , 1);

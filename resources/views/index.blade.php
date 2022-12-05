@@ -129,7 +129,10 @@
                                         </a>
                                         <div class="page_list">
                                             <ul class="unorder_list_block">
-                                                @forelse($Pet->Categories as $Category)
+                                                @php
+                                                    $Categories = App\Models\Category::featured()->where('pet_id', $Pet->id)->get();
+                                                @endphp
+                                                @forelse($Categories as $Category)
                                                     <li><a href="{{route('product.category-brand' , [$Category->slug, $Pet->slug])}}"><i class="fas fa-circle"></i> {{$Category->title}}</a></li>
                                                 @empty
                                                     <li>There are no categories at the moment!</li>

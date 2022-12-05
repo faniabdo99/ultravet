@@ -15,7 +15,15 @@
                               <div class="cart-item__content">
                                     <p>{{$CartItem->Product->title}}</p>
                                     <ul class="cart-item__content__metadata">
-                                        <li><i class="fas fa-usd-circle"></i> {{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</li>
+                                        <li>
+                                            @if($CartItem->Product->hasDiscount)
+                                                <i class="fas fa-usd-circle"></i> <del class="text-danger">{{convertCurrency($CartItem->Product->price, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</del>
+                                                <span>{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
+                                            @else
+                                                <i class="fas fa-usd-circle"></i> <span>{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
+                                            @endif
+
+                                        </li>
                                     </ul>
                                     <button class="remove_btn delete-from-cart" data-location="cart-page" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button">
                                         <i class="fa fa-trash"></i> Remove

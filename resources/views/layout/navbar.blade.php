@@ -3,7 +3,10 @@
     @if(request()->route() && request()->route()->getName() != 'home')
         <div class="header_top">
             <div class="container">
-                <ul>
+                <ul class="social_links unorder_list">
+                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
                 </ul>
                 <ul class="icon_list unorder_list">
                     <li><a href="#!"><i class="fas fa-phone"></i> <span>{{getSystemSettings('phone_number')}}</span></a></li>

@@ -2,6 +2,7 @@
 
 namespace App\Orchid\Resources;
 
+use App\Models\Pet;
 use Orchid\Crud\Resource;
 use Orchid\Screen\TD;
 use Orchid\Crud\ResourceRequest;
@@ -44,6 +45,10 @@ class CategoryResource extends Resource
                     ->fromModel(\App\Models\Category::class, 'title')
                     ->title('Parent Category')
                     ->applyScope('parent'),
+            Relation::make('pet_id')
+                    ->title('Pet')
+                    ->fromModel(Pet::class, 'title')
+                    ->required(),
             CheckBox::make('is_featured')
                 ->title('Featured?')
                 ->placeholder('Mark as Featured')

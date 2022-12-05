@@ -129,7 +129,7 @@
                                         </a>
                                         <div class="page_list">
                                             <ul class="unorder_list_block">
-                                                @forelse($Categories as $Category)
+                                                @forelse($Pet->Categories as $Category)
                                                     <li><a href="{{route('product.category-brand' , [$Category->slug, $Pet->slug])}}"><i class="fas fa-circle"></i> {{$Category->title}}</a></li>
                                                 @empty
                                                     <li>There are no categories at the moment!</li>

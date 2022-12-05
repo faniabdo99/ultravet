@@ -89,6 +89,9 @@
                                     <li><span>Brand</span> <span>{{$TheProduct->Brand->title}}</span></li>
                                     <li><span>Category</span> <span>{{$TheProduct->Category->title}}</span></li>
                                     <li><span>Pet</span> <span>{{$TheProduct->Pet->title}}</span></li>
+                                    @if($TheProduct->nutritional_facts) <li><span>Nutritional Facts</span> <span>{{$TheProduct->nutritional_facts}}</span></li> @endif
+                                    @if($TheProduct->quality) <li><span>Quality</span> <span>{{$TheProduct->quality}}</span></li> @endif
+                                    @if($TheProduct->weight) <li><span>Weight</span> <span>{{$TheProduct->weight}}</span></li> @endif
                                 </ul>
                             </div>
                             <div class="tab-pane fade" id="tab_description" role="tabpanel">

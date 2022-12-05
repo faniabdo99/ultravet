@@ -28743,9 +28743,9 @@ blockquote cite {
     margin: 0 15px 0 0;
   }
   .tabs_nav_pill > li > button {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 26px;
-    padding: 10px 20px;
+    padding: 5px 10px;
   }
   .sales_product_item .item_image {
     flex: 0 0 266px;

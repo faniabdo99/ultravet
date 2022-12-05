@@ -62,6 +62,12 @@ class ProductResource extends Resource
                 ->title('Price in USD')
                 ->type('number')
                 ->required(),
+            Input::make('nutritional_facts')
+                ->title('Nutritional Facts'),
+            Input::make('quality')
+                ->title('Quality'),
+            Input::make('weight')
+                ->title('Weight'),
             Quill::make('content')
                 ->title('Content')
                 ->required(),

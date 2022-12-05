@@ -14,48 +14,55 @@
                         </div>
                         <div class="col col-lg-6">
                             <div class="banner_content">
-                                <h1 class="banner_title"><span class="banner_sub_title">We treat your pet like family</span> We
-                                    Help You Care for Animals with Nutrition</h1>
-                                <p class="banner_description">All offers are subject to availability. Ut tortor pretium
-                                    viverra suspendisse potenti nullam ac tortor vitae. Consectetur a erat nam at.
-                                    Potenti nullam ac tortor vitae purus faucibus ornare.</p>
+                                <h1 class="banner_title"><span class="banner_sub_title">{{getSystemSettings('homepage_slogan') ?? 'We treat your pet like family'}}</span>
+                                    {{getSystemSettings('homepage_header') ?? 'We Help You Care for Animals with Nutrition'}}</h1>
+                                <p class="banner_description">{{getSystemSettings('homepage_description') ?? 'Welcome to Ultravet'}}</p>
                                 <div class="banner_policy_items row">
-                                    <div class="col">
-                                        <div class="iconbox_item iconbox_lefticon">
-                                            <div class="item_icon"><i class="fas fa-shipping-fast"></i></div>
-                                            <div class="item_content">
-                                                <h3 class="item_title mb-0">Trust & Safety</h3>
-                                                <p class="mb-0">Velit euismod pellentes</p>
-                                            </div><a class="item_global_link" href="service.html"></a>
+                                    @if(getSystemSettings('card_one_icon') && getSystemSettings('card_one_title') && getSystemSettings('card_one_description'))
+                                        <div class="col">
+                                            <div class="iconbox_item iconbox_lefticon">
+                                                <div class="item_icon"><i class="{{getSystemSettings('card_one_icon')}}"></i></div>
+                                                <div class="item_content">
+                                                    <h3 class="item_title mb-0">{{getSystemSettings('card_one_title')}}</h3>
+                                                    <p class="mb-0">{{getSystemSettings('card_one_description')}}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="iconbox_item iconbox_lefticon">
-                                            <div class="item_icon"><i class="fas fa-badge-percent"></i></div>
-                                            <div class="item_content">
-                                                <h3 class="item_title mb-0">Discounts</h3>
-                                                <p class="mb-0">Bibendum ut tristique</p>
-                                            </div><a class="item_global_link" href="service.html"></a>
+                                    @endif
+                                    @if(getSystemSettings('card_two_icon') && getSystemSettings('card_two_title') && getSystemSettings('card_two_description'))
+                                        <div class="col">
+                                            <div class="iconbox_item iconbox_lefticon">
+                                                <div class="item_icon"><i class="{{getSystemSettings('card_two_icon')}}"></i></div>
+                                                <div class="item_content">
+                                                    <h3 class="item_title mb-0">{{getSystemSettings('card_two_title')}}</h3>
+                                                    <p class="mb-0">{{getSystemSettings('card_two_description')}}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="iconbox_item iconbox_lefticon">
-                                            <div class="item_icon"><i class="fas fa-user-headset"></i></div>
-                                            <div class="item_content">
-                                                <h3 class="item_title mb-0">Support</h3>
-                                                <p class="mb-0">Egestas quis ipsum velit</p>
-                                            </div><a class="item_global_link" href="service.html"></a>
+                                    @endif
+                                    @if(getSystemSettings('card_three_icon') && getSystemSettings('card_three_title') && getSystemSettings('card_three_description'))
+                                        <div class="col">
+                                            <div class="iconbox_item iconbox_lefticon">
+                                                <div class="item_icon"><i class="{{getSystemSettings('card_three_icon')}}"></i></div>
+                                                <div class="item_content">
+                                                    <h3 class="item_title mb-0">{{getSystemSettings('card_three_title')}}</h3>
+                                                    <p class="mb-0">{{getSystemSettings('card_three_description')}}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="iconbox_item iconbox_lefticon">
-                                            <div class="item_icon"><i class="fas fa-shield-check"></i></div>
-                                            <div class="item_content">
-                                                <h3 class="item_title mb-0">Guarantee</h3>
-                                                <p class="mb-0">Velit euismod pellentes</p>
-                                            </div><a class="item_global_link" href="service.html"></a>
+                                    @endif
+                                    @if(getSystemSettings('card_four_icon') && getSystemSettings('card_four_title') && getSystemSettings('card_four_description'))
+                                        <div class="col">
+                                            <div class="iconbox_item iconbox_lefticon">
+                                                <div class="item_icon"><i class="{{getSystemSettings('card_four_icon')}}"></i></div>
+                                                <div class="item_content">
+                                                    <h3 class="item_title mb-0">{{getSystemSettings('card_four_title')}}</h3>
+                                                    <p class="mb-0">{{getSystemSettings('card_four_description')}}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>

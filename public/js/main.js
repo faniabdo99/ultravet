@@ -321,6 +321,10 @@ function updateCartTotal(){
         }
     })
 }
+function updateItemTotal(item){
+    // Item will be the single cart card jquery selector
+    item.find('.total-price').html(item.find('.qty-total').html() * item.find('.single-price').html());
+}
 //Delete item from cart
 $('.delete-from-cart').click(function(e){
     e.preventDefault();
@@ -366,6 +370,7 @@ $('.add-one-qty').click(function(){
             // Increment the shown number
             That.parent().find('.qty-total').html(response.qty)
             updateCartTotal()
+            updateItemTotal(That.parent().parent())
         },
         error: function(response){
             alert(response.responseText);
@@ -389,6 +394,7 @@ $('.remove-one-qty').click(function(){
             }else{
                 // Increment the shown number
                 That.parent().find('.qty-total').html(response.qty)
+                updateItemTotal(That.parent().parent())
             }
             updateCartTotal()
         },

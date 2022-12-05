@@ -18,11 +18,13 @@
                                         <li>
                                             @if($CartItem->Product->hasDiscount)
                                                 <i class="fas fa-usd-circle"></i> <del class="text-danger">{{convertCurrency($CartItem->Product->price, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</del>
-                                                <span>{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
+                                                <span class="single-price">{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency'))}}</span> {{getCurrencySymbol(session()->get('currency'))}}
                                             @else
-                                                <i class="fas fa-usd-circle"></i> <span>{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span>
+                                                <i class="fas fa-usd-circle"></i> <span class="single-price">{{convertCurrency($CartItem->Product->finalPrice, session()->get('currency'))}}</span> {{getCurrencySymbol(session()->get('currency'))}}
                                             @endif
-
+                                        </li>
+                                        <li><i class="fas fa-sack-dollar"></i>
+                                            <span class="total-price">{{convertCurrency($CartItem->totalPrice, session()->get('currency'))}}</span> {{getCurrencySymbol(session()->get('currency'))}}
                                         </li>
                                     </ul>
                                     <button class="remove_btn delete-from-cart" data-location="cart-page" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button">

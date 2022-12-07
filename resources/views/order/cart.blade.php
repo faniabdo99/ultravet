@@ -78,11 +78,11 @@
 
                                 <ul class="subtotal_info unorder_list_block">
                                     <li>Subtotal</li>
-                                    <li><span class="cart-page-total">{{$SubTotal}}</span>$</li>
+                                    <li><span class="cart-page-total">{{convertCurrency($SubTotal , session()->get('currency'))}}</span>{{getCurrencySymbol(session()->get('currency'))}}</li>
                                     @if($CartHasCoupon)
-                                        <li class="text-success">{{$AppliedCoupon}} (-{{$CouponDiscount}}$)</li>
+                                        <li class="text-success">{{$AppliedCoupon}} (-{{convertCurrency($CouponDiscount , session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}})</li>
                                         <li>Total</li>
-                                        <li>{{$Total}}</li>$
+                                        <li><span class="cart-final-total" data-discount="{{convertCurrency($CouponDiscount , session()->get('currency'))}}">{{convertCurrency($Total, session()->get('currency'))}}</span>{{getCurrencySymbol(session()->get('currency'))}}</li>
                                     @endif
                                 </ul>
                             </div>

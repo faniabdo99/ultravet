@@ -41,6 +41,13 @@
                                 <li><a href="{{route('faq')}}">FAQs</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown d-block d-lg-none d-md-none">
+                            <a class="nav-link" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Currency</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{route('switchCurrency.get' , ['currency' => 'usd'])}}">USD</a></li>
+                                <li><a href="{{route('switchCurrency.get' , ['currency' => 'lbp'])}}">LBP</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </nav>

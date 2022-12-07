@@ -312,9 +312,18 @@ function updateCartTotal(){
         },
         method: 'POST',
         success: function (response){
-            // Update the total in navbar
-            $('.navbar-cart-total').html(response.total)
-            $('.cart-page-total').html(response.total)
+            // Update the total in navbar & cart page
+            let total = response.total
+            if($("meta[name='currency']").attr("content") === 'lbp'){
+                total = response.total * $("meta[name='exchange-rate']").attr("content")
+            }
+            $('.navbar-cart-total').html(total)
+            $('.cart-page-total').html(total)
+            // Check if there is any coupons in the cart
+            if($('.cart-final-total').length){
+                // Update the final total and subtract the coupon value
+                $('.cart-final-total').html($('.cart-page-total').html() - $('.cart-final-total').data('discount'))
+            }
         },
         error: function (response){
             console.log(response);
@@ -388,14 +397,9 @@ $('.remove-one-qty').click(function(){
             item_id: ItemId
         },
         success: function(response){
-            if(response === 'item-deleted'){
-                // Delete the item from view
-                That.parent().parent().parent().fadeOut();
-            }else{
-                // Increment the shown number
-                That.parent().find('.qty-total').html(response.qty)
-                updateItemTotal(That.parent().parent())
-            }
+            // Decrement the shown number
+            That.parent().find('.qty-total').html(response.qty)
+            updateItemTotal(That.parent().parent())
             updateCartTotal()
         },
         error: function(response){
@@ -518,23 +522,4 @@ $(document).ready(function(){
             }
         });
     });
-
-    // Variations preview modal
-    const variationModal = document.getElementById('variationModal')
-    variationModal.addEventListener('show.bs.modal', event => {
-        // Button that triggered the modal
-        const button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        const productTitle = button.getAttribute('data-bs-title')
-        const productPrice = button.getAttribute('data-bs-price')
-        const productId = button.getAttribute('data-bs-id')
-        const productUrl = button.getAttribute('data-bs-url')
-
-        const modalTitle = variationModal.querySelector('.modal-title')
-        const modalProductId = variationModal.querySelector('#variationModal input[name="product_id"]')
-        const modalProductPageLink = variationModal.querySelector('.modal-footer a')
-        modalTitle.textContent = productTitle + `(${productPrice})`
-        modalProductId.value = productId
-        modalProductPageLink.href = productUrl
-    })
 });

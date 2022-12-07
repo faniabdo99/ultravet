@@ -21,5 +21,7 @@
     @auth
     <meta name="user_token" content="{{getUserId()}}">
     @endauth
+    <meta name="currency" content="{{session()->get('currency')}}">
+    <meta name="exchange-rate" content="{{getExchangeRate()}}">
     {{-- @vite(['resources/js/app.js']) --}}
 </head>

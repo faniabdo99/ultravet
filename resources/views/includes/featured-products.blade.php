@@ -16,8 +16,10 @@
                                 @if(isInUserCart(getUserId(), $Product->id))
                                     <li><a href="javascript:;">In Cart</a></li>
                                 @else
-                                    @if($Product->CartReady)
+                                    @if($Product->CartReady && count($Product->Variations) == 0)
                                         <li><a class="quick-add-to-cart" data-id="{{$Product->id}}" data-user="{{getUserId()}}" data-target="{{route('cart.add')}}" href="javascript:;">Add To Cart</a></li>
+                                    @else
+                                        <li><a href="{{route('product.single', [$Product->slug, $Product->id])}}">View Variations</a></li>
                                     @endif
                                 @endif
                                 @auth

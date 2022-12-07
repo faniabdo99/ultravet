@@ -5,7 +5,18 @@ use App\Models\Order;
 use App\Models\OrderCart;
 class CheckoutController extends Controller{
     public function getCheckout(){
-        return view('order.checkout');
+        // Ensure there are no items with 0 quantity
+        if(count(userCart(getUserId())) > 0){
+            foreach (userCart(getUserId()) as $item){
+                if ($item->Product->trashed() || $item->Product->slug == 'deleted-product' || !$item->Product->CartReady || $item->qty < 1) {
+                    // Clean up the cart before checkout
+                    $item->delete();
+                }
+            }
+            return view('order.checkout');
+        }else{
+            return redirect()->route('home')->withErrors('You don\'t have anything in your cart!');
+        }
     }
     public function postCheckout(Request $r){
         // Validate the requests

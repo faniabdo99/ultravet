@@ -15,7 +15,7 @@ class CartController extends Controller {
         $CouponDiscount = 0;
         $Cart = Cart::where('user_id', getUserId())->where('status', 'active')->get();
         $CartSubTotalArray = $Cart->map(function ($item) {
-            if (!$item->Product->trashed() && $item->Product->slug != 'deleted-product') {
+            if (!$item->Product->trashed() && $item->Product->slug != 'deleted-product' && $item->Product->CartReady) {
                 if ($item->Product->status == 'available') {
                     return $item->Product->finalPrice * $item->qty;
                 } else {
@@ -117,16 +117,14 @@ class CartController extends Controller {
         if(!$TheCartItem){
             return response('There is no such cart item!', 404);
         }
+        if($TheCartItem->qty == 0){
+            return response('You already have 0 items in your cart!', 400);
+        }
         // Fetch the product
         $TheProduct = $TheCartItem->Product;
         // Update the item_id record
         $TheCartItem->decrement('qty' , 1);
         $TheProduct->increment('qty' , 1);
-        // Delete the cart item if it reaches 0
-        if($TheCartItem->qty == 0){
-            $TheCartItem->delete();
-            return response('item-deleted', 200);
-        }
         // Return a success
         return response($TheCartItem, 200);
     }
@@ -148,7 +146,7 @@ class CartController extends Controller {
                 $item->delete();
             }
         });
-        return response(['total' => $CartSubTotalArray->sum()], 200);
+        return response(['total' => convertCurrency($CartSubTotalArray->sum(), session()->get('currency'))], 200);
     }
     public function delete(Request $r) {
         $TheCart = Cart::findOrFail($r->cart_id);

@@ -122,9 +122,13 @@
                         @forelse($FeaturedPets as $Pet)
                             <div class="col col-lg-4">
                                 <div class="category_item" style="background-image: url('{{url('public')}}/images/shape/shape_path_2.svg');">
-                                    <div class="item_image"><img src="{{$Pet->imagePath}}" alt="{{$Pet->title}}"></div>
+                                    <div class="item_image">
+                                        <a href="{{route('product.all')}}?pet_id={{$Pet->id}}">
+                                            <img src="{{$Pet->imagePath}}" alt="{{$Pet->title}}">
+                                        </a>
+                                    </div>
                                     <div class="item_content">
-                                        <a href="{{route('product.pet' , $Pet->slug)}}">
+                                        <a href="{{route('product.all')}}?pet_id={{$Pet->id}}">
                                             <h3 class="item_title">{{$Pet->title}}</h3>
                                         </a>
                                         <div class="page_list">
@@ -133,7 +137,7 @@
                                                     $Categories = App\Models\Category::featured()->where('pet_id', $Pet->id)->get();
                                                 @endphp
                                                 @forelse($Categories as $Category)
-                                                    <li><a href="{{route('product.category-brand' , [$Category->slug, $Pet->slug])}}"><i class="fas fa-circle"></i> {{$Category->title}}</a></li>
+                                                    <li><a href="{{route('product.all')}}?pet_id={{$Pet->id}}&category_id={{$Category->id}}"><i class="fas fa-circle"></i> {{$Category->title}}</a></li>
                                                 @empty
                                                     <li>There are no categories at the moment!</li>
                                                 @endforelse

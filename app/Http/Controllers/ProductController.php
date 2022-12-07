@@ -10,7 +10,7 @@ class ProductController extends Controller{
         $FeaturedProducts = Product::featured()->latest()->limit(5)->get();
         $AllPets = Pet::latest()->get();
         $AllBrands = Brand::latest()->get();
-        $AllCategories = Category::parent()->latest()->get();
+        $AllCategories = Category::orderBy('order_num', 'DESC')->get();
         if(count($r->all()) > 0){
             //There are some applied filters
             $FiltersArray = [];

@@ -35,8 +35,11 @@ class ProductVariationResource extends Resource {
             Relation::make('product_id')
                 ->title('Product')
                 ->value($_GET['product_id'] ?? '')
-                ->fromModel(\App\Models\Product::class, 'title')
-                ->required()
+                ->fromModel(Product::class, 'title')
+                ->required(),
+            Relation::make('related_product_id')
+                    ->title('Target Product')
+                    ->fromModel(Product::class, 'title')
         ];
     }
 

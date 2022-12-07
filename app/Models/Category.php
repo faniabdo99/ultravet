@@ -20,6 +20,10 @@ class Category extends Model {
     public function Products(){
         return $this->hasMany(Product::class);
     }
+
+    public function Pet(){
+        return $this->belongsTo(Pet::class, 'pet_id');
+    }
     public function Children(){
         return $this->hasMany(Category::class, 'parent_id');
     }

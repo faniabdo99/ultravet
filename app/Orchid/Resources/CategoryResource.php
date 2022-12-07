@@ -70,6 +70,9 @@ class CategoryResource extends Resource
             TD::make('is_featured','Featured')->render(function($model){
                 return ($model->is_featured) ? "Yes" : "No";
             }),
+            TD::make('pet_id', 'Pet')->render(function ($model){
+               return '<a href="/admin/crud/view/pet-resources/'.$model->Pet->id.'">'.$model->Pet->title.'</a>';
+            }),
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
                     return $model->created_at->toDateTimeString();

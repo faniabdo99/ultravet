@@ -13,7 +13,8 @@ class Cart extends Model{
         return $this->belongsTo(Product::class)->withDefault([
             'title' => 'Deleted product',
             'slug' => 'deleted-product',
-            'id' => 0
+            'id' => 0,
+            'image' => 'https://via.placeholder.com/200x200'
         ]);
     }
     public function getTotalPriceAttribute(){

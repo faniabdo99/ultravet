@@ -10,7 +10,11 @@ class Cart extends Model{
     protected $guarded = [];
     //Relations
     public function Product(){
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class)->withDefault([
+            'title' => 'Deleted product',
+            'slug' => 'deleted-product',
+            'id' => 0
+        ]);
     }
     public function getTotalPriceAttribute(){
         return $this->Product->final_price * $this->qty;

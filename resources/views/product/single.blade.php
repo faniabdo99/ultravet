@@ -35,7 +35,7 @@
                             <div class="details_content">
                                 <h2 class="item_title">{{$TheProduct->title}}</h2>
                                 @if($TheProduct->Brand->slug != 'deleted-brand')
-                                    <p class="product-meta-data">By <a href="{{route('product.brand' , $TheProduct->Brand->slug)}}">{{$TheProduct->Brand->title}}</a></p>
+                                    <p class="product-meta-data">By <a href="{{route('product.all')}}?brand_id={{$TheProduct->Brand->id)}}">{{$TheProduct->Brand->title}}</a></p>
                                 @endif
                                 @if($TheProduct->has_discount)
                                     <div class="item_price"><del>{{convertCurrency($TheProduct->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</del> <span>{{convertCurrency($TheProduct->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}</span></div>
@@ -109,7 +109,7 @@
                         @if($TheProduct->Category->slug == 'deleted-category')
                             <h2 class="title_text mb-0 on-top"><span class="sub_title">Our Products</span> Related Products</h2>
                         @else
-                            <h2 class="title_text mb-0 on-top"><span class="sub_title">Our Products</span> Products in <a class="text-brand" href="{{route('product.category', $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></h2>
+                            <h2 class="title_text mb-0 on-top"><span class="sub_title">Our Products</span> Products in <a class="text-brand" href="{{route('product.all')}}?category_id={{$TheProduct->Category->id}}">{{$TheProduct->Category->title}}</a></h2>
                         @endif
                     </div>
                 </div>

@@ -7,7 +7,7 @@
             <div class="instagram_carousel row">
                 @forelse(getBrands(true) as $Brand)
                     <div class="col carousel_item">
-                        <a class="instagram_item" href="{{route('product.brand' , $Brand->slug)}}">
+                        <a class="instagram_item" href="{{route('product.all')}}?brand_id={{$Brand->id}}">
                             <img src="{{$Brand->imagePath}}" alt="{{$Brand->title}}">
                             <span class="item_title">{{$Brand->title}}</span>
                         </a>

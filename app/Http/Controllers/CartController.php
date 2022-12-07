@@ -15,7 +15,7 @@ class CartController extends Controller {
         $CouponDiscount = 0;
         $Cart = Cart::where('user_id', getUserId())->where('status', 'active')->get();
         $CartSubTotalArray = $Cart->map(function ($item) {
-            if ($item->Product != null) {
+            if (!$item->Product->trashed() && $item->Product->slug != 'deleted-product') {
                 if ($item->Product->status == 'available') {
                     return $item->Product->finalPrice * $item->qty;
                 } else {

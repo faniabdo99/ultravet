@@ -42,38 +42,6 @@ class ProductController extends Controller{
         return view('product.single' , compact('TheProduct'));
     }
 
-    /**
-     * @param string $slug
-     * @return \Illuminate\Contracts\View\View
-     */
-    public function getBrand(string $slug){
-        // Get all products in brand
-        $TheBrand = Brand::where('slug' , $slug)->firstOrFail();
-        $AllProducts = Product::where('brand_id', $TheBrand->id)->latest()->paginate(12);
-        return view('product.brand' , compact('TheBrand','AllProducts'));
-    }
-
-    /**
-     * @param string $slug
-     * @return \Illuminate\Contracts\View\View
-     */
-    public function getPet(string $slug){
-        // Get all products in brand
-        $ThePet = Pet::where('slug' , $slug)->firstOrFail();
-        $AllProducts = Product::where('pet_id', $ThePet->id)->latest()->paginate(12);
-        return view('product.pet' , compact('ThePet', 'AllProducts'));
-    }
-    /**
-     * @param string $slug
-     * @return \Illuminate\Contracts\View\View
-     */
-    public function getCategory(string $slug){
-        // Get all products in brand
-        $TheCategory = Category::where('slug' , $slug)->firstOrFail();
-        $AllProducts = Product::where('category_id', $TheCategory->id)->latest()->paginate(12);
-        return view('product.category' , compact('TheCategory', 'AllProducts'));
-    }
-
     public function getCategoryBrand($CategorySlug, $PetSlug){
         // Get all products that match the category and brand
         $TheCategoryId = Category::where('slug' , $CategorySlug)->firstOrFail()->id;

@@ -42,10 +42,6 @@ Route::prefix('blog')->group(function(){
 });
 Route::prefix('products')->group(function(){
     Route::get('/' , [ProductController::class, 'getAll'])->name('product.all');
-    Route::get('/brand/{slug}' , [ProductController::class, 'getBrand'])->name('product.brand');
-    Route::get('/pet/{slug}' , [ProductController::class, 'getPet'])->name('product.pet');
-    Route::get('/category/{category}' , [ProductController::class, 'getCategory'])->name('product.category');
-    Route::get('filter/{category}/{brand}', [ProductController::class, 'getCategoryBrand'])->name('product.category-brand');
     Route::get('{slug}/{id}' , [ProductController::class, 'getSingle'])->name('product.single');
 });
 Route::get('about' , [PageController::class, 'getAbout'])->name('about');

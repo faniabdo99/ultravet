@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\ProductVariation;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Pet;
@@ -42,17 +43,6 @@ class ProductController extends Controller{
         return view('product.single' , compact('TheProduct'));
     }
 
-    public function getCategoryBrand($CategorySlug, $PetSlug){
-        // Get all products that match the category and brand
-        $TheCategoryId = Category::where('slug' , $CategorySlug)->firstOrFail()->id;
-        $ThePetId = Pet::where('slug' , $PetSlug)->firstOrFail()->id;
-        $AllProducts = Product::where([
-            ['category_id' , $TheCategoryId],
-            ['pet_id' , $ThePetId],
-        ])->paginate(12);
-        return view('product.filter' , compact('AllProducts'));
-    }
-
     /**
      * @param Request $r
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response/Models/Product
@@ -65,5 +55,18 @@ class ProductController extends Controller{
              $Products = Product::where('title' , 'LIKE' , "%$SearchTerm%")->with(['Category', 'Brand', 'Pet'])->get();
              return response($Products, 200);
         }
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function getProductVariationData($id){
+        // Find the product variation
+        $Variation = ProductVariation::find($id);
+        if(!$Variation){
+            return response('There is no such variation!', 404);
+        }
+        return response($Variation->Product, 200);
     }
 }

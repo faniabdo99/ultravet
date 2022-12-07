@@ -45,9 +45,9 @@
                                 <form class="addtocart_form" data-target="{{route('cart.add')}}">
                                     <input type="hidden" name="product_id" value="{{$TheProduct->id}}" />
                                     <input type="hidden" name="user_id" value="{{getUserId()}}" />
-                                    @if($TheProduct->Variations->count())
+                                    @if($TheProduct->Variations->where('related_product_id', null)->count())
                                         {{-- Display all possible variations --}}
-                                        @forelse($TheProduct->Variations->groupBy('label') as $ProductVariation)
+                                        @forelse($TheProduct->Variations->where('related_product_id', null)->groupBy('label') as $ProductVariation)
                                             <label class="d-block" for="{{$ProductVariation[0]->label}}">{{$ProductVariation[0]->label}}: </label>
                                             <select id="{{$ProductVariation[0]->label}}" class="w-100 mb-2" name="variation_{{$ProductVariation[0]->label}}">
                                                 <option value="">Choose {{$ProductVariation[0]->label}}</option>
@@ -75,6 +75,26 @@
                                     </ul>
                                 </form>
                                 <p>{{$TheProduct->description}}</p>
+                                @if($TheProduct->Variations->where('related_product_id', '!=' , null)->count())
+                                    {{-- Display all possible variations --}}
+                                    @forelse($TheProduct->Variations->where('related_product_id', '!=' , null)->groupBy('label') as $ProductVariation)
+
+                                        <div class="variation-group">
+                                            <b class="d-block" for="{{$ProductVariation[0]->label}}">Choose {{$ProductVariation[0]->label}}: </b>
+                                            <small>Click to see prices and add to your cart</small>
+                                            <ul>
+                                                @forelse($ProductVariation as $Variation)
+                                                    <li value="{{$Variation->value}}">
+                                                        <button class="priced-variation-item" type="button" data-bs-toggle="modal" data-bs-target="#variationModal" data-bs-url="{{route('product.single' , [$Variation->TargetProduct->slug, $Variation->TargetProduct->id])}}" data-bs-title="{{$Variation->TargetProduct->title}}" data-bs-price="{{convertCurrency($Variation->TargetProduct->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}" data-bs-id="{{$Variation->TargetProduct->id}}">{{$Variation->value}}</button>
+                                                    </li>
+                                                @empty
+                                                @endforelse
+                                            </ul>
+                                        </div>
+
+                                    @empty
+                                    @endforelse
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -152,6 +172,31 @@
                     </div>
                 </div>
             </section>
+            <div class="modal fade " id="variationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add to Cart</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="addtocart_form" data-target="{{route('cart.add')}}">
+                                <div class="mb-3">
+                                    <input type="hidden" name="product_id" />
+                                    <input type="hidden" name="user_id" value="{{getUserId()}}" />
+                                    <label for="recipient-name" class="col-form-label">Quantity:</label>
+                                    <input type="text" class="form-control" name="qty" value="1" min="1">
+                                    <br>
+                                    <button class="btn btn_primary" type="submit"><i class="fas fa-paw"></i> Add to Cart</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer text-center d-block">
+                            <a class="text-brand product-page-link" target="_blank" href="#">View Product Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
         @include('layout.footer')
     </div>

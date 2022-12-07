@@ -21,6 +21,15 @@ class ProductVariation extends Model {
             'image' => url('storage/placeholder.png')
         ]);
     }
+    public function TargetProduct(){
+        return $this->belongsTo(Product::class, 'related_product_id')->withDefault([
+            'id' => 0,
+            'slug' => 'deleted-product',
+            'title' => 'Deleted Product',
+            'price' => 'N/A',
+            'image' => url('storage/placeholder.png')
+        ]);
+    }
     protected $allowedFilters = [
         'product_id'
     ];

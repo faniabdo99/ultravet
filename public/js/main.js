@@ -518,4 +518,23 @@ $(document).ready(function(){
             }
         });
     });
+
+    // Variations preview modal
+    const variationModal = document.getElementById('variationModal')
+    variationModal.addEventListener('show.bs.modal', event => {
+        // Button that triggered the modal
+        const button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        const productTitle = button.getAttribute('data-bs-title')
+        const productPrice = button.getAttribute('data-bs-price')
+        const productId = button.getAttribute('data-bs-id')
+        const productUrl = button.getAttribute('data-bs-url')
+
+        const modalTitle = variationModal.querySelector('.modal-title')
+        const modalProductId = variationModal.querySelector('#variationModal input[name="product_id"]')
+        const modalProductPageLink = variationModal.querySelector('.modal-footer a')
+        modalTitle.textContent = productTitle + `(${productPrice})`
+        modalProductId.value = productId
+        modalProductPageLink.href = productUrl
+    })
 });

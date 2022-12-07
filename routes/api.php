@@ -18,3 +18,5 @@ Route::post('search', [ProductController::class, 'postSearch'])->name('product.s
 Route::post('add-one-qty' , [CartController::class, 'addOneQty'])->name('cart.addOneQty');
 Route::post('remove-one-qty' , [CartController::class, 'removeOneQty'])->name('cart.removeOneQty');
 Route::post('fetch-cart-total' , [CartController::class, 'fetchCartTotal'])->name('cart.fetchTotal');
+// Products
+Route::post('product-variation/{id}', [ProductController::class, 'getProductVariationData'])->name('product.variation');

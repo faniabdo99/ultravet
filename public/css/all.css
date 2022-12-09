@@ -30390,6 +30390,11 @@ blockquote cite {
   font-size: 1.1em;
 }
 
+@media screen and (max-width: 1192px) {
+  .slick-track {
+    display: flex !important;
+  }
+}
 @media screen and (max-width: 768px) {
   .notification {
     position: fixed;

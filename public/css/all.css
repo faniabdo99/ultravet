@@ -30538,7 +30538,6 @@ blockquote cite {
   padding: 0;
   display: flex;
 }
-
 .variation-group ul li button.priced-variation-item {
   background: #f7f7f7;
   padding: 10px 20px;
@@ -30546,7 +30545,10 @@ blockquote cite {
   margin-right: 10px;
   transition: all ease 0.3s;
 }
-
+.variation-group ul li button.priced-variation-item.out-of-stock {
+  background: #d57979;
+  color: #fff;
+}
 .variation-group ul li button.priced-variation-item:hover {
   background: #d0d0d0;
   transition: all ease 0.3s;

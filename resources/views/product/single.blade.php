@@ -85,7 +85,7 @@
                                             <ul>
                                                 @forelse($ProductVariation as $Variation)
                                                     <li value="{{$Variation->value}}">
-                                                        <button class="priced-variation-item" type="button" data-bs-toggle="modal" data-bs-target="#variationModal" data-bs-url="{{route('product.single' , [$Variation->TargetProduct->slug, $Variation->TargetProduct->id])}}" data-bs-title="{{$Variation->TargetProduct->title}}" data-bs-price="{{convertCurrency($Variation->TargetProduct->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}" data-bs-id="{{$Variation->TargetProduct->id}}">{{$Variation->value}}</button>
+                                                        <button class=" @if(!$Variation->TargetProduct->cartReady) out-of-stock @endif priced-variation-item" type="button" data-bs-ready="{{$Variation->TargetProduct->cartReady}}" data-bs-toggle="modal" data-bs-target="#variationModal" data-bs-url="{{route('product.single' , [$Variation->TargetProduct->slug, $Variation->TargetProduct->id])}}" data-bs-title="{{$Variation->TargetProduct->title}}" data-bs-price="{{convertCurrency($Variation->TargetProduct->finalPrice, session()->get('currency')) . getCurrencySymbol(session()->get('currency'))}}" data-bs-id="{{$Variation->TargetProduct->id}}">{{$Variation->value}}</button>
                                                     </li>
                                                 @empty
                                                 @endforelse
@@ -180,7 +180,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="addtocart_form" data-target="{{route('cart.add')}}">
+                            <p class="text-center text-danger d-none variation-out-of-stock">This Product is out of stock!</p>
+                            <form class="variation-add-to-cart-form addtocart_form" data-target="{{route('cart.add')}}">
                                 <div class="mb-3">
                                     <input type="hidden" name="product_id" />
                                     <input type="hidden" name="user_id" value="{{getUserId()}}" />
@@ -212,13 +213,22 @@
             const productPrice = button.getAttribute('data-bs-price')
             const productId = button.getAttribute('data-bs-id')
             const productUrl = button.getAttribute('data-bs-url')
+            const productReady = button.getAttribute('data-bs-ready')
+            document.querySelector('.variation-out-of-stock').classList.add('d-none')
+            document.querySelector('.variation-add-to-cart-form').classList.remove('d-none')
 
             const modalTitle = variationModal.querySelector('.modal-title')
-            const modalProductId = variationModal.querySelector('#variationModal input[name="product_id"]')
-            const modalProductPageLink = variationModal.querySelector('.modal-footer a')
             modalTitle.textContent = productTitle + `(${productPrice})`
-            modalProductId.value = productId
+            const modalProductPageLink = variationModal.querySelector('.modal-footer a')
             modalProductPageLink.href = productUrl
+            if (productReady) {
+
+                const modalProductId = variationModal.querySelector('#variationModal input[name="product_id"]')
+                modalProductId.value = productId
+            }else{
+                document.querySelector('.variation-add-to-cart-form').classList.add('d-none')
+                document.querySelector('.variation-out-of-stock').classList.remove('d-none')
+            }
         })
     </script>
 </body>

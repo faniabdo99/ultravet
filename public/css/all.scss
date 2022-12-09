@@ -32503,15 +32503,22 @@ blockquote cite {
     list-style: none;
     padding: 0;
     display: flex;
+    li{
+        button.priced-variation-item{
+            background: #f7f7f7;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: all ease 0.3s;
+            &.out-of-stock{
+                background: #d57979;
+                color: #fff;
+            }
+            &:hover{
+                background: #d0d0d0;
+                transition: all ease 0.3s;
+            }
+        }
+    }
 }
-.variation-group ul li button.priced-variation-item{
-    background: #f7f7f7;
-    padding: 10px 20px;
-    border-radius: 4px;
-    margin-right: 10px;
-    transition: all ease 0.3s;
-}
-.variation-group ul li button.priced-variation-item:hover{
-    background: #d0d0d0;
-    transition: all ease 0.3s;
-}
+

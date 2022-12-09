@@ -77,6 +77,9 @@
                             @empty
                                 <li class="text-center">You don't have anything in your cart</li>
                             @endforelse
+                            @if (userCart(getUserId())->count() > 3 )
+                                <li class="text-center">and {{userCart(getUserId())->count() - 3}} more items ...</li>
+                            @endif
                         </ul>
                         <hr>
                         <div class="total_price"><span>Total</span> <strong><span class="navbar-cart-total text-dark">{{getCartTotal()}}</span>$</strong></div>

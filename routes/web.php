@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\CheckoutController;
 // Helpers & Utilities
 Route::get('switch-currency', [SettingController::class , 'getSwitchCurrency'] )->name('switchCurrency.get');
 Route::get('/', [HomeController::class, 'getHome'])->name('home');
+Route::get('sitemap.xml' , [SitemapController::class, 'getSitemap']);
 //Authentication System
 Route::middleware('guest')->group(function(){
     //User must be a guest (not logged-in) to view these routes

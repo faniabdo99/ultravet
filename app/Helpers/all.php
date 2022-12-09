@@ -60,8 +60,12 @@ function isInUserWishlist($user_id , $product_id){
         return false;
     }
 }
-function userCart($user_id){
-    return Cart::where('user_id',$user_id)->where('status' , 'active')->get();
+function userCart($user_id, $limit = null){
+    if ($limit){
+        return Cart::where('user_id',$user_id)->where('status' , 'active')->limit($limit)->get();
+    }else{
+        return Cart::where('user_id',$user_id)->where('status' , 'active')->get();
+    }
 }
 function getCartTotal(){
     $Cart = Cart::where('user_id' , getUserId())->where('status' , 'active')->get();

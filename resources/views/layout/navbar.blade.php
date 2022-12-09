@@ -63,7 +63,7 @@
                     </button>
                     <div class="cart_dropdown dropdown-menu" aria-labelledby="cart_dropdown">
                         <ul class="cart_items_list unorder_list_block">
-                            @forelse(userCart(getUserId()) as $CartItem)
+                            @forelse(userCart(getUserId(), 3) as $CartItem)
                                 <li>
                                     <a class="item_image" href="{{route('product.single', [$CartItem->Product->slug, $CartItem->Product->id])}}">
                                         <img src="{{$CartItem->Product->imagePath}}" alt="{{$CartItem->Product->title}}">

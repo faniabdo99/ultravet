@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'Set New Password',
+    'PageDescription' => 'Enter the new password you want to use in your account',
+])
 <body>
     <div class="body_wrap">
         @include('layout.navbar')
@@ -7,7 +10,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h1 class="text-center">Set Nwe Password</h1>
+                            <h1 class="text-center">Set New Password</h1>
                             <p class="text-center">Enter the new password you want to use in your account</p>
                             <form class="auth-form" action="{{route('user.postSetPassword',[$TheUser->id, md5($TheUser->id)])}}" method="POST">
                                 @csrf

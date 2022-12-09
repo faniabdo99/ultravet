@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'Page Not Found',
+    'PageDescription' => 'This is a 404 error page!',
+])
 <body>
 <div class="body_wrap">
     <main>

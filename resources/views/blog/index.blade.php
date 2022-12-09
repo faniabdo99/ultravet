@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'Blog',
+    'PageDescription' => 'Learn the latest news about Ultravet',
+])
 
 <body>
     <div class="body_wrap">
@@ -47,7 +50,7 @@
                                         </div>
                                     @empty
                                     @endforelse
-                                    
+
                                 </div>
                             </div>
                         </div>

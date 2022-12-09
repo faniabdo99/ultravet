@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'Contact Us',
+    'PageDescription' => 'Our team is always pleased to respond to your inquiries!',
+])
 <body>
     <div class="body_wrap">
         @include('layout.navbar')

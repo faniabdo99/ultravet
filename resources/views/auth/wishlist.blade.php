@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'My Wishlist',
+    'PageDescription' => 'a List of your wished items!',
+])
 <body>
 <div class="body_wrap">
     @include('layout.navbar')

@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'My Orders',
+    'PageDescription' => 'View a list of your orders',
+])
 <body>
 <div class="body_wrap">
     @include('layout.navbar')

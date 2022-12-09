@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'Signup',
+    'PageDescription' => 'Signup for a new account on Ultravet',
+])
 <body>
     <div class="body_wrap">
         @include('layout.navbar')

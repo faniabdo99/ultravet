@@ -4,7 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>UltraVet - Your one stop shop for your pet needs</title>
+    <title>UltraVet - {{$PageTitle ?? 'Your one stop shop for your pet needs'}}</title>
+    <!-- SEO Related -->
+    <meta name="description" content="{{$PageDescription ?? getSystemSettings('description')}}">
+    <!-- OG Tags -->
+    <meta name="og:type" content="Website">
+    <meta name="og:url" content="{{url()->current()}}">
+    <meta name="og:image" content="{{$PageImage ?? url('public').'/images/banner/offer_banner_bg_img_1.jpg'}}">
+    <meta name="og:site_name" content="Ultravet">
+    <meta name="og:description" content="{{$PageDescription ?? getSystemSettings('description')}}">
+    <meta name="fb:page_id" content="43929265776">
+    <meta name="application-name" content="Ultravet">
+    <meta name="og:email" content="{{getSystemSettings('email')}}">
+    <meta name="og:phone_number" content="{{getSystemSettings('phone_number')}}">
+    <!-- Styles & Other meta tags -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -23,5 +36,4 @@
     @endauth
     <meta name="currency" content="{{session()->get('currency')}}">
     <meta name="exchange-rate" content="{{getExchangeRate()}}">
-    {{-- @vite(['resources/js/app.js']) --}}
 </head>

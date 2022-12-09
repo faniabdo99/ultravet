@@ -1,4 +1,8 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => $TheProduct->title,
+    'PageDescription' => $TheProduct->description,
+    'PageImage' => $TheProduct->imagePath
+])
 <body>
     <div class="body_wrap">
         @include('layout.navbar')

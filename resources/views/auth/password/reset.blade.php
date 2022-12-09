@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'Reset Your Password',
+    'PageDescription' => 'Enter your email below and we will send you a reset link!',
+])
 <body>
     <div class="body_wrap">
         @include('layout.navbar')

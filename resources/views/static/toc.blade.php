@@ -1,4 +1,7 @@
-@include('layout.header')
+@include('layout.header', [
+    'PageTitle' => 'Terms & Conditions',
+    'PageDescription' => 'This is how Ultravet manages your information',
+])
 <body>
 <div class="body_wrap">
     @include('layout.navbar')

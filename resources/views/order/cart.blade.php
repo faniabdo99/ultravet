@@ -13,7 +13,7 @@
                                   <img src="{{$CartItem->Product->imagePath}}" >
                               </div>
                               <div class="cart-item__content">
-                                    <p>{{$CartItem->Product->title}}</p>
+                                    <p>{{$CartItem->title}}</p>
                                     <ul class="cart-item__content__metadata">
                                         <li>
                                             @if($CartItem->Product->hasDiscount)

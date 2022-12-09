@@ -69,7 +69,11 @@
                                         <img src="{{$CartItem->Product->imagePath}}" alt="{{$CartItem->Product->title}}">
                                     </a>
                                     <div class="item_content">
-                                        <h3 class="item_title"><a href="{{route('product.single', [$CartItem->Product->slug, $CartItem->Product->id])}}">{{$CartItem->Product->title}}</a></h3>
+                                        <h3 class="item_title">
+                                            <a href="{{route('product.single', [$CartItem->Product->slug, $CartItem->Product->id])}}">
+                                                {{$CartItem->title}}
+                                            </a>
+                                        </h3>
                                         <span class="item_price">{{$CartItem->qty}} × {{$CartItem->Product->finalPrice}}$</span>
                                     </div>
                                     <button class="remove_btn delete-from-cart" data-location="navbar" data-id="{{$CartItem->id}}" data-target="{{route('cart.delete')}}" type="button"><i class="fa fa-times"></i></button>

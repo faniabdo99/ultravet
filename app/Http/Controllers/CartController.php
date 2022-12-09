@@ -66,13 +66,9 @@ class CartController extends Controller {
                 if ($TheProduct->CartReady && $TheProduct->qty >= $r->qty) {
                     // Decrease the product count
                     $TheProduct->decrement('qty', $r->qty);
-                    // Add the item to the cart (or update existing cart)
-                    if(isInUserCart($r->user_id, $TheProduct->id)){
-                        // Update cart record
-                        $TheCartItem = Cart::where('user_id',$r->user_id)->where('product_id' , $TheProduct->id)->where('status' , 'active')->first();
-                        $TheCartItem->increment('qty', $r->qty);
-                    }else{
-                        // Create cart item
+                    // Add the item to the cart (or update existing cart).
+                    if(!isInUserCart($r->user_id, $TheProduct->id) || count($r->all()) > 3){
+                        // Create new cart item
                         Cart::create([
                             'product_id' => $TheProduct->id,
                             'user_id' => $r->user_id,
@@ -80,6 +76,10 @@ class CartController extends Controller {
                             'product_variations' => (count($r->all()) > 3) ? serialize($r->all()) : null,
                             'qty' => $r->qty
                         ]);
+                    }else{
+                        // Update cart record
+                        $TheCartItem = Cart::where('user_id',$r->user_id)->where('product_id' , $TheProduct->id)->where('status' , 'active')->first();
+                        $TheCartItem->increment('qty', $r->qty);
                     }
                     // Return the response
                     return response('Item added to your cart!', 200);

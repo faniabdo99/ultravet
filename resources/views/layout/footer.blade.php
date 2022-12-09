@@ -6,7 +6,7 @@
                     <div class="footer_widget footer_about">
                         <div class="site_logo">
                             <a href="{{route('home')}}">
-                                <img class="logo_before" src="{{url('public')}}/images/logo/logo.png" alt="Petopia Logo"> Ultravet Mall
+                                <img class="logo_before" src="{{url('public')}}/images/logo/logo.png" alt="Ultravet Logo"> Ultravet Mall
                             </a>
                         </div>
                         <p>{{getSystemSettings('description')}}</p>

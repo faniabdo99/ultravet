@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <div class="breadcrumb_img dog_image"><img src="{{url('public')}}/images/breadcrumb/breadcrumb_img_4.png" alt="Pet Care Service"></div>
+            <div class="breadcrumb_img dog_image"><img src="{{url('public')}}/images/breadcrumb/breadcrumb_img_4.png" alt="Wishlist"></div>
         </section>
         <section class="product_section section_space_lg">
             <div class="container">

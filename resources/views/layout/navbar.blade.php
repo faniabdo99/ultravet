@@ -23,7 +23,7 @@
     @endif
         <div class="container">
             <div class="site_logo">
-                <a href="{{route('home')}}"><img class="logo_before" src="{{ url('public') }}/images/logo/logo.png" alt="Ultravet Mall">
+                <a href="{{route('home')}}"><img class="logo_before" src="{{ url('public') }}/images/logo/logo.png" alt="Ultravet Logo">
                     <span class="d-none d-lg-inline d-md-inline">Ultravet Mall</span>
                 </a>
             </div>

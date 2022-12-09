@@ -13,7 +13,7 @@
                       <div class="col-lg-6 col-11">
                           <div class="cart-item">
                               <div class="cart-item__image">
-                                  <img src="{{$CartItem->Product->imagePath}}" >
+                                  <img src="{{$CartItem->Product->imagePath}}" alt="Ultravet cart">
                               </div>
                               <div class="cart-item__content">
                                     <p>{{$CartItem->title}}</p>

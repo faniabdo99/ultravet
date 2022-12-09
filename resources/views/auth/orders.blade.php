@@ -10,11 +10,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-lg-4 col-md-7 col-sm-9">
-                        <h1 class="page_title">Your Oreders</h1>
+                        <h1 class="page_title">Your Orders</h1>
                     </div>
                 </div>
             </div>
-            <div class="breadcrumb_img dog_image"><img src="{{url('public')}}/images/breadcrumb/breadcrumb_img_4.png" alt="Pet Care Service"></div>
+            <div class="breadcrumb_img dog_image"><img src="{{url('public')}}/images/breadcrumb/breadcrumb_img_4.png" alt="Orders Background"></div>
         </section>
         <section class="product_section section_space_lg">
             <div class="container">

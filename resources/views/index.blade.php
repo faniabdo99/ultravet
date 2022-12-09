@@ -10,7 +10,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col order-last col-lg-6">
-                            <div class="banner_image"><img src="{{url('public')}}/images/banner/dogs_img_1.png" alt="Pet Dogs Image"></div>
+                            <div class="banner_image"><img src="{{url('public')}}/images/banner/dogs_img_1.png" alt="Ultravet homepage"></div>
                         </div>
                         <div class="col col-lg-6">
                             <div class="banner_content">

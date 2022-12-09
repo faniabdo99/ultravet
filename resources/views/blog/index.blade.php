@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="breadcrumb_img">
-                    <img src="{{ url('public') }}/images/breadcrumb/breadcrumb_img_5.png" alt="Pet Care Service">
+                    <img src="{{ url('public') }}/images/breadcrumb/breadcrumb_img_5.png" alt="Ultravet Blog">
                 </div>
             </section>
             <section class="blog_section section_space_lg pb-0">

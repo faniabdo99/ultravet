@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="breadcrumb_img dog_image">
-                <img src="{{url('public')}}/images/breadcrumb/breadcrumb_img_8.png" alt="Pet Care Service">
+                <img src="{{url('public')}}/images/breadcrumb/breadcrumb_img_8.png" alt="Ultravet FAQs">
             </div>
         </section>
         <section class="faq_section section_space_lg"  style="background-image: url('assets/images/overlay/shapes_overlay_9.svg');">

@@ -473,7 +473,7 @@ $(document).ready(function(){
         }
     });
     // The search function
-    $('.search-form-element').submit(function(e){
+    function searchForProducts(e){
         e.preventDefault();
         //Validate the request and clean bad codes
         var SearchTerm = $('#search-box').val().replace(/[^a-zA-Z0-9\s]/gm, '');
@@ -521,5 +521,7 @@ $(document).ready(function(){
                 }
             }
         });
-    });
+    }
+    $('.search-form-element').on('submit', searchForProducts);
+    $('#search-box').on('keyup', searchForProducts);
 });

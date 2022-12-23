@@ -13,7 +13,7 @@ Route::post('delete-item-from-cart' , [CartController::class, 'delete'])->name('
 // Wishlist routes
 Route::post('add-to-wishlist', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
 // Search
-Route::post('search', [ProductController::class, 'postSearch'])->name('product.search');
+Route::post('search', [ProductController::class, 'postSearch'])->middleware('throttle:100,5')->name('product.search');
 // Cart
 Route::post('add-one-qty' , [CartController::class, 'addOneQty'])->name('cart.addOneQty');
 Route::post('remove-one-qty' , [CartController::class, 'removeOneQty'])->name('cart.removeOneQty');

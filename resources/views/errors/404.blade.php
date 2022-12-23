@@ -13,10 +13,8 @@
                 <a class="btn btn_primary" href="{{route('home')}}"><i class="fas fa-paw"></i> Home Page</a>
             </div>
             <ul class="social_links unorder_list_center">
-                <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#!"><i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100032388711484" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/ultravetleb/" target="_blank"><i class="fab fa-instagram"></i></a></li>
             </ul>
         </section>
     </main>

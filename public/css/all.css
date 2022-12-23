@@ -30559,4 +30559,15 @@ blockquote cite {
   transition: all ease 0.3s;
 }
 
+.product-badge {
+  background-color: #00D9FF;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.7em;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: #fff;
+}
+
 /*# sourceMappingURL=all.css.map */

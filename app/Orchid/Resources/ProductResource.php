@@ -97,6 +97,9 @@ class ProductResource extends Resource
             Relation::make('discount_id')
                 ->fromModel(\App\Models\Discount::class, 'title')
                 ->title('Discount'),
+            Input::make('badge')
+                ->title('Badge')
+                ->maxlength(255),
             CheckBox::make('is_featured')
                 ->title('Make as Featured')
                 ->placeholder('Mark as Featured')

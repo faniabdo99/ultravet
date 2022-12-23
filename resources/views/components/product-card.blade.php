@@ -1,6 +1,11 @@
-<div class="col col-lg-4 col-md-6 col-sm-6">
+<div class="col-6 col-lg-4 col-md-6 mb-4">
     <div class="product_item">
         <div class="item_image">
+            @if(!$product->cartReady)
+                <div class="product-badge">Out of Stock</div>
+            @elseif($product->badge)
+                <div class="product-badge">{{$product->badge}}</div>
+            @endif
             <a class="image_wrap" href="{{route('product.single' , [$product->slug, $product->id])}}">
                 <img src="{{$product->imagePath}}" alt="{{$product->title}}">
             </a>

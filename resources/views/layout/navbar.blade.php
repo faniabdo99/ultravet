@@ -170,7 +170,7 @@
             <div class="col-9">
                 <h4>Item Added to Cart</h4>
                 <p>This item has been added to your shopping cart</p>
-                <a href="{{route('product.all')}}" id="close-added-to-cart">Continue Shopping</a>
+                <a href="#!" id="close-added-to-cart">Continue Shopping</a>
                 <a href="{{route('cart.all')}}">View Cart</a>
             </div>
         </div>

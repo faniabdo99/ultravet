@@ -450,6 +450,10 @@ $(document).ready(function(){
     $('.close-notification-button').click(function(e){
        $(this).parent().fadeOut('fast');
     });
+    // Hide added to cart pop-up
+    $('#close-added-to-cart').click(function(){
+        $('#added-to-cart-success').fadeOut('fast');
+    });
     // Search function
     $('.nav-search-toggler').click(function(){
         //Clear the search form

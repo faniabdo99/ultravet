@@ -4,13 +4,12 @@
         <div class="header_top">
             <div class="container">
                 <ul class="social_links unorder_list">
-                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100032388711484" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/ultravetleb/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                 </ul>
                 <ul class="icon_list unorder_list">
-                    <li><a href="#!"><i class="fas fa-phone"></i> <span>{{getSystemSettings('phone_number')}}</span></a></li>
-                    <li><a href="#!"><i class="fas fa-envelope"></i> <span>{{getSystemSettings('email')}}</span></a></li>
+                    <li><a href="tel:{{getSystemSettings('phone_number')}}"><i class="fas fa-phone"></i> <span>{{getSystemSettings('phone_number')}}</span></a></li>
+                    <li><a href="mailto:{{getSystemSettings('email')}}"><i class="fas fa-envelope"></i> <span>{{getSystemSettings('email')}}</span></a></li>
                     <li>
                         <a href="{{route('switchCurrency.get' , ['currency' => 'usd'])}}">USD</a>
                         <span class="text-white">|</span>
@@ -46,6 +45,13 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('switchCurrency.get' , ['currency' => 'usd'])}}">USD</a></li>
                                 <li><a href="{{route('switchCurrency.get' , ['currency' => 'lbp'])}}">LBP</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown d-block d-lg-none d-md-none">
+                            <a class="nav-link" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Social Media</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="https://www.facebook.com/profile.php?id=100032388711484" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                                <li><a href="https://www.instagram.com/ultravetleb/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
                             </ul>
                         </li>
                     </ul>

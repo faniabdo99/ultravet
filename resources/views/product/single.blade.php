@@ -105,7 +105,7 @@
                     <div class="details_info_box">
                         <ul class="nav tabs_nav_pill" role="tablist">
                             <li role="presentation"><button class="active" data-bs-toggle="tab" data-bs-target="#tab_additional_info" type="button" role="tab" aria-selected="false">Additional Info</button></li>
-                            <li role="presentation"><button data-bs-toggle="tab" data-bs-target="#tab_description" type="button" role="tab" aria-selected="true">Description</button></li>
+                            <li role="presentation"><button data-bs-toggle="tab" data-bs-target="#tab_description" type="button" role="tab" aria-selected="true">Details</button></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="tab_additional_info" role="tabpanel">

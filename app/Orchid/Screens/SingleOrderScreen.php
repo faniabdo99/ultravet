@@ -84,6 +84,7 @@ class SingleOrderScreen extends Screen
                 }),
                 Sight::make('name'),
                 Sight::make('email'),
+                Sight::make('phone_number', 'Phone Number'),
                 Sight::make('address'),
                 Sight::make('status'),
                 Sight::make('order_notes', 'Order Notes (If Any)'),

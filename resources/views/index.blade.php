@@ -158,37 +158,14 @@
             <section class="offer_banner_section section_space_md">
                 <div class="container">
                     <div class="row">
-                        <div class="col col-lg-8">
+                        <div class="col">
                             <div class="offer_banner_item banner_big align-items-start d-block"
                                 style="background-image: url('{{url('public')}}/images/banner/offer_banner_bg_img_1.jpg');">
-                                <div class="badge_wrap text-end">
-                                    <div class="badge">Up to 40% Off</div>
-                                </div>
+
                                 <div class="item_content">
-                                    <h3 class="item_title">Сheck Out Our Specials</h3>
-                                    <p>Massa placerat duis ultricies lacus. Aliquet bibendum enim facilisis gravida
-                                        neque convallis</p><a class="btn_unfill" href="service_details.html"><span>Shop
-                                            Now</span> <i class="far fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="offer_banner_item">
-                                <div class="item_image"><img src="{{url('public')}}/images/banner/dogs_img_2.png"
-                                        alt="Pet Dog Image"></div>
-                                <div class="item_content">
-                                    <h3 class="item_title">Luxury Fashion Collection</h3><a class="btn_unfill"
-                                        href="service_details.html"><span>Shop Now</span> <i
-                                            class="far fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="offer_banner_item">
-                                <div class="item_image"><img src="{{url('public')}}/images/banner/dogs_img_3.png"
-                                        alt="Pet Dog Image"></div>
-                                <div class="item_content">
-                                    <h3 class="item_title">Luxury Fashion Collection</h3><a class="btn_unfill"
-                                        href="service_details.html"><span>Shop Now</span> <i
-                                            class="far fa-long-arrow-right"></i></a>
+                                    <h3 class="item_title">Ultravet Mall</h3>
+                                    <p>Your one stop shop for your pets needs</p>
+                                    <a class="btn_unfill" href="{{route('product.all')}}"><span>Shop Now</span> <i class="far fa-long-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>

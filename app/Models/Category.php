@@ -11,22 +11,27 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model {
     use HasFactory, AsSource, Filterable, Attachable, SoftDeletes;
     protected $guarded = [];
+    // Custom Attributes
+    public function getTitleWithPetAttribute(){
+        return $this->title . ' ('.$this->Pet->title.')';
+    }
     public function getImagePathAttribute(){
         return url($this->image);
     }
+    // Realtions
     public function User(){
         return $this->belongsTo(User::class, 'user_id');
     }
     public function Products(){
         return $this->hasMany(Product::class);
     }
-
     public function Pet(){
         return $this->belongsTo(Pet::class, 'pet_id');
     }
     public function Children(){
         return $this->hasMany(Category::class, 'parent_id');
     }
+    // Scopes
     public function scopeParent($query){
         return $query->where('is_parent' , 1);
     }

@@ -87,7 +87,7 @@ class ProductResource extends Resource
                 ->title('Brand')
                 ->required(),
             Relation::make('category_id')
-                ->fromModel(\App\Models\Category::class, 'title')
+                ->fromModel(\App\Models\Category::class, 'TitleWithPet')
                 ->title('Category')
                 ->required(),
             Relation::make('pet_id')

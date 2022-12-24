@@ -112,49 +112,50 @@
                 </div>
             </section>
             @include('includes.our-brands')
-            <section class="funfact_section section_space_md">
-                <div class="container">
-                    <div class="funfact_wrapper decoration_wrap"
-                        style="background-image: url('{{url('public')}}/images/overlay/shapes_overlay_3.svg');">
-                        <div class="section_overlay"
-                            style="background-image: url('{{url('public')}}/images/overlay/shapes_overlay_4.svg');"></div>
-                        <div class="funfact_item">
-                            <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_pets.svg" alt="Pets Icon"></div>
-                            <div class="item_content">
-                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('happy_clients')}}</span> <span
-                                        class="plus_text">+</span></h3>
-                                <p class="item_title text-white mb-0">Happy Clients</p>
-                            </div>
-                        </div>
-                        <div class="funfact_item">
-                            <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_medal.svg" alt="Pets Icon"></div>
-                            <div class="item_content">
-                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('years')}}</span> <span
-                                        class="plus_text">+</span></h3>
-                                <p class="item_title text-white mb-0">Years Experience</p>
-                            </div>
-                        </div>
-                        <div class="funfact_item">
-                            <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_canned_food.svg" alt="Pets Icon">
-                            </div>
-                            <div class="item_content">
-                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('brands')}}</span> <span
-                                        class="plus_text">+</span></h3>
-                                <p class="item_title text-white mb-0">Brands Available</p>
-                            </div>
-                        </div>
-                        <div class="funfact_item">
-                            <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_shopping_bag.svg" alt="Pets Icon">
-                            </div>
-                            <div class="item_content">
-                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('products')}}</span> <span
-                                        class="plus_text">+</span></h3>
-                                <p class="item_title text-white mb-0">Products for pets</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {{-- The sectiion below contains the counters, commented as per the client request --}}
+{{--            <section class="funfact_section section_space_md">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="funfact_wrapper decoration_wrap"--}}
+{{--                        style="background-image: url('{{url('public')}}/images/overlay/shapes_overlay_3.svg');">--}}
+{{--                        <div class="section_overlay"--}}
+{{--                            style="background-image: url('{{url('public')}}/images/overlay/shapes_overlay_4.svg');"></div>--}}
+{{--                        <div class="funfact_item">--}}
+{{--                            <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_pets.svg" alt="Pets Icon"></div>--}}
+{{--                            <div class="item_content">--}}
+{{--                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('happy_clients')}}</span> <span--}}
+{{--                                        class="plus_text">+</span></h3>--}}
+{{--                                <p class="item_title text-white mb-0">Happy Clients</p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="funfact_item">--}}
+{{--                            <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_medal.svg" alt="Pets Icon"></div>--}}
+{{--                            <div class="item_content">--}}
+{{--                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('years')}}</span> <span--}}
+{{--                                        class="plus_text">+</span></h3>--}}
+{{--                                <p class="item_title text-white mb-0">Years Experience</p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="funfact_item">--}}
+{{--                            <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_canned_food.svg" alt="Pets Icon">--}}
+{{--                            </div>--}}
+{{--                            <div class="item_content">--}}
+{{--                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('brands')}}</span> <span--}}
+{{--                                        class="plus_text">+</span></h3>--}}
+{{--                                <p class="item_title text-white mb-0">Brands Available</p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="funfact_item">--}}
+{{--                            <div class="item_icon"><img src="{{url('public')}}/images/icon/icon_shopping_bag.svg" alt="Pets Icon">--}}
+{{--                            </div>--}}
+{{--                            <div class="item_content">--}}
+{{--                                <h3 class="counter_text text-white"><span class="counter_value">{{getSystemSettings('products')}}</span> <span--}}
+{{--                                        class="plus_text">+</span></h3>--}}
+{{--                                <p class="item_title text-white mb-0">Products for pets</p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </section>--}}
             <section class="offer_banner_section section_space_md">
                 <div class="container">
                     <div class="row">
@@ -172,7 +173,10 @@
                     </div>
                 </div>
             </section>
-            @include('includes.newsletter')
+            {{--
+                The newsletter section is extracted to external component, uncomment the line below to display it again
+                @include('includes.newsletter')
+             --}}
             <section class="blog_section section_space_md">
                 <div class="container">
                     <div class="section_title text-center">

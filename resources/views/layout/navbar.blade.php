@@ -8,7 +8,7 @@
                     <li><a href="https://www.instagram.com/ultravetleb/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                 </ul>
                 <ul class="icon_list unorder_list">
-                    <li><a href="tel:{{getSystemSettings('phone_number')}}"><i class="fas fa-phone"></i> <span>{{getSystemSettings('phone_number')}}</span></a></li>
+                    <li><a href="https://wa.me/+961{{getSystemSettings('phone_number')}}"><i class="fas fa-phone"></i> <span>{{getSystemSettings('phone_number')}}</span></a></li>
                     <li><a href="mailto:{{getSystemSettings('email')}}"><i class="fas fa-envelope"></i> <span>{{getSystemSettings('email')}}</span></a></li>
                     <li>
                         <a href="{{route('switchCurrency.get' , ['currency' => 'usd'])}}">USD</a>

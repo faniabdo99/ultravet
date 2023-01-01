@@ -13,7 +13,7 @@
                         <div class="footer_hotline iconbox_item iconbox_lefticon">
                             <div class="item_icon"><i class="fas fa-phone"></i></div>
                             <div class="item_content">
-                                <h3 class="item_title"><a href="tel:{{getSystemSettings('phone_number')}}">{{getSystemSettings('phone_number')}}</a></h3>
+                                <h3 class="item_title"><a target="_blank" href="https://wa.me/+961{{getSystemSettings('phone_number')}}">{{getSystemSettings('phone_number')}}</a></h3>
                                 <p class="mb-0">Got Questions? Call us 24/7</p>
                             </div>
                         </div>

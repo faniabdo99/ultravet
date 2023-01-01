@@ -11,7 +11,7 @@
                     <div class="product_item">
                         <div class="item_image">
                             <a class="image_wrap" href="{{route('product.single' , [$Product->slug, $Product->id])}}">
-                            <img src="{{$Product->imagePath}}" alt="{{$Product->title}}"></a>
+                            <img src="{{$Product->imagePath}}" alt="{{$Product->title}}" loading="lazy"></a>
                             <ul class="cart_btns_group">
                                 @if(isInUserCart(getUserId(), $Product->id))
                                     <li><a href="javascript:;">In Cart</a></li>

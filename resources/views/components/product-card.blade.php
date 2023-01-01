@@ -7,7 +7,7 @@
                 <div class="product-badge">{{$product->badge}}</div>
             @endif
             <a class="image_wrap" href="{{route('product.single' , [$product->slug, $product->id])}}">
-                <img src="{{$product->imagePath}}" alt="{{$product->title}}">
+                <img src="{{$product->imagePath}}" alt="{{$product->title}}" loading="lazy">
             </a>
             <ul class="cart_btns_group">
                 @if(isInUserCart(getUserId(), $product->id))

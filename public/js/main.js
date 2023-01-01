@@ -251,8 +251,10 @@ $(document).on('click', '.quick-add-to-cart', function(e) {
             product_id: ItemId
         },
         success: function(response){
-            //Show the modal here
+            // Show the modal here
             $('#added-to-cart-success').fadeIn('fast');
+            // Update the navbar cart
+            updateNavbarCart();
             That.html('In Cart');
         },
         error: function(response){
@@ -330,12 +332,51 @@ function updateCartTotal(){
         }
     })
 }
+function updateNavbarCart(){
+    // Perform an AJAX request to fetch the latest cart
+    // Run an Ajax request to update the cart total in both navbar & cart page
+    $.ajax({
+        url: '/api/fetch-latest-cart',
+        headers: {
+            'Auth': $("meta[name='user_token']").attr("content")
+        },
+        method: 'POST',
+        success: function (response){
+            // Update the navbar button total count
+            $('.cart_btn .cart_counter').html(response.length);
+            // Append the new item to the list
+            $('#navbar-cart .cart_items_list').html('');
+            response.forEach((item, key) => {
+                $('#navbar-cart .cart_items_list').append(`
+                    <li>
+                        <a class="item_image" href="/products/${item.product.slug}/${item.product.id}">
+                            <img src="${item.product.image_path}" alt="${item.product.title}">
+                        </a>
+                        <div class="item_content">
+                            <h3 class="item_title">
+                                <a href="/products/${item.product.slug}/${item.product.id}">
+                                    ${item.product.title}
+                                </a>
+                            </h3>
+                            <span class="item_price">${item.qty} × ${item.product.final_price}$</span>
+                        </div>
+                        <button class="remove_btn delete-from-cart" data-location="navbar" data-id="${item.id}" data-target="/api/delete-item-from-cart" type="button"><i class="fa fa-times"></i></button>
+                    </li>
+                `)
+            });
+            updateCartTotal();
+        },
+        error: function (response){
+            console.log(response);
+        }
+    })
+}
 function updateItemTotal(item){
     // Item will be the single cart card jquery selector
     item.find('.total-price').html(item.find('.qty-total').html() * item.find('.single-price').html());
 }
 //Delete item from cart
-$('.delete-from-cart').click(function(e){
+$(document).on('click', '.delete-from-cart', function(e){
     e.preventDefault();
     let That = $(this);
     let ItemId = $(this).data('id');
@@ -355,10 +396,9 @@ $('.delete-from-cart').click(function(e){
             }else{
                 That.parent().parent().parent().fadeOut();
             }
-            updateCartTotal()
+            updateNavbarCart();
         },
         error: function(response){
-            //TODO: Add an error message or something
             console.log(response);
         }
     });

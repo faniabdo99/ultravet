@@ -148,6 +148,26 @@ class CartController extends Controller {
         });
         return response(['total' => convertCurrency($CartSubTotalArray->sum(), session()->get('currency'))], 200);
     }
+
+    public function fetchLatestCart(Request $r){
+        if(!$r->hasHeader('Auth')){
+            return response('User authentication is not valid!', 403);
+        }
+        // Get the user cart by the user id
+        $TheCart = Cart::where('user_id' , $r->header('Auth'))->where('status' , 'active')->get();
+        $ClearedCart = $TheCart->map(function ($item) {
+            if ($item->Product != null) {
+                if ($item->Product->status == 'available') {
+                    return $item;
+                } else {
+                    return 0;
+                }
+            } else {
+                $item->delete();
+            }
+        });
+        return response($ClearedCart, 200);
+    }
     public function delete(Request $r) {
         $TheCart = Cart::findOrFail($r->cart_id);
         //Make the item available again

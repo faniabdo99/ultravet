@@ -67,7 +67,7 @@
                         <small class="cart_counter">{{userCart(getUserId())->count()}}</small>
                         <span class="d-none d-lg-inline d-md-inline">item</span>
                     </button>
-                    <div class="cart_dropdown dropdown-menu" aria-labelledby="cart_dropdown">
+                    <div class="cart_dropdown dropdown-menu" id="navbar-cart" aria-labelledby="cart_dropdown">
                         <ul class="cart_items_list unorder_list_block">
                             @forelse(userCart(getUserId(), 3) as $CartItem)
                                 <li>

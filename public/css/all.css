@@ -27829,6 +27829,10 @@ hr {
   min-width: 320px;
 }
 
+#navbar-cart {
+  left: -160px;
+}
+
 .cart_dropdown hr {
   margin: 25px 0 20px;
 }

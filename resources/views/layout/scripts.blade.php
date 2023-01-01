@@ -6,6 +6,7 @@
 <script src="{{url('public')}}/js/magnific-popup.min.js"></script>
 <script src="{{url('public')}}/js/nice-select.min.js"></script>
 <script src="{{url('public')}}/js/jquery-ui.js"></script>
+<script src="{{url('public')}}/js/jquery-ui-touch-punch.js"></script>
 <script src="{{url('public')}}/js/vanilla-calendar.min.js"></script>
 <script src="{{url('public')}}/js/countdown.js"></script>
 <script src="{{url('public')}}/js/main.js"></script>

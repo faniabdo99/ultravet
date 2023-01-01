@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('image');
             $table->string('sku')->nullable();
             $table->text('description');
-            $table->integer('price');
+            $table->float('price');
             $table->text('content');
             $table->integer('qty');
             $table->integer('brand_id');

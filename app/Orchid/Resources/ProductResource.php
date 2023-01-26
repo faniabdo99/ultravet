@@ -122,6 +122,10 @@ class ProductResource extends Resource
             TD::make('title')->sort()->filter(Input::make()),
             TD::make('price')->sort(),
             TD::make('qty')->sort(),
+            TD::make('brand_id' , 'Brand')
+                ->render(function($model){
+                   return $model->Brand->title;
+                })->sort()->filter(Input::make()),
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
                     return $model->created_at->toDateTimeString();

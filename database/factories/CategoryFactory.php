@@ -23,6 +23,7 @@ class CategoryFactory extends Factory
             'slug' => fake()->slug(),
             'order_num' => fake()->numberBetween(1,10),
             'is_featured' => fake()->boolean,
+            'pet_id' => 1,
             'user_id' => 1,
             'is_parent' => true
         ];

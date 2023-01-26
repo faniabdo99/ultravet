@@ -2,6 +2,7 @@
 
 namespace App\Orchid\Resources;
 
+use App\Models\Brand;
 use Orchid\Crud\Resource;
 use Orchid\Screen\TD;
 use Orchid\Crud\ResourceRequest;
@@ -124,7 +125,7 @@ class ProductResource extends Resource
             TD::make('qty')->sort(),
             TD::make('brand_id' , 'Brand')->render(function($model){
                 return $model->Brand->title;
-            })->sort(),
+            })->sort()->filter(TD::FILTER_SELECT , Brand::pluck('title', 'id')),
             TD::make('created_at', 'Date of creation')
                 ->render(function ($model) {
                     return $model->created_at->toDateTimeString();

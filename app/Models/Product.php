@@ -46,6 +46,9 @@ class Product extends Model {
         return url($this->image);
     }
 
+    public function getBrandTitleAttribute(){
+        return $this->Brand->title;
+    }
     public function Related(){
         // Fetch related products to the current one
         return Product::where('category_id' , $this->category_id)->limit(10)->get();
@@ -101,10 +104,12 @@ class Product extends Model {
     protected $allowedSorts = [
         'title',
         'sku',
+        'brand_id',
         'created_at',
         'updated_at'
     ];
     protected $allowedFilters = [
         'title',
+        'brand_id'
     ];
 }

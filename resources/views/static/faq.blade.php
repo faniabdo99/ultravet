@@ -11,7 +11,8 @@
                 <div class="row">
                     <div class="col col-lg-4 col-md-7 col-sm-9">
                         <h1 class="page_title">FAQ</h1>
-                        <p class="page_description mb-0">Here are some of the questions we usually get!</p>
+                        <p class="page_description">Here are some of the questions we usually get!</p>
+                        <a class="btn btn_primary" href="{{route('getContact')}}">Have a question? Ask us!</a>
                     </div>
                 </div>
             </div>

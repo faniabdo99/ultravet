@@ -42,6 +42,7 @@
                             </ul>
                             <ul class="unorder_list_block">
                                 <li><a href="{{route('faq')}}"><i class="fas fa-circle"></i>FAQ</a></li>
+                                <li><a href="{{route('getContact')}}"><i class="fas fa-circle"></i>Contact Us</a></li>
                                 <li><a href="{{route('toc')}}"><i class="fas fa-circle"></i>T&C</a></li>
                             </ul>
                         </div>

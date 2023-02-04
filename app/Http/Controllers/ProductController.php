@@ -16,6 +16,9 @@ class ProductController extends Controller{
             //There are some applied filters
             $FiltersArray = [];
             //Filters
+            if($r->has('search')){
+                $FiltersArray[] = ['title' , 'LIKE' , "%$r->search%"];
+            }
             if($r->has('category_id')){
                 $FiltersArray[] = ['category_id', '=', $r->category_id];
             }

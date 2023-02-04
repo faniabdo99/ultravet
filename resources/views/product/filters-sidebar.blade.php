@@ -5,7 +5,7 @@
             <div class="collapse show" id="collapse_filters">
                 <form action="{{route('product.all')}}" method="GET">
                     <h3 class="sb_widget_title mt-5">Search</h3>
-                    <input name="search" placeholder="Search" value="{{request()->search}}" />
+                    <input class="search-filter" name="search" placeholder="Search" value="{{request()->search}}" />
                     <h3 class="sb_widget_title mt-5">Pet type</h3>
                     <div class="card card-body">
                         <ul class="filter_category_list unorder_list_block">

@@ -566,6 +566,6 @@ $(document).ready(function(){
             }
         });
     }
-    $('.search-form-element').on('submit', searchForProducts);
+    // $('.search-form-element').on('submit', searchForProducts);
     $('#search-box').on('keyup', searchForProducts);
 });

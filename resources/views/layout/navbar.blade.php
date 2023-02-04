@@ -180,7 +180,7 @@
     <a href="javascript:;" id="close-search-form"><i class="fas fa-times"></i></a>
     <div class="search-form-group">
         <div class="mb-5">
-            <form action="{{route('product.search')}}" method="get" class="d-flex search-form-element">
+            <form action="{{route('product.all')}}" method="get" class="d-flex search-form-element">
                 <input type="text" id="search-box" class="mr-2" name="search" placeholder="What are you looking for?" autofocus required>
                 <button type="submit" class="navbar-search-button"><i class="fas fa-search"></i></button>
             </form>

@@ -25940,7 +25940,12 @@ hr {
   border-radius: 8px;
   border: 2px solid #ebe5f7;
 }
-
+.sb_widget .search-filter{
+  width: 100%;
+  background-color: #f7f7f7;
+  border: 0;
+  padding: 10px;
+}
 .sb_widget:not(:last-child) {
   margin-bottom: 30px;
 }

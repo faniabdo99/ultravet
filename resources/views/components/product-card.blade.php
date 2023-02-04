@@ -1,4 +1,4 @@
-<div class="col-6 col-lg-4 col-md-6 mb-4">
+<div class="col col-lg-4 col-md-6 mb-4">
     <div class="product_item">
         <div class="item_image">
             @if(!$product->cartReady)

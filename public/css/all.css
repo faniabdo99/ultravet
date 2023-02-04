@@ -26763,6 +26763,9 @@ hr {
 .product_item {
   text-align: center;
   position: relative;
+  height: 600px;
+  display:flex;
+  flex-direction: column;
 }
 
 .product_item .item_image {
@@ -26779,6 +26782,8 @@ hr {
 .product_item .image_wrap img {
   width: 100%;
   display: block;
+  height: 400px;
+  object-fit: contain;
 }
 
 .product_item .cart_btns_group {

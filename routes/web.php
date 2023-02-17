@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function(){
     Route::get('logout' , [UserController::class, 'logout'])->name('user.logout');
     Route::get('wishlist', [UserController::class, 'getWishlist'])->name('user.wishlist');
     Route::get('orders' , [UserController::class, 'getOrders'])->name('user.orders');
+    Route::get('import-excel', [ImportController::class, 'getImportPage']);
+    Route::post('import-excel', [ImportController::class, 'postImportPage'])->name('postImport');
 });
 Route::get('activate/{id}/{hash}' , [UserController::class, 'activate'])->name('user.activate');
 

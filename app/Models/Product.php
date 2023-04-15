@@ -9,8 +9,12 @@ use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Scopes\isHiddenScope;
 class Product extends Model {
     use HasFactory, AsSource, Filterable, Attachable, SoftDeletes;
+    protected static function booted(): void{
+        static::addGlobalScope(new isHiddenScope);
+    }
     protected $guarded = [];
     protected $appends = ['image_path', 'final_price'];
     //Relations
